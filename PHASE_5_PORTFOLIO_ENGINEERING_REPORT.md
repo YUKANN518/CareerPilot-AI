@@ -61,7 +61,8 @@ The follow-up verification below was run after the host/WSL2 repair.
   complete Compose build did not finish.
 - `docker compose ps`: **PASS** for the requested status check; no CareerPilot containers were
   running because the complete build did not finish.
-- `docker compose up -d`: **NOT RUN** after the incomplete build; no partial stack was started.
+- `docker compose up -d`: **BLOCKED**; Compose attempted to build the missing backend image and
+  was stopped at the same external dependency-download stage before any service started.
 - Backend health/API: **NOT RUN** because no backend container started.
 - Frontend load: **NOT RUN** as a running Compose service; the frontend image build stage itself
   completed successfully.
