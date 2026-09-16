@@ -36,15 +36,61 @@ Added:
 - `.dockerignore` — excludes `.env`, local data, caches, virtual environments, node modules,
   and build output from image contexts.
 
-Validation:
+Initial Phase 5 validation was blocked while the Docker Desktop Linux backend was unavailable.
+The follow-up verification below was run after the host/WSL2 repair.
+
+## Docker verification follow-up (2026-09-16)
+
+### Engine versions
+
+- Docker Desktop: **4.91.0 (239619)**
+- Docker Engine: **29.8.0** (API 1.56)
+- Docker Compose: **v5.5.1**
+- Context: `desktop-linux`, WSL2 kernel `6.18.33.2-microsoft-standard-WSL2`
+
+### Verification results
+
+- `docker version`: **PASS**.
+- `docker info`: **PASS**; Linux engine reachable.
+- `docker compose config`: **PASS**.
+- `docker compose build --no-cache`: **BLOCKED_ENVIRONMENT**. Docker Hub/GHCR metadata and
+  blob downloads were intermittently unavailable. After same-version mirror pre-pulls, the
+  build reached the backend's locked uv install, but the Linux resolution downloaded a very
+  large PyTorch/CUDA dependency set and made no further progress for an extended period. The
+  build was safely interrupted. The frontend image stage completed successfully, but the
+  complete Compose build did not finish.
+- `docker compose ps`: **PASS** for the requested status check; no CareerPilot containers were
+  running because the complete build did not finish.
+- `docker compose up -d`: **NOT RUN** after the incomplete build; no partial stack was started.
+- Backend health/API: **NOT RUN** because no backend container started.
+- Frontend load: **NOT RUN** as a running Compose service; the frontend image build stage itself
+  completed successfully.
+- Demo Login → Resume → Job → Matching → Explainable Match Report: **NOT RUN** in Docker because
+  the stack never reached a runnable state.
+- `docker compose down`: **PASS**; cleanup completed with no CareerPilot stack left running.
+
+### Runtime independence review
+
+Static Docker context review confirms that the intended runtime does not depend on the host
+`.venv`, `frontend/node_modules`, local API keys, an existing SQLite database, an existing FAISS
+cache, or private uploaded files. The Dockerfiles install from repository lockfiles and the
+`.dockerignore` excludes those host artifacts. This independence was not promoted to a runtime
+smoke claim because the backend image did not complete.
+
+### Docker-specific changes
+
+No repository Dockerfile, Compose, application, dependency lock, or configuration change was made
+during this follow-up. Same-version mirror tags and a temporary local uv bootstrap image were used
+only in the Docker host for troubleshooting and were not committed.
+
+Previous static validation:
 
 - Compose syntax/config: **PASS** (`docker compose config --quiet`).
-- `docker compose build --no-cache`: **BLOCKED_ENVIRONMENT**. Docker Desktop's Linux engine
-  returned API 500/unavailable and its own logs reported `backend is not running`.
-- `docker compose up` and container smoke: **NOT RUN**, because build could not start.
+- `docker compose build --no-cache`: **BLOCKED** as detailed in the follow-up section above.
+- `docker compose up` and container smoke: **NOT RUN**, because the complete build did not finish.
 
-This is an environment limitation, not a claimed application success. Re-run the two Docker
-commands after Docker Desktop's Linux backend is healthy.
+This is an external registry/dependency-download limitation, not a claimed application success.
+Re-run the build and runtime smoke after Docker Hub/GHCR/PyPI downloads are reliable.
 
 ## CI
 
@@ -75,8 +121,9 @@ configured.
 
 The repository was initialized on branch `main` after the privacy cleanup. The first release
 commit is `0e0a13a` (`feat: prepare CareerPilot AI portfolio release`). Documentation follow-ups
-are `5a93bc6` (`docs: finalize publication guidance`) and `25043d0` (`docs: record portfolio
-engineering validation`). The working tree is clean and no remote was added or pushed.
+are `5a93bc6` (`docs: finalize publication guidance`), `25043d0` (`docs: record portfolio
+engineering validation`), and `3181710` (`docs: clarify release commit history`). The working
+tree is clean and no remote was added or pushed.
 
 ## Clean clone test
 
@@ -136,6 +183,7 @@ FEATURE_SCOPE_FROZEN = true
 READY_FOR_PUBLIC_GITHUB = false
 ```
 
-`READY_FOR_PUBLIC_GITHUB` is false only because the requested real Docker build/up validation was
-blocked by the local Docker Desktop engine. All source, lock, privacy, CI, Git, clean-clone, and
-native regression work is complete.
+`READY_FOR_PUBLIC_GITHUB` remains false because the requested complete Docker build, startup,
+health checks, frontend load, and portfolio smoke flow were not completed. The Docker engine is now
+reachable; the remaining blocker is external registry/dependency download completion, not a
+matching or application-functionality issue.
