@@ -1,0 +1,403 @@
+{
+  "dataset_version": "parsing-v1",
+  "resumes": [
+    {
+      "case_id": "R01",
+      "file": "resumes/R01.pdf",
+      "format": "pdf",
+      "expected_sections": [
+        "Summary",
+        "Skills",
+        "Projects",
+        "Experience",
+        "Education",
+        "Languages"
+      ],
+      "expected_skills": [
+        "Python",
+        "FastAPI",
+        "PostgreSQL"
+      ],
+      "expected_structured": {
+        "education": "Bachelor of Computer Science",
+        "skills": [
+          "Python",
+          "FastAPI",
+          "PostgreSQL"
+        ],
+        "projects": "Built a synthetic project with tests and documentation.",
+        "experience": "Delivered a synthetic product project."
+      }
+    },
+    {
+      "case_id": "R02",
+      "file": "resumes/R02.pdf",
+      "format": "pdf",
+      "expected_sections": [
+        "Summary",
+        "Skills",
+        "Projects",
+        "Experience",
+        "Education",
+        "Languages"
+      ],
+      "expected_skills": [
+        "JavaScript",
+        "React",
+        "Git"
+      ],
+      "expected_structured": {
+        "education": "Bachelor of Computer Science",
+        "skills": [
+          "JavaScript",
+          "React",
+          "Git"
+        ],
+        "projects": "Built a synthetic project with tests and documentation.",
+        "experience": "Delivered a synthetic product project."
+      }
+    },
+    {
+      "case_id": "R03",
+      "file": "resumes/R03.pdf",
+      "format": "pdf",
+      "expected_sections": [
+        "Summary",
+        "Skills",
+        "Projects",
+        "Experience",
+        "Education",
+        "Languages"
+      ],
+      "expected_skills": [
+        "Docker",
+        "Kubernetes",
+        "CI/CD"
+      ],
+      "expected_structured": {
+        "education": "Bachelor of Computer Science",
+        "skills": [
+          "Docker",
+          "Kubernetes",
+          "CI/CD"
+        ],
+        "projects": "Built a synthetic project with tests and documentation.",
+        "experience": "Delivered a synthetic product project."
+      }
+    },
+    {
+      "case_id": "R04",
+      "file": "resumes/R04.pdf",
+      "format": "pdf",
+      "expected_sections": [
+        "Summary",
+        "Skills",
+        "Projects",
+        "Experience",
+        "Education",
+        "Languages"
+      ],
+      "expected_skills": [
+        "SQL",
+        "Python",
+        "Data Analysis"
+      ],
+      "expected_structured": {
+        "education": "Bachelor of Computer Science",
+        "skills": [
+          "SQL",
+          "Python",
+          "Data Analysis"
+        ],
+        "projects": "Built a synthetic project with tests and documentation.",
+        "experience": "Delivered a synthetic product project."
+      }
+    },
+    {
+      "case_id": "R05",
+      "file": "resumes/R05.pdf",
+      "format": "pdf",
+      "expected_sections": [
+        "Summary",
+        "Skills",
+        "Projects",
+        "Experience",
+        "Education",
+        "Languages"
+      ],
+      "expected_skills": [
+        "Machine Learning",
+        "NLP",
+        "Python"
+      ],
+      "expected_structured": {
+        "education": "Bachelor of Computer Science",
+        "skills": [
+          "Machine Learning",
+          "NLP",
+          "Python"
+        ],
+        "projects": "Built a synthetic project with tests and documentation.",
+        "experience": "Delivered a synthetic product project."
+      }
+    },
+    {
+      "case_id": "R06",
+      "file": "resumes/R06.docx",
+      "format": "docx",
+      "expected_sections": [
+        "Summary",
+        "Skills",
+        "Projects",
+        "Experience",
+        "Education",
+        "Languages"
+      ],
+      "expected_skills": [
+        "Python",
+        "SQL",
+        "Git"
+      ],
+      "expected_structured": {
+        "education": "Bachelor of Computer Science",
+        "skills": [
+          "Python",
+          "SQL",
+          "Git"
+        ],
+        "projects": "Built a synthetic project with tests and documentation.",
+        "experience": "Delivered a synthetic product project."
+      }
+    },
+    {
+      "case_id": "R07",
+      "file": "resumes/R07.docx",
+      "format": "docx",
+      "expected_sections": [
+        "Summary",
+        "Skills",
+        "Projects",
+        "Experience",
+        "Education",
+        "Languages"
+      ],
+      "expected_skills": [
+        "Vue",
+        "TypeScript",
+        "RESTful API"
+      ],
+      "expected_structured": {
+        "education": "Bachelor of Computer Science",
+        "skills": [
+          "Vue",
+          "TypeScript",
+          "RESTful API"
+        ],
+        "projects": "Built a synthetic project with tests and documentation.",
+        "experience": "Delivered a synthetic product project."
+      }
+    },
+    {
+      "case_id": "R08",
+      "file": "resumes/R08.docx",
+      "format": "docx",
+      "expected_sections": [
+        "Summary",
+        "Skills",
+        "Projects",
+        "Experience",
+        "Education",
+        "Languages"
+      ],
+      "expected_skills": [
+        "Java",
+        "Python"
+      ],
+      "expected_structured": {
+        "education": "Bachelor of Computer Science",
+        "skills": [
+          "Java",
+          "Python"
+        ],
+        "projects": "Built a synthetic project with tests and documentation.",
+        "experience": "Delivered a synthetic product project."
+      }
+    },
+    {
+      "case_id": "R09",
+      "file": "resumes/R09.docx",
+      "format": "docx",
+      "expected_sections": [
+        "Summary",
+        "Skills",
+        "Projects",
+        "Experience",
+        "Education",
+        "Languages"
+      ],
+      "expected_skills": [
+        "Project Management",
+        "Communication"
+      ],
+      "expected_structured": {
+        "education": "Bachelor of Computer Science",
+        "skills": [
+          "Project Management",
+          "Communication"
+        ],
+        "projects": "Built a synthetic project with tests and documentation.",
+        "experience": "Delivered a synthetic product project."
+      }
+    },
+    {
+      "case_id": "R10",
+      "file": "resumes/R10.docx",
+      "format": "docx",
+      "expected_sections": [
+        "Summary",
+        "Skills",
+        "Projects",
+        "Experience",
+        "Education",
+        "Languages"
+      ],
+      "expected_skills": [
+        "React",
+        "JavaScript",
+        "SQL"
+      ],
+      "expected_structured": {
+        "education": "Bachelor of Computer Science",
+        "skills": [
+          "React",
+          "JavaScript",
+          "SQL"
+        ],
+        "projects": "Built a synthetic project with tests and documentation.",
+        "experience": "Delivered a synthetic product project."
+      }
+    }
+  ],
+  "jobs": [
+    {
+      "case_id": "J01",
+      "file": "jobs/J01.txt",
+      "title": "Backend Engineer",
+      "expected_required": [
+        "Python",
+        "FastAPI",
+        "PostgreSQL"
+      ],
+      "expected_preferred": [
+        "Docker"
+      ]
+    },
+    {
+      "case_id": "J02",
+      "file": "jobs/J02.txt",
+      "title": "Frontend Engineer",
+      "expected_required": [
+        "JavaScript",
+        "React"
+      ],
+      "expected_preferred": [
+        "TypeScript"
+      ]
+    },
+    {
+      "case_id": "J03",
+      "file": "jobs/J03.txt",
+      "title": "Platform Engineer",
+      "expected_required": [
+        "Docker",
+        "Kubernetes"
+      ],
+      "expected_preferred": [
+        "CI/CD"
+      ]
+    },
+    {
+      "case_id": "J04",
+      "file": "jobs/J04.txt",
+      "title": "Data Analyst",
+      "expected_required": [
+        "SQL",
+        "Python"
+      ],
+      "expected_preferred": [
+        "Data Analysis"
+      ]
+    },
+    {
+      "case_id": "J05",
+      "file": "jobs/J05.txt",
+      "title": "NLP Engineer",
+      "expected_required": [
+        "NLP",
+        "Python"
+      ],
+      "expected_preferred": [
+        "Machine Learning"
+      ]
+    },
+    {
+      "case_id": "J06",
+      "file": "jobs/J06.txt",
+      "title": "API Engineer",
+      "expected_required": [
+        "RESTful API",
+        "Git"
+      ],
+      "expected_preferred": [
+        "FastAPI"
+      ]
+    },
+    {
+      "case_id": "J07",
+      "file": "jobs/J07.txt",
+      "title": "Web Engineer",
+      "expected_required": [
+        "Vue"
+      ],
+      "expected_preferred": [
+        "TypeScript",
+        "JavaScript"
+      ]
+    },
+    {
+      "case_id": "J08",
+      "file": "jobs/J08.txt",
+      "title": "Software Engineer",
+      "expected_required": [
+        "Python",
+        "SQL"
+      ],
+      "expected_preferred": [
+        "Git"
+      ]
+    },
+    {
+      "case_id": "J09",
+      "file": "jobs/J09.txt",
+      "title": "Delivery Lead",
+      "expected_required": [
+        "Project Management"
+      ],
+      "expected_preferred": [
+        "Communication"
+      ]
+    },
+    {
+      "case_id": "J10",
+      "file": "jobs/J10.txt",
+      "title": "UI Engineer",
+      "expected_required": [
+        "React",
+        "JavaScript"
+      ],
+      "expected_preferred": [
+        "SQL"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,682 @@
+{
+  "dataset_version": "parsing-v1",
+  "job_results": [
+    {
+      "case_id": "J01",
+      "detected_preferred": [
+        "Docker"
+      ],
+      "detected_required": [
+        "FastAPI",
+        "PostgreSQL",
+        "Python"
+      ],
+      "expected_preferred": [
+        "Docker"
+      ],
+      "expected_required": [
+        "Python",
+        "FastAPI",
+        "PostgreSQL"
+      ],
+      "extraction_success": true
+    },
+    {
+      "case_id": "J02",
+      "detected_preferred": [
+        "TypeScript"
+      ],
+      "detected_required": [
+        "JavaScript",
+        "React"
+      ],
+      "expected_preferred": [
+        "TypeScript"
+      ],
+      "expected_required": [
+        "JavaScript",
+        "React"
+      ],
+      "extraction_success": true
+    },
+    {
+      "case_id": "J03",
+      "detected_preferred": [
+        "CI/CD"
+      ],
+      "detected_required": [
+        "Docker",
+        "Kubernetes"
+      ],
+      "expected_preferred": [
+        "CI/CD"
+      ],
+      "expected_required": [
+        "Docker",
+        "Kubernetes"
+      ],
+      "extraction_success": true
+    },
+    {
+      "case_id": "J04",
+      "detected_preferred": [
+        "Data Analysis"
+      ],
+      "detected_required": [
+        "Python",
+        "SQL"
+      ],
+      "expected_preferred": [
+        "Data Analysis"
+      ],
+      "expected_required": [
+        "SQL",
+        "Python"
+      ],
+      "extraction_success": true
+    },
+    {
+      "case_id": "J05",
+      "detected_preferred": [
+        "Machine Learning"
+      ],
+      "detected_required": [
+        "NLP",
+        "Python"
+      ],
+      "expected_preferred": [
+        "Machine Learning"
+      ],
+      "expected_required": [
+        "NLP",
+        "Python"
+      ],
+      "extraction_success": true
+    },
+    {
+      "case_id": "J06",
+      "detected_preferred": [
+        "FastAPI"
+      ],
+      "detected_required": [
+        "Git",
+        "RESTful API"
+      ],
+      "expected_preferred": [
+        "FastAPI"
+      ],
+      "expected_required": [
+        "RESTful API",
+        "Git"
+      ],
+      "extraction_success": true
+    },
+    {
+      "case_id": "J07",
+      "detected_preferred": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "detected_required": [
+        "Vue"
+      ],
+      "expected_preferred": [
+        "TypeScript",
+        "JavaScript"
+      ],
+      "expected_required": [
+        "Vue"
+      ],
+      "extraction_success": true
+    },
+    {
+      "case_id": "J08",
+      "detected_preferred": [
+        "Git"
+      ],
+      "detected_required": [
+        "Python",
+        "SQL"
+      ],
+      "expected_preferred": [
+        "Git"
+      ],
+      "expected_required": [
+        "Python",
+        "SQL"
+      ],
+      "extraction_success": true
+    },
+    {
+      "case_id": "J09",
+      "detected_preferred": [
+        "Communication"
+      ],
+      "detected_required": [
+        "Project Management"
+      ],
+      "expected_preferred": [
+        "Communication"
+      ],
+      "expected_required": [
+        "Project Management"
+      ],
+      "extraction_success": true
+    },
+    {
+      "case_id": "J10",
+      "detected_preferred": [
+        "SQL"
+      ],
+      "detected_required": [
+        "JavaScript",
+        "React"
+      ],
+      "expected_preferred": [
+        "SQL"
+      ],
+      "expected_required": [
+        "React",
+        "JavaScript"
+      ],
+      "extraction_success": true
+    }
+  ],
+  "resume_results": [
+    {
+      "block_count": 13,
+      "case_id": "R01",
+      "evidence_attached_skills": [
+        "FastAPI",
+        "PostgreSQL",
+        "Python"
+      ],
+      "expected_sections": [
+        "Summary",
+        "Skills",
+        "Projects",
+        "Experience",
+        "Education",
+        "Languages"
+      ],
+      "expected_skills": [
+        "Python",
+        "FastAPI",
+        "PostgreSQL"
+      ],
+      "expected_structured": {
+        "education": "Bachelor of Computer Science",
+        "experience": "Delivered a synthetic product project.",
+        "projects": "Built a synthetic project with tests and documentation.",
+        "skills": [
+          "Python",
+          "FastAPI",
+          "PostgreSQL"
+        ]
+      },
+      "extraction_success": true,
+      "format": "pdf",
+      "found_sections": [
+        "Education",
+        "Experience",
+        "Languages",
+        "Projects",
+        "Skills",
+        "Summary"
+      ],
+      "found_skills": [
+        "FastAPI",
+        "PostgreSQL",
+        "Python"
+      ]
+    },
+    {
+      "block_count": 13,
+      "case_id": "R02",
+      "evidence_attached_skills": [
+        "Git",
+        "JavaScript",
+        "React"
+      ],
+      "expected_sections": [
+        "Summary",
+        "Skills",
+        "Projects",
+        "Experience",
+        "Education",
+        "Languages"
+      ],
+      "expected_skills": [
+        "JavaScript",
+        "React",
+        "Git"
+      ],
+      "expected_structured": {
+        "education": "Bachelor of Computer Science",
+        "experience": "Delivered a synthetic product project.",
+        "projects": "Built a synthetic project with tests and documentation.",
+        "skills": [
+          "JavaScript",
+          "React",
+          "Git"
+        ]
+      },
+      "extraction_success": true,
+      "format": "pdf",
+      "found_sections": [
+        "Education",
+        "Experience",
+        "Languages",
+        "Projects",
+        "Skills",
+        "Summary"
+      ],
+      "found_skills": [
+        "Git",
+        "JavaScript",
+        "React"
+      ]
+    },
+    {
+      "block_count": 13,
+      "case_id": "R03",
+      "evidence_attached_skills": [
+        "CI/CD",
+        "Docker",
+        "Kubernetes"
+      ],
+      "expected_sections": [
+        "Summary",
+        "Skills",
+        "Projects",
+        "Experience",
+        "Education",
+        "Languages"
+      ],
+      "expected_skills": [
+        "Docker",
+        "Kubernetes",
+        "CI/CD"
+      ],
+      "expected_structured": {
+        "education": "Bachelor of Computer Science",
+        "experience": "Delivered a synthetic product project.",
+        "projects": "Built a synthetic project with tests and documentation.",
+        "skills": [
+          "Docker",
+          "Kubernetes",
+          "CI/CD"
+        ]
+      },
+      "extraction_success": true,
+      "format": "pdf",
+      "found_sections": [
+        "Education",
+        "Experience",
+        "Languages",
+        "Projects",
+        "Skills",
+        "Summary"
+      ],
+      "found_skills": [
+        "CI/CD",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    {
+      "block_count": 13,
+      "case_id": "R04",
+      "evidence_attached_skills": [
+        "Data Analysis",
+        "Python",
+        "SQL"
+      ],
+      "expected_sections": [
+        "Summary",
+        "Skills",
+        "Projects",
+        "Experience",
+        "Education",
+        "Languages"
+      ],
+      "expected_skills": [
+        "SQL",
+        "Python",
+        "Data Analysis"
+      ],
+      "expected_structured": {
+        "education": "Bachelor of Computer Science",
+        "experience": "Delivered a synthetic product project.",
+        "projects": "Built a synthetic project with tests and documentation.",
+        "skills": [
+          "SQL",
+          "Python",
+          "Data Analysis"
+        ]
+      },
+      "extraction_success": true,
+      "format": "pdf",
+      "found_sections": [
+        "Education",
+        "Experience",
+        "Languages",
+        "Projects",
+        "Skills",
+        "Summary"
+      ],
+      "found_skills": [
+        "Data Analysis",
+        "Python",
+        "SQL"
+      ]
+    },
+    {
+      "block_count": 13,
+      "case_id": "R05",
+      "evidence_attached_skills": [
+        "Machine Learning",
+        "NLP",
+        "Python"
+      ],
+      "expected_sections": [
+        "Summary",
+        "Skills",
+        "Projects",
+        "Experience",
+        "Education",
+        "Languages"
+      ],
+      "expected_skills": [
+        "Machine Learning",
+        "NLP",
+        "Python"
+      ],
+      "expected_structured": {
+        "education": "Bachelor of Computer Science",
+        "experience": "Delivered a synthetic product project.",
+        "projects": "Built a synthetic project with tests and documentation.",
+        "skills": [
+          "Machine Learning",
+          "NLP",
+          "Python"
+        ]
+      },
+      "extraction_success": true,
+      "format": "pdf",
+      "found_sections": [
+        "Education",
+        "Experience",
+        "Languages",
+        "Projects",
+        "Skills",
+        "Summary"
+      ],
+      "found_skills": [
+        "Machine Learning",
+        "NLP",
+        "Python"
+      ]
+    },
+    {
+      "block_count": 13,
+      "case_id": "R06",
+      "evidence_attached_skills": [
+        "Git",
+        "Python",
+        "SQL"
+      ],
+      "expected_sections": [
+        "Summary",
+        "Skills",
+        "Projects",
+        "Experience",
+        "Education",
+        "Languages"
+      ],
+      "expected_skills": [
+        "Python",
+        "SQL",
+        "Git"
+      ],
+      "expected_structured": {
+        "education": "Bachelor of Computer Science",
+        "experience": "Delivered a synthetic product project.",
+        "projects": "Built a synthetic project with tests and documentation.",
+        "skills": [
+          "Python",
+          "SQL",
+          "Git"
+        ]
+      },
+      "extraction_success": true,
+      "format": "docx",
+      "found_sections": [
+        "Education",
+        "Experience",
+        "Languages",
+        "Projects",
+        "Skills",
+        "Summary"
+      ],
+      "found_skills": [
+        "Git",
+        "Python",
+        "SQL"
+      ]
+    },
+    {
+      "block_count": 13,
+      "case_id": "R07",
+      "evidence_attached_skills": [
+        "RESTful API",
+        "TypeScript",
+        "Vue"
+      ],
+      "expected_sections": [
+        "Summary",
+        "Skills",
+        "Projects",
+        "Experience",
+        "Education",
+        "Languages"
+      ],
+      "expected_skills": [
+        "Vue",
+        "TypeScript",
+        "RESTful API"
+      ],
+      "expected_structured": {
+        "education": "Bachelor of Computer Science",
+        "experience": "Delivered a synthetic product project.",
+        "projects": "Built a synthetic project with tests and documentation.",
+        "skills": [
+          "Vue",
+          "TypeScript",
+          "RESTful API"
+        ]
+      },
+      "extraction_success": true,
+      "format": "docx",
+      "found_sections": [
+        "Education",
+        "Experience",
+        "Languages",
+        "Projects",
+        "Skills",
+        "Summary"
+      ],
+      "found_skills": [
+        "RESTful API",
+        "TypeScript",
+        "Vue"
+      ]
+    },
+    {
+      "block_count": 13,
+      "case_id": "R08",
+      "evidence_attached_skills": [
+        "Java",
+        "Python"
+      ],
+      "expected_sections": [
+        "Summary",
+        "Skills",
+        "Projects",
+        "Experience",
+        "Education",
+        "Languages"
+      ],
+      "expected_skills": [
+        "Java",
+        "Python"
+      ],
+      "expected_structured": {
+        "education": "Bachelor of Computer Science",
+        "experience": "Delivered a synthetic product project.",
+        "projects": "Built a synthetic project with tests and documentation.",
+        "skills": [
+          "Java",
+          "Python"
+        ]
+      },
+      "extraction_success": true,
+      "format": "docx",
+      "found_sections": [
+        "Education",
+        "Experience",
+        "Languages",
+        "Projects",
+        "Skills",
+        "Summary"
+      ],
+      "found_skills": [
+        "Python"
+      ]
+    },
+    {
+      "block_count": 13,
+      "case_id": "R09",
+      "evidence_attached_skills": [
+        "Communication",
+        "Project Management"
+      ],
+      "expected_sections": [
+        "Summary",
+        "Skills",
+        "Projects",
+        "Experience",
+        "Education",
+        "Languages"
+      ],
+      "expected_skills": [
+        "Project Management",
+        "Communication"
+      ],
+      "expected_structured": {
+        "education": "Bachelor of Computer Science",
+        "experience": "Delivered a synthetic product project.",
+        "projects": "Built a synthetic project with tests and documentation.",
+        "skills": [
+          "Project Management",
+          "Communication"
+        ]
+      },
+      "extraction_success": true,
+      "format": "docx",
+      "found_sections": [
+        "Education",
+        "Experience",
+        "Languages",
+        "Projects",
+        "Skills",
+        "Summary"
+      ],
+      "found_skills": [
+        "Communication",
+        "Project Management"
+      ]
+    },
+    {
+      "block_count": 13,
+      "case_id": "R10",
+      "evidence_attached_skills": [
+        "JavaScript",
+        "React",
+        "SQL"
+      ],
+      "expected_sections": [
+        "Summary",
+        "Skills",
+        "Projects",
+        "Experience",
+        "Education",
+        "Languages"
+      ],
+      "expected_skills": [
+        "React",
+        "JavaScript",
+        "SQL"
+      ],
+      "expected_structured": {
+        "education": "Bachelor of Computer Science",
+        "experience": "Delivered a synthetic product project.",
+        "projects": "Built a synthetic project with tests and documentation.",
+        "skills": [
+          "React",
+          "JavaScript",
+          "SQL"
+        ]
+      },
+      "extraction_success": true,
+      "format": "docx",
+      "found_sections": [
+        "Education",
+        "Experience",
+        "Languages",
+        "Projects",
+        "Skills",
+        "Summary"
+      ],
+      "found_skills": [
+        "JavaScript",
+        "React",
+        "SQL"
+      ]
+    }
+  ],
+  "summary": {
+    "dataset_version": "parsing-v1",
+    "evaluation_version": "careerpilot-parsing-v1",
+    "metrics": {
+      "job_preferred_detection_precision_recall_f1": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "job_required_detection_precision_recall_f1": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "job_required_vs_preferred_accuracy": 1.0,
+      "job_requirement_detection_precision_recall_f1": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "job_sample_count": 10,
+      "job_text_extraction_success": 1.0,
+      "resume_evidence_attachment_rate": 1.0,
+      "resume_sample_count": 10,
+      "resume_section_extraction_success": 1.0,
+      "resume_skill_precision_recall_f1": {
+        "f1": 0.973,
+        "precision": 1.0,
+        "recall": 0.9474
+      },
+      "resume_text_extraction_success": 1.0
+    },
+    "scope": "deterministic_text_extraction_and_evidence_only"
+  }
+}

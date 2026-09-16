@@ -1,0 +1,5 @@
+Frontend Engineer
+Requirements
+Required: JavaScript and React. TypeScript is a nice to have.
+Responsibilities
+Deliver reliable work with the team.

@@ -1,0 +1,300 @@
+{
+  "case_count": 20,
+  "dataset_type": "independent_label_first_synthetic_holdout",
+  "dataset_version": "holdout-v1",
+  "eligibility": {
+    "actual_distribution": {
+      "BLOCKED": 3,
+      "ELIGIBLE": 13,
+      "UNVERIFIED": 4
+    },
+    "agreement": 0.6,
+    "expected_distribution": {
+      "BLOCKED": 3,
+      "ELIGIBLE": 14,
+      "UNVERIFIED": 3
+    }
+  },
+  "evaluation_version": "careerpilot-holdout-v1",
+  "generated_at": "2026-09-16",
+  "metrics": {
+    "blocking_expected": 5,
+    "blocking_predicted": 3,
+    "blocking_risk_f1": 0.5,
+    "blocking_risk_precision": 0.6667,
+    "blocking_risk_recall": 0.4,
+    "case_count": 20,
+    "evidence_backed_claims": 43,
+    "evidence_backed_match_rate": 1.0,
+    "evidence_validity": 1.0,
+    "failure_categories": {
+      "RULE_FAILURE": 5,
+      "SKILL_OR_ALIAS_FAILURE": 3
+    },
+    "failure_count": 8,
+    "failures": [
+      {
+        "actual": {
+          "blocking_risks": [],
+          "recommendation": "HIGH_RISK",
+          "skills": {
+            "docker": "MISSING",
+            "fastapi": "MATCHED",
+            "python": "MATCHED"
+          }
+        },
+        "case_id": "H002",
+        "category": "RULE_FAILURE",
+        "difference": [
+          "recommendation: expected ['CONSIDER', 'RECOMMENDED'], actual HIGH_RISK"
+        ],
+        "expected": {
+          "blocking_risks": [],
+          "recommendations": [
+            "CONSIDER",
+            "RECOMMENDED"
+          ],
+          "skills": {
+            "docker": "MISSING",
+            "fastapi": "MATCHED",
+            "python": "MATCHED"
+          }
+        }
+      },
+      {
+        "actual": {
+          "blocking_risks": [],
+          "recommendation": "RECOMMENDED",
+          "skills": {
+            "dataanalysis": "MISSING",
+            "python": "MATCHED",
+            "sql": "MATCHED",
+            "tableau": "UNKNOWN"
+          }
+        },
+        "case_id": "H003",
+        "category": "SKILL_OR_ALIAS_FAILURE",
+        "difference": [
+          "skill tableau: expected MISSING, actual UNKNOWN"
+        ],
+        "expected": {
+          "blocking_risks": [],
+          "recommendations": [
+            "CONSIDER",
+            "RECOMMENDED"
+          ],
+          "skills": {
+            "dataanalysis": "MISSING",
+            "python": "MATCHED",
+            "sql": "MATCHED",
+            "tableau": "MISSING"
+          }
+        }
+      },
+      {
+        "actual": {
+          "blocking_risks": [],
+          "recommendation": "HIGH_RISK",
+          "skills": {
+            "postgresql": "MISSING",
+            "python": "MATCHED",
+            "sql": "MATCHED"
+          }
+        },
+        "case_id": "H005",
+        "category": "RULE_FAILURE",
+        "difference": [
+          "recommendation: expected ['CONSIDER', 'RECOMMENDED'], actual HIGH_RISK"
+        ],
+        "expected": {
+          "blocking_risks": [],
+          "recommendations": [
+            "CONSIDER",
+            "RECOMMENDED"
+          ],
+          "skills": {
+            "postgresql": "MISSING",
+            "python": "MATCHED",
+            "sql": "MATCHED"
+          }
+        }
+      },
+      {
+        "actual": {
+          "blocking_risks": [],
+          "recommendation": "HIGH_RISK",
+          "skills": {
+            "artificialintelligence": "MISSING",
+            "machinelearning": "MATCHED",
+            "python": "MATCHED",
+            "pytorch": "UNKNOWN"
+          }
+        },
+        "case_id": "H006",
+        "category": "SKILL_OR_ALIAS_FAILURE",
+        "difference": [
+          "skill pytorch: expected MISSING, actual UNKNOWN",
+          "recommendation: expected ['CONSIDER', 'RECOMMENDED'], actual HIGH_RISK"
+        ],
+        "expected": {
+          "blocking_risks": [],
+          "recommendations": [
+            "CONSIDER",
+            "RECOMMENDED"
+          ],
+          "skills": {
+            "machinelearning": "MATCHED",
+            "python": "MATCHED",
+            "pytorch": "MISSING"
+          }
+        }
+      },
+      {
+        "actual": {
+          "blocking_risks": [],
+          "recommendation": "HIGH_RISK",
+          "skills": {
+            "aws": "UNKNOWN",
+            "docker": "MISSING",
+            "python": "MATCHED"
+          }
+        },
+        "case_id": "H007",
+        "category": "SKILL_OR_ALIAS_FAILURE",
+        "difference": [
+          "skill aws: expected MISSING, actual UNKNOWN",
+          "recommendation: expected ['CONSIDER', 'RECOMMENDED'], actual HIGH_RISK"
+        ],
+        "expected": {
+          "blocking_risks": [],
+          "recommendations": [
+            "CONSIDER",
+            "RECOMMENDED"
+          ],
+          "skills": {
+            "aws": "MISSING",
+            "docker": "MISSING",
+            "python": "MATCHED"
+          }
+        }
+      },
+      {
+        "actual": {
+          "blocking_risks": [],
+          "recommendation": "STRONGLY_RECOMMENDED",
+          "skills": {
+            "javascript": "MATCHED",
+            "react": "MATCHED"
+          }
+        },
+        "case_id": "H009",
+        "category": "RULE_FAILURE",
+        "difference": [
+          "recommendation: expected ['CONSIDER', 'RECOMMENDED'], actual STRONGLY_RECOMMENDED"
+        ],
+        "expected": {
+          "blocking_risks": [],
+          "recommendations": [
+            "CONSIDER",
+            "RECOMMENDED"
+          ],
+          "skills": {
+            "javascript": "MATCHED",
+            "react": "MATCHED"
+          }
+        }
+      },
+      {
+        "actual": {
+          "blocking_risks": [],
+          "recommendation": "RECOMMENDED",
+          "skills": {
+            "python": "MATCHED",
+            "sql": "MATCHED"
+          }
+        },
+        "case_id": "H012",
+        "category": "RULE_FAILURE",
+        "difference": [
+          "missing blocking risks: [('H012', 'EDUCATION_REQUIREMENT_NOT_MET')]",
+          "recommendation: expected ['HIGH_RISK', 'NOT_RECOMMENDED'], actual RECOMMENDED"
+        ],
+        "expected": {
+          "blocking_risks": [
+            [
+              "H012",
+              "EDUCATION_REQUIREMENT_NOT_MET"
+            ]
+          ],
+          "recommendations": [
+            "HIGH_RISK",
+            "NOT_RECOMMENDED"
+          ],
+          "skills": {
+            "python": "MATCHED",
+            "sql": "MATCHED"
+          }
+        }
+      },
+      {
+        "actual": {
+          "blocking_risks": [
+            [
+              "H013",
+              "WORK_ELIGIBILITY_BLOCKED"
+            ]
+          ],
+          "recommendation": "NOT_RECOMMENDED",
+          "skills": {
+            "javascript": "MATCHED",
+            "react": "MATCHED"
+          }
+        },
+        "case_id": "H013",
+        "category": "RULE_FAILURE",
+        "difference": [
+          "missing blocking risks: [('H013', 'LANGUAGE_REQUIREMENT_NOT_MET'), ('H013', 'WORK_ELIGIBILITY_UNKNOWN')]",
+          "unexpected blocking risks: [('H013', 'WORK_ELIGIBILITY_BLOCKED')]",
+          "recommendation: expected ['CONSIDER', 'HIGH_RISK'], actual NOT_RECOMMENDED"
+        ],
+        "expected": {
+          "blocking_risks": [
+            [
+              "H013",
+              "LANGUAGE_REQUIREMENT_NOT_MET"
+            ],
+            [
+              "H013",
+              "WORK_ELIGIBILITY_UNKNOWN"
+            ]
+          ],
+          "recommendations": [
+            "CONSIDER",
+            "HIGH_RISK"
+          ],
+          "skills": {
+            "javascript": "MATCHED",
+            "react": "MATCHED"
+          }
+        }
+      }
+    ],
+    "match_band_agreement": 0.65,
+    "matched_skill_claims": 43,
+    "missing_skill_f1": 0.6666,
+    "missing_skill_precision": 0.8,
+    "missing_skill_recall": 0.5714,
+    "recommendation_agreement": 0.65,
+    "required_skill_f1": 1.0,
+    "required_skill_precision": 1.0,
+    "required_skill_recall": 1.0,
+    "structured_result_validity": 1.0,
+    "unsupported_skill_claim_rate": 0.0
+  },
+  "preferred_skill_metrics": {
+    "f1": 1.0,
+    "precision": 1.0,
+    "recall": 1.0
+  },
+  "scoring_version": "deterministic-v1.1"
+}

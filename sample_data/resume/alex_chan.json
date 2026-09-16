@@ -1,0 +1,24 @@
+{
+  "persona_id": "alex-chan-demo",
+  "full_name": "Alex Chan",
+  "email": "alex.chan@example.test",
+  "location": "Hong Kong",
+  "title": "Computer Science Student",
+  "summary": "Final-year computer science student focused on reliable Python services and explainable AI applications.",
+  "education": {
+    "institution": "Harbourview Institute of Technology",
+    "degree": "Bachelor of Science",
+    "field_of_study": "Computer Science"
+  },
+  "experience": {
+    "company": "Northstar Demo Studio",
+    "title": "Software Engineering Intern",
+    "description": "Built tested REST APIs and data pipelines for an anonymized internal prototype."
+  },
+  "project": {
+    "name": "Explainable Career Matching Prototype",
+    "description": "Implemented a FastAPI service, deterministic scoring rules and a Vue dashboard with automated tests."
+  },
+  "skills": ["Python", "FastAPI", "SQL", "Vue.js", "TypeScript"],
+  "languages": ["English", "Cantonese", "Mandarin"]
+}

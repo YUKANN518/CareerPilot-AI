@@ -1,0 +1,62 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+!frontend/.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage-data
+htmlcov/
+backend/.venv/
+backend/.e2e/
+backend/mypy-cache/
+backend/pytest-cache/
+backend/test-runtime/
+backend/test-cache-runtime/
+*.egg-info/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+dist/
+frontend/coverage/
+frontend/cache/
+frontend/playwright-report/
+frontend/test-results/
+frontend/output/playwright/
+playwright-report/
+test-results/
+output/
+
+# Generated evaluation scratch output
+evaluation/results/_raw/
+
+# Runtime data
+data/*.db
+data/*.db-*
+data/uploads/*
+data/faiss/*
+data/backups/*
+data/runtime/
+data/acceptance/
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+*.log
+logs/
+!data/uploads/.gitkeep
+!data/faiss/.gitkeep
+!data/backups/.gitkeep
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

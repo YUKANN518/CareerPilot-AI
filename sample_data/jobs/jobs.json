@@ -1,0 +1,62 @@
+[
+  {
+    "external_id": "demo-ai-product-intern",
+    "title": "AI Product Intern",
+    "company": "NovaBridge Labs",
+    "location": "Hong Kong",
+    "employment_type": "INTERNSHIP",
+    "experience_level": "ENTRY",
+    "salary_min": 15000,
+    "salary_max": 19000,
+    "currency": "HKD",
+    "description": "Support discovery, prototyping and evaluation for an explainable AI product.",
+    "responsibilities": "Translate user needs into testable requirements, evaluate model output and collaborate with engineers.",
+    "requirements": "Python, SQL and clear product communication are required. Familiarity with LLM evaluation is preferred.",
+    "skills": ["Python", "SQL"]
+  },
+  {
+    "external_id": "demo-data-analyst-intern",
+    "title": "Data Analyst Intern",
+    "company": "Harbour Metric Works",
+    "location": "Hong Kong",
+    "employment_type": "INTERNSHIP",
+    "experience_level": "ENTRY",
+    "salary_min": 14000,
+    "salary_max": 18000,
+    "currency": "HKD",
+    "description": "Build reproducible analyses and lightweight dashboards for a fictional operations team.",
+    "responsibilities": "Clean datasets, define metrics and communicate findings with appropriate caveats.",
+    "requirements": "SQL is required. Python and dashboard experience are preferred.",
+    "skills": ["SQL", "Python"]
+  },
+  {
+    "external_id": "demo-python-backend-intern",
+    "title": "Python Backend Intern",
+    "company": "Pinecone Harbour Software",
+    "location": "Hong Kong",
+    "employment_type": "INTERNSHIP",
+    "experience_level": "ENTRY",
+    "salary_min": 16000,
+    "salary_max": 21000,
+    "currency": "HKD",
+    "description": "Develop and test API services for a fictional workflow platform.",
+    "responsibilities": "Implement endpoints, database access and automated tests; investigate production-like failures.",
+    "requirements": "Python and FastAPI are required. SQL and TypeScript are beneficial.",
+    "skills": ["Python", "FastAPI", "SQL"]
+  },
+  {
+    "external_id": "demo-ai-application-intern",
+    "title": "AI Application Intern",
+    "company": "Lumen Path Systems",
+    "location": "Remote (Hong Kong)",
+    "employment_type": "INTERNSHIP",
+    "experience_level": "ENTRY",
+    "salary_min": 15000,
+    "salary_max": 20000,
+    "currency": "HKD",
+    "description": "Prototype retrieval-assisted applications and build evaluation fixtures using synthetic data.",
+    "responsibilities": "Integrate model APIs, validate structured output and document failure modes.",
+    "requirements": "Python is required. FastAPI, TypeScript and retrieval experience are preferred.",
+    "skills": ["Python", "FastAPI", "TypeScript"]
+  }
+]

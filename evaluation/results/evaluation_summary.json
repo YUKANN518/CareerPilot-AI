@@ -1,0 +1,51 @@
+{
+  "algorithm_changed_before_baseline": false,
+  "dataset_size": 52,
+  "dataset_type": "manually-authored-synthetic",
+  "dataset_version": "eval-v1",
+  "evaluation_version": "careerpilot-eval-v1",
+  "hybrid_diagnostic": {
+    "average_duration_ms": 19.5755,
+    "blocking_preserved": true,
+    "embedding_model": "fake-deterministic-v1",
+    "frozen_baseline_cases": 52,
+    "incomplete_cap_preserved": true,
+    "index_count": 20,
+    "index_size_bytes": 53427,
+    "new_misjudgments": 0,
+    "ranking_accuracy": 0.8571,
+    "recommendation_consistency_rate": 0.9,
+    "semantic_case_improvements": 7,
+    "semantic_cases": 10,
+    "total_reviewed_cases": 62,
+    "usable_experimental": true
+  },
+  "metrics": {
+    "blocking_expected": 17,
+    "blocking_predicted": 17,
+    "blocking_risk_f1": 1.0,
+    "blocking_risk_precision": 1.0,
+    "blocking_risk_recall": 1.0,
+    "case_count": 52,
+    "evidence_backed_claims": 88,
+    "evidence_backed_match_rate": 1.0,
+    "evidence_validity": 1.0,
+    "failure_categories": {
+      "RULE_FAILURE": 1
+    },
+    "failure_count": 1,
+    "match_band_agreement": null,
+    "matched_skill_claims": 88,
+    "missing_skill_f1": 1.0,
+    "missing_skill_precision": 1.0,
+    "missing_skill_recall": 1.0,
+    "recommendation_agreement": 0.9808,
+    "required_skill_f1": 1.0,
+    "required_skill_precision": 1.0,
+    "required_skill_recall": 1.0,
+    "structured_result_validity": 1.0,
+    "unsupported_skill_claim_rate": 0.0
+  },
+  "repeat": 3,
+  "scoring_version": "deterministic-v1.1"
+}

@@ -1,0 +1,35 @@
+{
+  "dataset_version": "real-provider-v1",
+  "resumes": [
+    {"case_id": "RP-R01", "file": "../dataset/parsing/resumes/R01.pdf", "format": "pdf"},
+    {"case_id": "RP-R02", "file": "../dataset/parsing/resumes/R02.pdf", "format": "pdf"},
+    {"case_id": "RP-R03", "file": "../dataset/parsing/resumes/R03.pdf", "format": "pdf"},
+    {"case_id": "RP-R06", "file": "../dataset/parsing/resumes/R06.docx", "format": "docx"},
+    {"case_id": "RP-R07", "file": "../dataset/parsing/resumes/R07.docx", "format": "docx"},
+    {"case_id": "RP-R08", "file": "../dataset/parsing/resumes/R08.docx", "format": "docx"}
+  ],
+  "jobs": [
+    {"case_id": "RP-J01", "title": "Backend Engineer", "text": "We build internal automation tools for operations. Candidates should be comfortable developing Python-based services and working with relational databases. Experience deploying containerized applications is advantageous. A Computer Science degree or related experience is welcome."},
+    {"case_id": "RP-J02", "title": "Frontend Engineer", "text": "Own accessible web interfaces with JavaScript and React. TypeScript is preferred. The role is hybrid in Hong Kong and requires good written English; Cantonese is a plus."},
+    {"case_id": "RP-J03", "title": "Data Analyst", "text": "Use SQL and Python to answer product questions. Data Analysis experience is required, while Tableau is nice to have. One to two years of experience is preferred."},
+    {"case_id": "RP-J04", "title": "Platform Engineer", "text": "Operate containerized workloads and Kubernetes clusters. Docker and CI/CD are required for safe releases. On-call experience is preferred."},
+    {"case_id": "RP-J05", "title": "ML Engineer", "text": "Build an AI application for document classification. Python and PyTorch are required; machine learning research experience is preferred. A technical degree is expected."},
+    {"case_id": "RP-J06", "title": "Cloud Application Engineer", "text": "Deploy cloud services on AWS and improve observability. Python is required and Docker is a bonus. Candidates must be eligible to work in Hong Kong."},
+    {"case_id": "RP-J07", "title": "Graduate Software Engineer", "text": "Fresh graduates and final-year students are encouraged to apply. Python and Git are required. Mentoring is provided and prior employment is not required."},
+    {"case_id": "RP-J08", "title": "QA Automation Engineer", "text": "Create automated tests for web services. Python and SQL are required; RESTful API testing is preferred. Three years of experience is required."},
+    {"case_id": "RP-J09", "title": "Product Analyst", "text": "Partner with product managers to turn research into decisions. Communication and project management are important; Excel is preferred. A related degree is required."},
+    {"case_id": "RP-J10", "title": "API Engineer", "text": "Design reliable RESTful APIs with FastAPI and PostgreSQL. Git is required, Docker is preferred, and the team works on-site in Shanghai."}
+  ],
+  "rag_questions": [
+    {"id": "Q01", "kind": "SUPPORTED", "question": "What does the knowledge base recommend for a software development portfolio?"},
+    {"id": "Q02", "kind": "SUPPORTED", "question": "Which evidence should a data analysis project show?"},
+    {"id": "Q03", "kind": "SUPPORTED", "question": "What preparation is suggested for a QA interview?"},
+    {"id": "Q04", "kind": "SUPPORTED", "question": "What does the guide say about an IT Support role?"},
+    {"id": "Q05", "kind": "PERSONAL_CONTEXT", "question": "Which projects in my resume support a backend application?"},
+    {"id": "Q06", "kind": "PERSONAL_CONTEXT", "question": "What is my largest skill gap for this job?"},
+    {"id": "Q07", "kind": "PERSONAL_CONTEXT", "question": "Which resume evidence should I explain in an interview?"},
+    {"id": "Q08", "kind": "UNSUPPORTED", "question": "What will a company decide about my salary next year?"},
+    {"id": "Q09", "kind": "UNSUPPORTED", "question": "Can you guarantee that I will receive an offer?"},
+    {"id": "Q10", "kind": "UNSUPPORTED", "question": "What private policy is not present in the uploaded materials?"}
+  ]
+}

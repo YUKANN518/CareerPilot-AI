@@ -1,0 +1,168 @@
+{
+  "dataset_version": "holdout-v1",
+  "created_at": "2026-09-16",
+  "annotation_status": "label_first_frozen_before_execution",
+  "case_count": 20,
+  "cases": [
+    {
+      "case_id": "H001",
+      "category": "HIGH_MATCH",
+      "resume": {"skills": ["Python", "FastAPI", "PostgreSQL", "Docker", "Git"], "experience_years": 3, "degree": "Bachelor of Computer Science", "languages": ["English", "Mandarin"], "location": "Shanghai", "target_roles": ["Backend Engineer"]},
+      "job": {"title": "Backend Engineer", "skills": [{"name": "Python", "required": true}, {"name": "FastAPI", "required": true}, {"name": "PostgreSQL", "required": true}, {"name": "Docker", "required": false}], "requirements": "Build reliable APIs in Python and FastAPI. PostgreSQL is required; containerized delivery is a plus.", "experience_level": "3+ years", "education_requirement": "Bachelor degree in Computer Science or a related field", "languages": ["English"], "location": "Shanghai", "employment_type": "Hybrid", "description": "The team ships API products for enterprise customers and welcomes engineers who document decisions clearly.", "responsibilities": "Own services from design through production support.", "industry": "Software"},
+      "expected": {"matched_skills": ["Python", "FastAPI", "PostgreSQL", "Docker"], "partial_skills": [], "missing_skills": [], "unknown_skills": [], "blocking_risks": [], "eligibility": "ELIGIBLE", "recommendations": ["STRONGLY_RECOMMENDED", "RECOMMENDED"], "match_band": "HIGH"},
+      "rationale": "All explicit skills have confirmed evidence and the dated experience meets the minimum; Docker is intentionally preferred rather than required."
+    },
+    {
+      "case_id": "H002",
+      "category": "SKILL_GAP",
+      "resume": {"skills": ["Python", "FastAPI", "Git"], "experience_years": 2, "degree": "Bachelor of Computer Science", "languages": ["English"], "location": "Shanghai", "target_roles": ["Backend Engineer"]},
+      "job": {"title": "Platform API Engineer", "skills": [{"name": "Python", "required": true}, {"name": "FastAPI", "required": true}, {"name": "Docker", "required": true}], "requirements": "Python and FastAPI are mandatory. The service must be delivered as a Docker image and monitored in production.", "experience_level": "2+ years", "education_requirement": "Bachelor degree", "languages": ["English"], "location": "Shanghai", "employment_type": "On-site", "description": "Work with a small platform team on internal APIs.", "responsibilities": "Implement, test and deploy backend services.", "industry": "Software"},
+      "expected": {"matched_skills": ["Python", "FastAPI"], "partial_skills": [], "missing_skills": ["Docker"], "unknown_skills": [], "blocking_risks": [], "eligibility": "ELIGIBLE", "recommendations": ["CONSIDER", "RECOMMENDED"], "match_band": "MODERATE"},
+      "rationale": "Docker is an explicit required skill but the candidate only demonstrates Python/FastAPI; the gap should be visible without turning every skill gap into a blocker."
+    },
+    {
+      "case_id": "H003",
+      "category": "MEDIUM_MATCH",
+      "resume": {"skills": ["Python", "SQL", "Git"], "experience_years": 1, "degree": "Bachelor of Information Systems", "languages": ["English"], "location": "Shenzhen", "target_roles": ["Data Analyst"]},
+      "job": {"title": "Data Analyst", "skills": [{"name": "SQL", "required": true}, {"name": "Python", "required": true}, {"name": "Data Analysis", "required": false}, {"name": "Tableau", "required": false}], "requirements": "Strong SQL and Python are needed for reporting. Data analysis experience is preferred; Tableau exposure would be nice to have.", "experience_level": "1+ years", "education_requirement": "Bachelor degree or equivalent", "languages": ["English"], "location": "Shenzhen", "employment_type": "Hybrid", "description": "Translate operational questions into measurable dashboards.", "responsibilities": "Clean data, explain trends and present findings.", "industry": "Analytics"},
+      "expected": {"matched_skills": ["SQL", "Python"], "partial_skills": [], "missing_skills": ["Data Analysis", "Tableau"], "unknown_skills": [], "blocking_risks": [], "eligibility": "ELIGIBLE", "recommendations": ["CONSIDER", "RECOMMENDED"], "match_band": "MODERATE"},
+      "rationale": "The core requirements are evidenced while both optional analytics signals are absent; this is a moderate rather than high match."
+    },
+    {
+      "case_id": "H004",
+      "category": "HIGH_MATCH",
+      "resume": {"skills": ["Docker", "Kubernetes", "CI/CD", "Git"], "experience_years": 4, "degree": "Bachelor of Computer Science", "languages": ["English"], "location": "Beijing", "target_roles": ["DevOps Engineer"]},
+      "job": {"title": "DevOps Engineer", "skills": [{"name": "Docker", "required": true}, {"name": "Kubernetes", "required": true}, {"name": "CI/CD", "required": true}], "requirements": "Operate containerized workloads and an orchestration platform. Kubernetes and continuous delivery are required for this on-site role.", "experience_level": "3+ years", "education_requirement": "Bachelor degree", "languages": ["English"], "location": "Beijing", "employment_type": "On-site", "description": "Improve deployment reliability for a growing engineering organization.", "responsibilities": "Maintain clusters, pipelines and incident runbooks.", "industry": "Cloud Infrastructure"},
+      "expected": {"matched_skills": ["Docker", "Kubernetes", "CI/CD"], "partial_skills": [], "missing_skills": [], "unknown_skills": [], "blocking_risks": [], "eligibility": "ELIGIBLE", "recommendations": ["STRONGLY_RECOMMENDED", "RECOMMENDED"], "match_band": "HIGH"},
+      "rationale": "The JD uses the related phrase containerized workloads but explicitly names Kubernetes and continuous delivery; the candidate has all three canonical skills."
+    },
+    {
+      "case_id": "H005",
+      "category": "SKILL_GAP",
+      "resume": {"skills": ["Python", "SQL"], "experience_years": 2, "degree": "Bachelor of Computer Science", "languages": ["English"], "location": "Guangzhou", "target_roles": ["Backend Engineer"]},
+      "job": {"title": "Database Services Engineer", "skills": [{"name": "PostgreSQL", "required": true}, {"name": "SQL", "required": true}, {"name": "Python", "required": false}], "requirements": "Design and tune a relational database layer. PostgreSQL administration is mandatory; Python automation is a plus.", "experience_level": "2+ years", "education_requirement": "Bachelor degree", "languages": ["English"], "location": "Guangzhou", "employment_type": "Hybrid", "description": "Support transactional systems with a focus on reliability and safe migrations.", "responsibilities": "Review schemas, indexes and backup procedures.", "industry": "Software"},
+      "expected": {"matched_skills": ["SQL", "Python"], "partial_skills": [], "missing_skills": ["PostgreSQL"], "unknown_skills": [], "blocking_risks": [], "eligibility": "ELIGIBLE", "recommendations": ["CONSIDER", "RECOMMENDED"], "match_band": "MODERATE"},
+      "rationale": "Relational database knowledge is not treated as equivalent to the explicitly mandatory PostgreSQL administration skill."
+    },
+    {
+      "case_id": "H006",
+      "category": "SKILL_GAP",
+      "resume": {"skills": ["Python", "Machine Learning", "NLP"], "experience_years": 2, "degree": "Master of Computer Science", "languages": ["English"], "location": "Hangzhou", "target_roles": ["ML Engineer"]},
+      "job": {"title": "Computer Vision Engineer", "skills": [{"name": "Python", "required": true}, {"name": "PyTorch", "required": true}, {"name": "Machine Learning", "required": false}], "requirements": "Build an AI application for image classification. Python and PyTorch are required; broader machine learning experience is preferred.", "experience_level": "2+ years", "education_requirement": "Master degree in a technical field", "languages": ["English"], "location": "Hangzhou", "employment_type": "Hybrid", "description": "Prototype and productionize computer vision models.", "responsibilities": "Prepare data, train models and evaluate drift.", "industry": "Artificial Intelligence"},
+      "expected": {"matched_skills": ["Python", "Machine Learning"], "partial_skills": [], "missing_skills": ["PyTorch"], "unknown_skills": [], "blocking_risks": [], "eligibility": "ELIGIBLE", "recommendations": ["CONSIDER", "RECOMMENDED"], "match_band": "MODERATE"},
+      "rationale": "A generic AI/ML background is useful evidence but is not silently promoted to the required PyTorch implementation skill."
+    },
+    {
+      "case_id": "H007",
+      "category": "SKILL_GAP",
+      "resume": {"skills": ["Python", "FastAPI", "PostgreSQL"], "experience_years": 3, "degree": "Bachelor of Computer Science", "languages": ["English"], "location": "Shanghai", "target_roles": ["Backend Engineer"]},
+      "job": {"title": "Cloud Application Engineer", "skills": [{"name": "Python", "required": true}, {"name": "AWS", "required": true}, {"name": "Docker", "required": false}], "requirements": "Deploy a cloud-native service on AWS. Python is required; Docker experience is desirable.", "experience_level": "3+ years", "education_requirement": "Bachelor degree", "languages": ["English"], "location": "Shanghai", "employment_type": "Hybrid", "description": "Build services that meet clear availability and observability goals.", "responsibilities": "Automate releases and operate cloud workloads.", "industry": "Cloud"},
+      "expected": {"matched_skills": ["Python"], "partial_skills": [], "missing_skills": ["AWS", "Docker"], "unknown_skills": [], "blocking_risks": [], "eligibility": "ELIGIBLE", "recommendations": ["CONSIDER", "RECOMMENDED"], "match_band": "MODERATE"},
+      "rationale": "Cloud experience is not inferred as AWS; the explicit AWS requirement remains a missing skill."
+    },
+    {
+      "case_id": "H008",
+      "category": "HIGH_MATCH",
+      "resume": {"skills": ["Python", "Git"], "experience_years": 0, "degree": "Bachelor of Computer Science", "languages": ["English", "Mandarin"], "location": "Nanjing", "target_roles": ["Software Engineer"]},
+      "job": {"title": "Graduate Software Engineer", "skills": [{"name": "Python", "required": true}, {"name": "Git", "required": false}], "requirements": "Fresh graduates and final-year students are welcome. Python is required; Git is a plus. Training is provided.", "experience_level": "Fresh graduate", "education_requirement": "Bachelor degree in Computer Science or related field", "languages": ["English"], "location": "Nanjing", "employment_type": "Hybrid", "description": "Join a mentoring-oriented product team and learn our delivery practices.", "responsibilities": "Implement small features, tests and documentation.", "industry": "Software"},
+      "expected": {"matched_skills": ["Python", "Git"], "partial_skills": [], "missing_skills": [], "unknown_skills": [], "blocking_risks": [], "eligibility": "ELIGIBLE", "recommendations": ["STRONGLY_RECOMMENDED", "RECOMMENDED"], "match_band": "HIGH"},
+      "rationale": "The fresh-graduate exception means zero years of experience is not a gap for this posting."
+    },
+    {
+      "case_id": "H009",
+      "category": "MEDIUM_MATCH",
+      "resume": {"skills": ["JavaScript", "React", "Git"], "experience_years": 0, "degree": "Bachelor of Software Engineering", "languages": ["English"], "location": "Chengdu", "target_roles": ["Frontend Engineer"]},
+      "job": {"title": "Frontend Intern", "skills": [{"name": "JavaScript", "required": true}, {"name": "React", "required": false}], "requirements": "Internship for a current student or recent graduate. JavaScript is required and React is preferred; prior employment is not required.", "experience_level": "Internship", "education_requirement": "Bachelor degree or final-year student", "languages": ["English"], "location": "Chengdu", "employment_type": "On-site", "description": "Work with designers and engineers on accessible web flows.", "responsibilities": "Implement UI components and fix defects under mentorship.", "industry": "Software"},
+      "expected": {"matched_skills": ["JavaScript", "React"], "partial_skills": [], "missing_skills": [], "unknown_skills": [], "blocking_risks": [], "eligibility": "ELIGIBLE", "recommendations": ["RECOMMENDED", "CONSIDER"], "match_band": "MODERATE"},
+      "rationale": "The internship and student-friendly language should not be scored as a senior experience requirement."
+    },
+    {
+      "case_id": "H010",
+      "category": "BLOCKING",
+      "resume": {"skills": ["Python", "FastAPI"], "experience_years": 1, "degree": "Bachelor of Computer Science", "languages": ["English"], "location": "Shanghai", "target_roles": ["Backend Engineer"]},
+      "job": {"title": "Senior Backend Engineer", "skills": [{"name": "Python", "required": true}, {"name": "FastAPI", "required": true}], "requirements": "Must have at least 4 years of professional backend experience. Python and FastAPI are mandatory.", "experience_level": "4+ years", "education_requirement": "Bachelor degree", "languages": ["English"], "location": "Shanghai", "employment_type": "On-site", "description": "Lead design reviews and mentor a backend squad.", "responsibilities": "Own high-availability services and incident response.", "industry": "Software"},
+      "expected": {"matched_skills": ["Python", "FastAPI"], "partial_skills": [], "missing_skills": [], "unknown_skills": [], "blocking_risks": ["MINIMUM_EXPERIENCE_NOT_MET"], "eligibility": "BLOCKED", "recommendations": ["HIGH_RISK", "NOT_RECOMMENDED"], "match_band": "LOW"},
+      "rationale": "The explicit four-year minimum and one-year evidence create a large experience gap under the frozen blocking policy."
+    },
+    {
+      "case_id": "H011",
+      "category": "MEDIUM_MATCH",
+      "resume": {"skills": ["Python", "SQL"], "experience_years": 2, "degree": "Bachelor of Computer Science", "languages": ["English"], "location": "Suzhou", "target_roles": ["Data Engineer"]},
+      "job": {"title": "Data Engineer", "skills": [{"name": "Python", "required": true}, {"name": "SQL", "required": true}], "requirements": "Two years of experience is preferred, not required. A degree in Computer Science or a related field is expected.", "experience_level": "2 years preferred", "education_requirement": "Bachelor degree in Computer Science or related field", "languages": ["English"], "location": "Suzhou", "employment_type": "Hybrid", "description": "Build reliable data transformations for product teams.", "responsibilities": "Maintain pipelines, tests and data quality checks.", "industry": "Data"},
+      "expected": {"matched_skills": ["Python", "SQL"], "partial_skills": [], "missing_skills": [], "unknown_skills": [], "blocking_risks": [], "eligibility": "ELIGIBLE", "recommendations": ["RECOMMENDED", "STRONGLY_RECOMMENDED"], "match_band": "HIGH"},
+      "rationale": "Preferred experience is deliberately non-blocking; the candidate meets both skills and the related degree condition."
+    },
+    {
+      "case_id": "H012",
+      "category": "BLOCKING",
+      "resume": {"skills": ["Python", "SQL"], "experience_years": 4, "degree": "Bachelor of Communications", "languages": ["English"], "location": "Beijing", "target_roles": ["Data Engineer"]},
+      "job": {"title": "Data Engineer", "skills": [{"name": "Python", "required": true}, {"name": "SQL", "required": true}], "requirements": "A Bachelor degree in Computer Science or a related technical discipline is mandatory. Python and SQL are required.", "experience_level": "3+ years", "education_requirement": "Bachelor degree in Computer Science or related technical field", "languages": ["English"], "location": "Beijing", "employment_type": "On-site", "description": "Support a data platform used by multiple product lines.", "responsibilities": "Design transformations and monitor data quality.", "industry": "Data"},
+      "expected": {"matched_skills": ["Python", "SQL"], "partial_skills": [], "missing_skills": [], "unknown_skills": [], "blocking_risks": ["EDUCATION_REQUIREMENT_NOT_MET"], "eligibility": "BLOCKED", "recommendations": ["HIGH_RISK", "NOT_RECOMMENDED"], "match_band": "LOW"},
+      "rationale": "A non-related degree is not silently treated as a CS degree when the posting marks the education condition mandatory."
+    },
+    {
+      "case_id": "H013",
+      "category": "BLOCKING",
+      "resume": {"skills": ["JavaScript", "React"], "experience_years": 3, "degree": "Bachelor of Computer Science", "languages": ["English", "Mandarin"], "location": "Hong Kong", "preferences": {"work_eligibility": "not confirmed"}, "target_roles": ["Frontend Engineer"]},
+      "job": {"title": "Frontend Engineer", "skills": [{"name": "JavaScript", "required": true}, {"name": "React", "required": true}], "requirements": "Candidates must be eligible to work in Hong Kong. Written English is required; Cantonese is preferred.", "experience_level": "2+ years", "education_requirement": "Bachelor degree", "languages": ["English", "Cantonese"], "location": "Hong Kong", "employment_type": "Hybrid", "description": "Build customer-facing workflows for users across Hong Kong.", "responsibilities": "Collaborate with product and QA on web releases.", "industry": "Software"},
+      "expected": {"matched_skills": ["JavaScript", "React"], "partial_skills": [], "missing_skills": [], "unknown_skills": [], "blocking_risks": ["WORK_ELIGIBILITY_UNKNOWN", "LANGUAGE_REQUIREMENT_NOT_MET"], "eligibility": "UNVERIFIED", "recommendations": ["HIGH_RISK", "CONSIDER"], "match_band": "MODERATE"},
+      "rationale": "The candidate has written-English evidence but Cantonese and Hong Kong work eligibility remain unconfirmed; the label separates unknown eligibility from a known refusal."
+    },
+    {
+      "case_id": "H014",
+      "category": "MEDIUM_MATCH",
+      "resume": {"skills": ["JavaScript", "React"], "experience_years": 3, "degree": "Bachelor of Computer Science", "languages": ["English", "Cantonese"], "location": "Hong Kong", "preferences": {"work_eligibility": "eligible"}, "target_roles": ["Frontend Engineer"]},
+      "job": {"title": "Frontend Engineer", "skills": [{"name": "JavaScript", "required": true}, {"name": "React", "required": true}], "requirements": "Written English is required and Cantonese is preferred. Candidates must be eligible to work in Hong Kong.", "experience_level": "2+ years", "education_requirement": "Bachelor degree", "languages": ["English", "Cantonese"], "location": "Hong Kong", "employment_type": "On-site", "description": "Deliver accessible interfaces for local customers.", "responsibilities": "Coordinate releases with design and QA.", "industry": "Software"},
+      "expected": {"matched_skills": ["JavaScript", "React"], "partial_skills": [], "missing_skills": [], "unknown_skills": [], "blocking_risks": [], "eligibility": "ELIGIBLE", "recommendations": ["RECOMMENDED", "STRONGLY_RECOMMENDED"], "match_band": "HIGH"},
+      "rationale": "Both language requirements and explicit work eligibility are confirmed; the on-site location matches."
+    },
+    {
+      "case_id": "H015",
+      "category": "BLOCKING",
+      "resume": {"skills": ["Python", "FastAPI"], "experience_years": 3, "degree": "Bachelor of Computer Science", "languages": ["English"], "location": "Shenzhen", "preferences": {"work_eligibility": "not eligible"}, "target_roles": ["Backend Engineer"]},
+      "job": {"title": "Backend Engineer", "skills": [{"name": "Python", "required": true}, {"name": "FastAPI", "required": true}], "requirements": "Must be legally eligible to work in Hong Kong. English is required.", "experience_level": "2+ years", "education_requirement": "Bachelor degree", "languages": ["English"], "location": "Hong Kong", "employment_type": "On-site", "description": "Join a team delivering regulated customer systems.", "responsibilities": "Build and operate backend services.", "industry": "Software"},
+      "expected": {"matched_skills": ["Python", "FastAPI"], "partial_skills": [], "missing_skills": [], "unknown_skills": [], "blocking_risks": ["WORK_ELIGIBILITY_BLOCKED"], "eligibility": "BLOCKED", "recommendations": ["NOT_RECOMMENDED", "HIGH_RISK"], "match_band": "LOW"},
+      "rationale": "Known ineligibility for an explicit work-authorization condition is a true blocking risk, unlike an unverified status."
+    },
+    {
+      "case_id": "H016",
+      "category": "MEDIUM_MATCH",
+      "resume": {"skills": ["Python", "Git"], "experience_years": 2, "degree": "Bachelor of Computer Science", "languages": ["English"], "location": "Shanghai", "target_roles": ["Backend Engineer"]},
+      "job": {"title": "Backend Engineer", "skills": [{"name": "Python", "required": true}, {"name": "Git", "required": true}], "requirements": "The role is hybrid with three office days each week. Python and Git are required; relocation support is not provided.", "experience_level": "2+ years", "education_requirement": "Bachelor degree", "languages": ["English"], "location": "Shanghai", "employment_type": "Hybrid", "description": "Work closely with a colocated platform team.", "responsibilities": "Ship tested API changes and participate in reviews.", "industry": "Software"},
+      "expected": {"matched_skills": ["Python", "Git"], "partial_skills": [], "missing_skills": [], "unknown_skills": [], "blocking_risks": [], "eligibility": "ELIGIBLE", "recommendations": ["RECOMMENDED", "STRONGLY_RECOMMENDED"], "match_band": "HIGH"},
+      "rationale": "Hybrid is a soft work arrangement and the candidate’s location is compatible; it is not treated as a missing technical skill."
+    },
+    {
+      "case_id": "H017",
+      "category": "MEDIUM_MATCH",
+      "resume": {"skills": ["Python", "SQL"], "experience_years": 2, "degree": "Bachelor of Computer Science", "languages": ["English"], "location": "Shanghai", "target_roles": ["Data Engineer"]},
+      "job": {"title": "Data Engineer", "skills": [{"name": "Python", "required": true}, {"name": "SQL", "required": true}], "requirements": "This is an on-site role in Shanghai. Python and SQL are required; willingness to work from the office is expected.", "experience_level": "2+ years", "education_requirement": "Bachelor degree", "languages": ["English"], "location": "Shanghai", "employment_type": "On-site", "description": "Partner with analysts in a shared office environment.", "responsibilities": "Build batch pipelines and validate outputs.", "industry": "Data"},
+      "expected": {"matched_skills": ["Python", "SQL"], "partial_skills": [], "missing_skills": [], "unknown_skills": [], "blocking_risks": [], "eligibility": "ELIGIBLE", "recommendations": ["RECOMMENDED", "STRONGLY_RECOMMENDED"], "match_band": "HIGH"},
+      "rationale": "An explicit on-site condition is satisfied by the matching location; the condition is not a reason to invent a technical mismatch."
+    },
+    {
+      "case_id": "H018",
+      "category": "INCOMPLETE_JOB",
+      "resume": {"skills": ["Python"], "experience_years": 1, "degree": "Bachelor of Computer Science", "languages": ["English"], "location": "Remote", "target_roles": ["Software Engineer"]},
+      "job": {"title": "Software Engineer", "skills": [{"name": "Python", "required": true}], "requirements": "Join our product engineering team and help deliver reliable features.", "experience_level": null, "education_requirement": null, "languages": [], "location": null, "employment_type": null, "description": "We value curiosity and careful engineering, but the public posting omits several details.", "responsibilities": "Implement features with the team.", "industry": "Software"},
+      "expected": {"matched_skills": ["Python"], "partial_skills": [], "missing_skills": [], "unknown_skills": [], "blocking_risks": [], "eligibility": "UNVERIFIED", "recommendations": ["CONSIDER", "RECOMMENDED"], "match_band": "MODERATE"},
+      "rationale": "The candidate matches the only explicit skill, but the sparse posting should lower confidence rather than fabricate requirements."
+    },
+    {
+      "case_id": "H019",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "resume": {"skills": ["Python", "SQL"], "unconfirmed_skills": ["Docker"], "experience_years": 2, "degree": "Bachelor of Computer Science", "languages": ["English"], "location": "Shanghai", "target_roles": ["Backend Engineer"]},
+      "job": {"title": "Backend Engineer", "skills": [{"name": "Python", "required": true}, {"name": "Docker", "required": true}, {"name": "SQL", "required": false}], "requirements": "Python and Docker are required for building and shipping services. SQL is a preferred foundation.", "experience_level": "2+ years", "education_requirement": "Bachelor degree", "languages": ["English"], "location": "Shanghai", "employment_type": "Hybrid", "description": "We value reproducible delivery and reviewable evidence.", "responsibilities": "Build APIs and improve deployment repeatability.", "industry": "Software"},
+      "expected": {"matched_skills": ["Python", "SQL"], "partial_skills": ["Docker"], "missing_skills": [], "unknown_skills": [], "blocking_risks": [], "eligibility": "UNVERIFIED", "recommendations": ["CONSIDER", "RECOMMENDED"], "match_band": "MODERATE"},
+      "rationale": "Docker appears on the resume but is unconfirmed and lacks evidence, so PARTIAL is the expected state rather than MATCHED."
+    },
+    {
+      "case_id": "H020",
+      "category": "HIGH_MATCH",
+      "resume": {"skills": ["Python", "FastAPI", "SQL", "Git"], "experience_years": 1, "degree": "Bachelor of Computer Science", "languages": ["English"], "location": "Wuhan", "target_roles": ["Software Engineer"]},
+      "job": {"title": "Graduate Software Engineer", "skills": [{"name": "Python", "required": true}, {"name": "FastAPI", "required": true}, {"name": "SQL", "required": true}, {"name": "Git", "required": false}], "requirements": "Final-year students and recent graduates are encouraged to apply. Python, FastAPI and SQL are required; Git is preferred.", "experience_level": "Graduate programme", "education_requirement": "Bachelor degree in Computer Science or a related field", "languages": ["English"], "location": "Wuhan", "employment_type": "Hybrid", "description": "Join a structured graduate programme with code review and mentoring.", "responsibilities": "Implement service endpoints and automated tests.", "industry": "Software"},
+      "expected": {"matched_skills": ["Python", "FastAPI", "SQL", "Git"], "partial_skills": [], "missing_skills": [], "unknown_skills": [], "blocking_risks": [], "eligibility": "ELIGIBLE", "recommendations": ["STRONGLY_RECOMMENDED", "RECOMMENDED"], "match_band": "HIGH"},
+      "rationale": "Final-year/graduate wording is a positive eligibility context; one year of project/work evidence is not compared against a senior minimum."
+    }
+  ]
+}

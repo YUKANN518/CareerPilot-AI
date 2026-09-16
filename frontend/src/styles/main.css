@@ -1,0 +1,58 @@
+@import "./tokens.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply font-sans;
+  }
+
+  body {
+    @apply m-0 min-h-screen bg-background text-base text-foreground antialiased;
+  }
+
+  h1 {
+    font-size: var(--font-size-page);
+    line-height: var(--line-height-page);
+  }
+
+  h2 {
+    font-size: var(--font-size-section);
+    line-height: var(--line-height-section);
+  }
+
+  body,
+  button,
+  input,
+  textarea,
+  select {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  ::selection {
+    @apply bg-primary/15 text-foreground;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

@@ -1,0 +1,3769 @@
+{
+  "dataset_version": "holdout-v1",
+  "scoring_version": "deterministic-v1.1",
+  "case_count": 20,
+  "cases": [
+    {
+      "case_id": "H001",
+      "category": "HIGH_MATCH",
+      "resume": {
+        "skills": [
+          "Python",
+          "FastAPI",
+          "PostgreSQL",
+          "Docker",
+          "Git"
+        ],
+        "experience_years": 3,
+        "degree": "Bachelor of Computer Science",
+        "languages": [
+          "English",
+          "Mandarin"
+        ],
+        "location": "Shanghai",
+        "target_roles": [
+          "Backend Engineer"
+        ]
+      },
+      "job": {
+        "title": "Backend Engineer",
+        "skills": [
+          {
+            "name": "Python",
+            "required": true
+          },
+          {
+            "name": "FastAPI",
+            "required": true
+          },
+          {
+            "name": "PostgreSQL",
+            "required": true
+          },
+          {
+            "name": "Docker",
+            "required": false
+          }
+        ],
+        "requirements": "Build reliable APIs in Python and FastAPI. PostgreSQL is required; containerized delivery is a plus.",
+        "experience_level": "3+ years",
+        "education_requirement": "Bachelor degree in Computer Science or a related field",
+        "languages": [
+          "English"
+        ],
+        "location": "Shanghai",
+        "employment_type": "Hybrid",
+        "description": "The team ships API products for enterprise customers and welcomes engineers who document decisions clearly.",
+        "responsibilities": "Own services from design through production support.",
+        "industry": "Software"
+      },
+      "expected": {
+        "matched_skills": [
+          "Python",
+          "FastAPI",
+          "PostgreSQL",
+          "Docker"
+        ],
+        "partial_skills": [],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "blocking_risks": [],
+        "eligibility": "ELIGIBLE",
+        "recommendations": [
+          "STRONGLY_RECOMMENDED",
+          "RECOMMENDED"
+        ],
+        "match_band": "HIGH"
+      },
+      "rationale": "All explicit skills have confirmed evidence and the dated experience meets the minimum; Docker is intentionally preferred rather than required."
+    },
+    {
+      "case_id": "H002",
+      "category": "SKILL_GAP",
+      "resume": {
+        "skills": [
+          "Python",
+          "FastAPI",
+          "Git"
+        ],
+        "experience_years": 2,
+        "degree": "Bachelor of Computer Science",
+        "languages": [
+          "English"
+        ],
+        "location": "Shanghai",
+        "target_roles": [
+          "Backend Engineer"
+        ]
+      },
+      "job": {
+        "title": "Platform API Engineer",
+        "skills": [
+          {
+            "name": "Python",
+            "required": true
+          },
+          {
+            "name": "FastAPI",
+            "required": true
+          },
+          {
+            "name": "Docker",
+            "required": true
+          }
+        ],
+        "requirements": "Python and FastAPI are mandatory. The service must be delivered as a Docker image and monitored in production.",
+        "experience_level": "2+ years",
+        "education_requirement": "Bachelor degree",
+        "languages": [
+          "English"
+        ],
+        "location": "Shanghai",
+        "employment_type": "On-site",
+        "description": "Work with a small platform team on internal APIs.",
+        "responsibilities": "Implement, test and deploy backend services.",
+        "industry": "Software"
+      },
+      "expected": {
+        "matched_skills": [
+          "Python",
+          "FastAPI"
+        ],
+        "partial_skills": [],
+        "missing_skills": [
+          "Docker"
+        ],
+        "unknown_skills": [],
+        "blocking_risks": [],
+        "eligibility": "ELIGIBLE",
+        "recommendations": [
+          "CONSIDER",
+          "RECOMMENDED"
+        ],
+        "match_band": "MODERATE"
+      },
+      "rationale": "Docker is an explicit required skill but the candidate only demonstrates Python/FastAPI; the gap should be visible without turning every skill gap into a blocker."
+    },
+    {
+      "case_id": "H003",
+      "category": "MEDIUM_MATCH",
+      "resume": {
+        "skills": [
+          "Python",
+          "SQL",
+          "Git"
+        ],
+        "experience_years": 1,
+        "degree": "Bachelor of Information Systems",
+        "languages": [
+          "English"
+        ],
+        "location": "Shenzhen",
+        "target_roles": [
+          "Data Analyst"
+        ]
+      },
+      "job": {
+        "title": "Data Analyst",
+        "skills": [
+          {
+            "name": "SQL",
+            "required": true
+          },
+          {
+            "name": "Python",
+            "required": true
+          },
+          {
+            "name": "Data Analysis",
+            "required": false
+          },
+          {
+            "name": "Tableau",
+            "required": false
+          }
+        ],
+        "requirements": "Strong SQL and Python are needed for reporting. Data analysis experience is preferred; Tableau exposure would be nice to have.",
+        "experience_level": "1+ years",
+        "education_requirement": "Bachelor degree or equivalent",
+        "languages": [
+          "English"
+        ],
+        "location": "Shenzhen",
+        "employment_type": "Hybrid",
+        "description": "Translate operational questions into measurable dashboards.",
+        "responsibilities": "Clean data, explain trends and present findings.",
+        "industry": "Analytics"
+      },
+      "expected": {
+        "matched_skills": [
+          "SQL",
+          "Python"
+        ],
+        "partial_skills": [],
+        "missing_skills": [
+          "Data Analysis",
+          "Tableau"
+        ],
+        "unknown_skills": [],
+        "blocking_risks": [],
+        "eligibility": "ELIGIBLE",
+        "recommendations": [
+          "CONSIDER",
+          "RECOMMENDED"
+        ],
+        "match_band": "MODERATE"
+      },
+      "rationale": "The core requirements are evidenced while both optional analytics signals are absent; this is a moderate rather than high match."
+    },
+    {
+      "case_id": "H004",
+      "category": "HIGH_MATCH",
+      "resume": {
+        "skills": [
+          "Docker",
+          "Kubernetes",
+          "CI/CD",
+          "Git"
+        ],
+        "experience_years": 4,
+        "degree": "Bachelor of Computer Science",
+        "languages": [
+          "English"
+        ],
+        "location": "Beijing",
+        "target_roles": [
+          "DevOps Engineer"
+        ]
+      },
+      "job": {
+        "title": "DevOps Engineer",
+        "skills": [
+          {
+            "name": "Docker",
+            "required": true
+          },
+          {
+            "name": "Kubernetes",
+            "required": true
+          },
+          {
+            "name": "CI/CD",
+            "required": true
+          }
+        ],
+        "requirements": "Operate containerized workloads and an orchestration platform. Kubernetes and continuous delivery are required for this on-site role.",
+        "experience_level": "3+ years",
+        "education_requirement": "Bachelor degree",
+        "languages": [
+          "English"
+        ],
+        "location": "Beijing",
+        "employment_type": "On-site",
+        "description": "Improve deployment reliability for a growing engineering organization.",
+        "responsibilities": "Maintain clusters, pipelines and incident runbooks.",
+        "industry": "Cloud Infrastructure"
+      },
+      "expected": {
+        "matched_skills": [
+          "Docker",
+          "Kubernetes",
+          "CI/CD"
+        ],
+        "partial_skills": [],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "blocking_risks": [],
+        "eligibility": "ELIGIBLE",
+        "recommendations": [
+          "STRONGLY_RECOMMENDED",
+          "RECOMMENDED"
+        ],
+        "match_band": "HIGH"
+      },
+      "rationale": "The JD uses the related phrase containerized workloads but explicitly names Kubernetes and continuous delivery; the candidate has all three canonical skills."
+    },
+    {
+      "case_id": "H005",
+      "category": "SKILL_GAP",
+      "resume": {
+        "skills": [
+          "Python",
+          "SQL"
+        ],
+        "experience_years": 2,
+        "degree": "Bachelor of Computer Science",
+        "languages": [
+          "English"
+        ],
+        "location": "Guangzhou",
+        "target_roles": [
+          "Backend Engineer"
+        ]
+      },
+      "job": {
+        "title": "Database Services Engineer",
+        "skills": [
+          {
+            "name": "PostgreSQL",
+            "required": true
+          },
+          {
+            "name": "SQL",
+            "required": true
+          },
+          {
+            "name": "Python",
+            "required": false
+          }
+        ],
+        "requirements": "Design and tune a relational database layer. PostgreSQL administration is mandatory; Python automation is a plus.",
+        "experience_level": "2+ years",
+        "education_requirement": "Bachelor degree",
+        "languages": [
+          "English"
+        ],
+        "location": "Guangzhou",
+        "employment_type": "Hybrid",
+        "description": "Support transactional systems with a focus on reliability and safe migrations.",
+        "responsibilities": "Review schemas, indexes and backup procedures.",
+        "industry": "Software"
+      },
+      "expected": {
+        "matched_skills": [
+          "SQL",
+          "Python"
+        ],
+        "partial_skills": [],
+        "missing_skills": [
+          "PostgreSQL"
+        ],
+        "unknown_skills": [],
+        "blocking_risks": [],
+        "eligibility": "ELIGIBLE",
+        "recommendations": [
+          "CONSIDER",
+          "RECOMMENDED"
+        ],
+        "match_band": "MODERATE"
+      },
+      "rationale": "Relational database knowledge is not treated as equivalent to the explicitly mandatory PostgreSQL administration skill."
+    },
+    {
+      "case_id": "H006",
+      "category": "SKILL_GAP",
+      "resume": {
+        "skills": [
+          "Python",
+          "Machine Learning",
+          "NLP"
+        ],
+        "experience_years": 2,
+        "degree": "Master of Computer Science",
+        "languages": [
+          "English"
+        ],
+        "location": "Hangzhou",
+        "target_roles": [
+          "ML Engineer"
+        ]
+      },
+      "job": {
+        "title": "Computer Vision Engineer",
+        "skills": [
+          {
+            "name": "Python",
+            "required": true
+          },
+          {
+            "name": "PyTorch",
+            "required": true
+          },
+          {
+            "name": "Machine Learning",
+            "required": false
+          }
+        ],
+        "requirements": "Build an AI application for image classification. Python and PyTorch are required; broader machine learning experience is preferred.",
+        "experience_level": "2+ years",
+        "education_requirement": "Master degree in a technical field",
+        "languages": [
+          "English"
+        ],
+        "location": "Hangzhou",
+        "employment_type": "Hybrid",
+        "description": "Prototype and productionize computer vision models.",
+        "responsibilities": "Prepare data, train models and evaluate drift.",
+        "industry": "Artificial Intelligence"
+      },
+      "expected": {
+        "matched_skills": [
+          "Python",
+          "Machine Learning"
+        ],
+        "partial_skills": [],
+        "missing_skills": [
+          "PyTorch"
+        ],
+        "unknown_skills": [],
+        "blocking_risks": [],
+        "eligibility": "ELIGIBLE",
+        "recommendations": [
+          "CONSIDER",
+          "RECOMMENDED"
+        ],
+        "match_band": "MODERATE"
+      },
+      "rationale": "A generic AI/ML background is useful evidence but is not silently promoted to the required PyTorch implementation skill."
+    },
+    {
+      "case_id": "H007",
+      "category": "SKILL_GAP",
+      "resume": {
+        "skills": [
+          "Python",
+          "FastAPI",
+          "PostgreSQL"
+        ],
+        "experience_years": 3,
+        "degree": "Bachelor of Computer Science",
+        "languages": [
+          "English"
+        ],
+        "location": "Shanghai",
+        "target_roles": [
+          "Backend Engineer"
+        ]
+      },
+      "job": {
+        "title": "Cloud Application Engineer",
+        "skills": [
+          {
+            "name": "Python",
+            "required": true
+          },
+          {
+            "name": "AWS",
+            "required": true
+          },
+          {
+            "name": "Docker",
+            "required": false
+          }
+        ],
+        "requirements": "Deploy a cloud-native service on AWS. Python is required; Docker experience is desirable.",
+        "experience_level": "3+ years",
+        "education_requirement": "Bachelor degree",
+        "languages": [
+          "English"
+        ],
+        "location": "Shanghai",
+        "employment_type": "Hybrid",
+        "description": "Build services that meet clear availability and observability goals.",
+        "responsibilities": "Automate releases and operate cloud workloads.",
+        "industry": "Cloud"
+      },
+      "expected": {
+        "matched_skills": [
+          "Python"
+        ],
+        "partial_skills": [],
+        "missing_skills": [
+          "AWS",
+          "Docker"
+        ],
+        "unknown_skills": [],
+        "blocking_risks": [],
+        "eligibility": "ELIGIBLE",
+        "recommendations": [
+          "CONSIDER",
+          "RECOMMENDED"
+        ],
+        "match_band": "MODERATE"
+      },
+      "rationale": "Cloud experience is not inferred as AWS; the explicit AWS requirement remains a missing skill."
+    },
+    {
+      "case_id": "H008",
+      "category": "HIGH_MATCH",
+      "resume": {
+        "skills": [
+          "Python",
+          "Git"
+        ],
+        "experience_years": 0,
+        "degree": "Bachelor of Computer Science",
+        "languages": [
+          "English",
+          "Mandarin"
+        ],
+        "location": "Nanjing",
+        "target_roles": [
+          "Software Engineer"
+        ]
+      },
+      "job": {
+        "title": "Graduate Software Engineer",
+        "skills": [
+          {
+            "name": "Python",
+            "required": true
+          },
+          {
+            "name": "Git",
+            "required": false
+          }
+        ],
+        "requirements": "Fresh graduates and final-year students are welcome. Python is required; Git is a plus. Training is provided.",
+        "experience_level": "Fresh graduate",
+        "education_requirement": "Bachelor degree in Computer Science or related field",
+        "languages": [
+          "English"
+        ],
+        "location": "Nanjing",
+        "employment_type": "Hybrid",
+        "description": "Join a mentoring-oriented product team and learn our delivery practices.",
+        "responsibilities": "Implement small features, tests and documentation.",
+        "industry": "Software"
+      },
+      "expected": {
+        "matched_skills": [
+          "Python",
+          "Git"
+        ],
+        "partial_skills": [],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "blocking_risks": [],
+        "eligibility": "ELIGIBLE",
+        "recommendations": [
+          "STRONGLY_RECOMMENDED",
+          "RECOMMENDED"
+        ],
+        "match_band": "HIGH"
+      },
+      "rationale": "The fresh-graduate exception means zero years of experience is not a gap for this posting."
+    },
+    {
+      "case_id": "H009",
+      "category": "MEDIUM_MATCH",
+      "resume": {
+        "skills": [
+          "JavaScript",
+          "React",
+          "Git"
+        ],
+        "experience_years": 0,
+        "degree": "Bachelor of Software Engineering",
+        "languages": [
+          "English"
+        ],
+        "location": "Chengdu",
+        "target_roles": [
+          "Frontend Engineer"
+        ]
+      },
+      "job": {
+        "title": "Frontend Intern",
+        "skills": [
+          {
+            "name": "JavaScript",
+            "required": true
+          },
+          {
+            "name": "React",
+            "required": false
+          }
+        ],
+        "requirements": "Internship for a current student or recent graduate. JavaScript is required and React is preferred; prior employment is not required.",
+        "experience_level": "Internship",
+        "education_requirement": "Bachelor degree or final-year student",
+        "languages": [
+          "English"
+        ],
+        "location": "Chengdu",
+        "employment_type": "On-site",
+        "description": "Work with designers and engineers on accessible web flows.",
+        "responsibilities": "Implement UI components and fix defects under mentorship.",
+        "industry": "Software"
+      },
+      "expected": {
+        "matched_skills": [
+          "JavaScript",
+          "React"
+        ],
+        "partial_skills": [],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "blocking_risks": [],
+        "eligibility": "ELIGIBLE",
+        "recommendations": [
+          "RECOMMENDED",
+          "CONSIDER"
+        ],
+        "match_band": "MODERATE"
+      },
+      "rationale": "The internship and student-friendly language should not be scored as a senior experience requirement."
+    },
+    {
+      "case_id": "H010",
+      "category": "BLOCKING",
+      "resume": {
+        "skills": [
+          "Python",
+          "FastAPI"
+        ],
+        "experience_years": 1,
+        "degree": "Bachelor of Computer Science",
+        "languages": [
+          "English"
+        ],
+        "location": "Shanghai",
+        "target_roles": [
+          "Backend Engineer"
+        ]
+      },
+      "job": {
+        "title": "Senior Backend Engineer",
+        "skills": [
+          {
+            "name": "Python",
+            "required": true
+          },
+          {
+            "name": "FastAPI",
+            "required": true
+          }
+        ],
+        "requirements": "Must have at least 4 years of professional backend experience. Python and FastAPI are mandatory.",
+        "experience_level": "4+ years",
+        "education_requirement": "Bachelor degree",
+        "languages": [
+          "English"
+        ],
+        "location": "Shanghai",
+        "employment_type": "On-site",
+        "description": "Lead design reviews and mentor a backend squad.",
+        "responsibilities": "Own high-availability services and incident response.",
+        "industry": "Software"
+      },
+      "expected": {
+        "matched_skills": [
+          "Python",
+          "FastAPI"
+        ],
+        "partial_skills": [],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "blocking_risks": [
+          "MINIMUM_EXPERIENCE_NOT_MET"
+        ],
+        "eligibility": "BLOCKED",
+        "recommendations": [
+          "HIGH_RISK",
+          "NOT_RECOMMENDED"
+        ],
+        "match_band": "LOW"
+      },
+      "rationale": "The explicit four-year minimum and one-year evidence create a large experience gap under the frozen blocking policy."
+    },
+    {
+      "case_id": "H011",
+      "category": "MEDIUM_MATCH",
+      "resume": {
+        "skills": [
+          "Python",
+          "SQL"
+        ],
+        "experience_years": 2,
+        "degree": "Bachelor of Computer Science",
+        "languages": [
+          "English"
+        ],
+        "location": "Suzhou",
+        "target_roles": [
+          "Data Engineer"
+        ]
+      },
+      "job": {
+        "title": "Data Engineer",
+        "skills": [
+          {
+            "name": "Python",
+            "required": true
+          },
+          {
+            "name": "SQL",
+            "required": true
+          }
+        ],
+        "requirements": "Two years of experience is preferred, not required. A degree in Computer Science or a related field is expected.",
+        "experience_level": "2 years preferred",
+        "education_requirement": "Bachelor degree in Computer Science or related field",
+        "languages": [
+          "English"
+        ],
+        "location": "Suzhou",
+        "employment_type": "Hybrid",
+        "description": "Build reliable data transformations for product teams.",
+        "responsibilities": "Maintain pipelines, tests and data quality checks.",
+        "industry": "Data"
+      },
+      "expected": {
+        "matched_skills": [
+          "Python",
+          "SQL"
+        ],
+        "partial_skills": [],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "blocking_risks": [],
+        "eligibility": "ELIGIBLE",
+        "recommendations": [
+          "RECOMMENDED",
+          "STRONGLY_RECOMMENDED"
+        ],
+        "match_band": "HIGH"
+      },
+      "rationale": "Preferred experience is deliberately non-blocking; the candidate meets both skills and the related degree condition."
+    },
+    {
+      "case_id": "H012",
+      "category": "BLOCKING",
+      "resume": {
+        "skills": [
+          "Python",
+          "SQL"
+        ],
+        "experience_years": 4,
+        "degree": "Bachelor of Communications",
+        "languages": [
+          "English"
+        ],
+        "location": "Beijing",
+        "target_roles": [
+          "Data Engineer"
+        ]
+      },
+      "job": {
+        "title": "Data Engineer",
+        "skills": [
+          {
+            "name": "Python",
+            "required": true
+          },
+          {
+            "name": "SQL",
+            "required": true
+          }
+        ],
+        "requirements": "A Bachelor degree in Computer Science or a related technical discipline is mandatory. Python and SQL are required.",
+        "experience_level": "3+ years",
+        "education_requirement": "Bachelor degree in Computer Science or related technical field",
+        "languages": [
+          "English"
+        ],
+        "location": "Beijing",
+        "employment_type": "On-site",
+        "description": "Support a data platform used by multiple product lines.",
+        "responsibilities": "Design transformations and monitor data quality.",
+        "industry": "Data"
+      },
+      "expected": {
+        "matched_skills": [
+          "Python",
+          "SQL"
+        ],
+        "partial_skills": [],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "blocking_risks": [
+          "EDUCATION_REQUIREMENT_NOT_MET"
+        ],
+        "eligibility": "BLOCKED",
+        "recommendations": [
+          "HIGH_RISK",
+          "NOT_RECOMMENDED"
+        ],
+        "match_band": "LOW"
+      },
+      "rationale": "A non-related degree is not silently treated as a CS degree when the posting marks the education condition mandatory."
+    },
+    {
+      "case_id": "H013",
+      "category": "BLOCKING",
+      "resume": {
+        "skills": [
+          "JavaScript",
+          "React"
+        ],
+        "experience_years": 3,
+        "degree": "Bachelor of Computer Science",
+        "languages": [
+          "English",
+          "Mandarin"
+        ],
+        "location": "Hong Kong",
+        "preferences": {
+          "work_eligibility": "not confirmed"
+        },
+        "target_roles": [
+          "Frontend Engineer"
+        ]
+      },
+      "job": {
+        "title": "Frontend Engineer",
+        "skills": [
+          {
+            "name": "JavaScript",
+            "required": true
+          },
+          {
+            "name": "React",
+            "required": true
+          }
+        ],
+        "requirements": "Candidates must be eligible to work in Hong Kong. Written English is required; Cantonese is preferred.",
+        "experience_level": "2+ years",
+        "education_requirement": "Bachelor degree",
+        "languages": [
+          "English",
+          "Cantonese"
+        ],
+        "location": "Hong Kong",
+        "employment_type": "Hybrid",
+        "description": "Build customer-facing workflows for users across Hong Kong.",
+        "responsibilities": "Collaborate with product and QA on web releases.",
+        "industry": "Software"
+      },
+      "expected": {
+        "matched_skills": [
+          "JavaScript",
+          "React"
+        ],
+        "partial_skills": [],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "blocking_risks": [
+          "WORK_ELIGIBILITY_UNKNOWN",
+          "LANGUAGE_REQUIREMENT_NOT_MET"
+        ],
+        "eligibility": "UNVERIFIED",
+        "recommendations": [
+          "HIGH_RISK",
+          "CONSIDER"
+        ],
+        "match_band": "MODERATE"
+      },
+      "rationale": "The candidate has written-English evidence but Cantonese and Hong Kong work eligibility remain unconfirmed; the label separates unknown eligibility from a known refusal."
+    },
+    {
+      "case_id": "H014",
+      "category": "MEDIUM_MATCH",
+      "resume": {
+        "skills": [
+          "JavaScript",
+          "React"
+        ],
+        "experience_years": 3,
+        "degree": "Bachelor of Computer Science",
+        "languages": [
+          "English",
+          "Cantonese"
+        ],
+        "location": "Hong Kong",
+        "preferences": {
+          "work_eligibility": "eligible"
+        },
+        "target_roles": [
+          "Frontend Engineer"
+        ]
+      },
+      "job": {
+        "title": "Frontend Engineer",
+        "skills": [
+          {
+            "name": "JavaScript",
+            "required": true
+          },
+          {
+            "name": "React",
+            "required": true
+          }
+        ],
+        "requirements": "Written English is required and Cantonese is preferred. Candidates must be eligible to work in Hong Kong.",
+        "experience_level": "2+ years",
+        "education_requirement": "Bachelor degree",
+        "languages": [
+          "English",
+          "Cantonese"
+        ],
+        "location": "Hong Kong",
+        "employment_type": "On-site",
+        "description": "Deliver accessible interfaces for local customers.",
+        "responsibilities": "Coordinate releases with design and QA.",
+        "industry": "Software"
+      },
+      "expected": {
+        "matched_skills": [
+          "JavaScript",
+          "React"
+        ],
+        "partial_skills": [],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "blocking_risks": [],
+        "eligibility": "ELIGIBLE",
+        "recommendations": [
+          "RECOMMENDED",
+          "STRONGLY_RECOMMENDED"
+        ],
+        "match_band": "HIGH"
+      },
+      "rationale": "Both language requirements and explicit work eligibility are confirmed; the on-site location matches."
+    },
+    {
+      "case_id": "H015",
+      "category": "BLOCKING",
+      "resume": {
+        "skills": [
+          "Python",
+          "FastAPI"
+        ],
+        "experience_years": 3,
+        "degree": "Bachelor of Computer Science",
+        "languages": [
+          "English"
+        ],
+        "location": "Shenzhen",
+        "preferences": {
+          "work_eligibility": "not eligible"
+        },
+        "target_roles": [
+          "Backend Engineer"
+        ]
+      },
+      "job": {
+        "title": "Backend Engineer",
+        "skills": [
+          {
+            "name": "Python",
+            "required": true
+          },
+          {
+            "name": "FastAPI",
+            "required": true
+          }
+        ],
+        "requirements": "Must be legally eligible to work in Hong Kong. English is required.",
+        "experience_level": "2+ years",
+        "education_requirement": "Bachelor degree",
+        "languages": [
+          "English"
+        ],
+        "location": "Hong Kong",
+        "employment_type": "On-site",
+        "description": "Join a team delivering regulated customer systems.",
+        "responsibilities": "Build and operate backend services.",
+        "industry": "Software"
+      },
+      "expected": {
+        "matched_skills": [
+          "Python",
+          "FastAPI"
+        ],
+        "partial_skills": [],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "blocking_risks": [
+          "WORK_ELIGIBILITY_BLOCKED"
+        ],
+        "eligibility": "BLOCKED",
+        "recommendations": [
+          "NOT_RECOMMENDED",
+          "HIGH_RISK"
+        ],
+        "match_band": "LOW"
+      },
+      "rationale": "Known ineligibility for an explicit work-authorization condition is a true blocking risk, unlike an unverified status."
+    },
+    {
+      "case_id": "H016",
+      "category": "MEDIUM_MATCH",
+      "resume": {
+        "skills": [
+          "Python",
+          "Git"
+        ],
+        "experience_years": 2,
+        "degree": "Bachelor of Computer Science",
+        "languages": [
+          "English"
+        ],
+        "location": "Shanghai",
+        "target_roles": [
+          "Backend Engineer"
+        ]
+      },
+      "job": {
+        "title": "Backend Engineer",
+        "skills": [
+          {
+            "name": "Python",
+            "required": true
+          },
+          {
+            "name": "Git",
+            "required": true
+          }
+        ],
+        "requirements": "The role is hybrid with three office days each week. Python and Git are required; relocation support is not provided.",
+        "experience_level": "2+ years",
+        "education_requirement": "Bachelor degree",
+        "languages": [
+          "English"
+        ],
+        "location": "Shanghai",
+        "employment_type": "Hybrid",
+        "description": "Work closely with a colocated platform team.",
+        "responsibilities": "Ship tested API changes and participate in reviews.",
+        "industry": "Software"
+      },
+      "expected": {
+        "matched_skills": [
+          "Python",
+          "Git"
+        ],
+        "partial_skills": [],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "blocking_risks": [],
+        "eligibility": "ELIGIBLE",
+        "recommendations": [
+          "RECOMMENDED",
+          "STRONGLY_RECOMMENDED"
+        ],
+        "match_band": "HIGH"
+      },
+      "rationale": "Hybrid is a soft work arrangement and the candidate’s location is compatible; it is not treated as a missing technical skill."
+    },
+    {
+      "case_id": "H017",
+      "category": "MEDIUM_MATCH",
+      "resume": {
+        "skills": [
+          "Python",
+          "SQL"
+        ],
+        "experience_years": 2,
+        "degree": "Bachelor of Computer Science",
+        "languages": [
+          "English"
+        ],
+        "location": "Shanghai",
+        "target_roles": [
+          "Data Engineer"
+        ]
+      },
+      "job": {
+        "title": "Data Engineer",
+        "skills": [
+          {
+            "name": "Python",
+            "required": true
+          },
+          {
+            "name": "SQL",
+            "required": true
+          }
+        ],
+        "requirements": "This is an on-site role in Shanghai. Python and SQL are required; willingness to work from the office is expected.",
+        "experience_level": "2+ years",
+        "education_requirement": "Bachelor degree",
+        "languages": [
+          "English"
+        ],
+        "location": "Shanghai",
+        "employment_type": "On-site",
+        "description": "Partner with analysts in a shared office environment.",
+        "responsibilities": "Build batch pipelines and validate outputs.",
+        "industry": "Data"
+      },
+      "expected": {
+        "matched_skills": [
+          "Python",
+          "SQL"
+        ],
+        "partial_skills": [],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "blocking_risks": [],
+        "eligibility": "ELIGIBLE",
+        "recommendations": [
+          "RECOMMENDED",
+          "STRONGLY_RECOMMENDED"
+        ],
+        "match_band": "HIGH"
+      },
+      "rationale": "An explicit on-site condition is satisfied by the matching location; the condition is not a reason to invent a technical mismatch."
+    },
+    {
+      "case_id": "H018",
+      "category": "INCOMPLETE_JOB",
+      "resume": {
+        "skills": [
+          "Python"
+        ],
+        "experience_years": 1,
+        "degree": "Bachelor of Computer Science",
+        "languages": [
+          "English"
+        ],
+        "location": "Remote",
+        "target_roles": [
+          "Software Engineer"
+        ]
+      },
+      "job": {
+        "title": "Software Engineer",
+        "skills": [
+          {
+            "name": "Python",
+            "required": true
+          }
+        ],
+        "requirements": "Join our product engineering team and help deliver reliable features.",
+        "experience_level": null,
+        "education_requirement": null,
+        "languages": [],
+        "location": null,
+        "employment_type": null,
+        "description": "We value curiosity and careful engineering, but the public posting omits several details.",
+        "responsibilities": "Implement features with the team.",
+        "industry": "Software"
+      },
+      "expected": {
+        "matched_skills": [
+          "Python"
+        ],
+        "partial_skills": [],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "blocking_risks": [],
+        "eligibility": "UNVERIFIED",
+        "recommendations": [
+          "CONSIDER",
+          "RECOMMENDED"
+        ],
+        "match_band": "MODERATE"
+      },
+      "rationale": "The candidate matches the only explicit skill, but the sparse posting should lower confidence rather than fabricate requirements."
+    },
+    {
+      "case_id": "H019",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "resume": {
+        "skills": [
+          "Python",
+          "SQL"
+        ],
+        "unconfirmed_skills": [
+          "Docker"
+        ],
+        "experience_years": 2,
+        "degree": "Bachelor of Computer Science",
+        "languages": [
+          "English"
+        ],
+        "location": "Shanghai",
+        "target_roles": [
+          "Backend Engineer"
+        ]
+      },
+      "job": {
+        "title": "Backend Engineer",
+        "skills": [
+          {
+            "name": "Python",
+            "required": true
+          },
+          {
+            "name": "Docker",
+            "required": true
+          },
+          {
+            "name": "SQL",
+            "required": false
+          }
+        ],
+        "requirements": "Python and Docker are required for building and shipping services. SQL is a preferred foundation.",
+        "experience_level": "2+ years",
+        "education_requirement": "Bachelor degree",
+        "languages": [
+          "English"
+        ],
+        "location": "Shanghai",
+        "employment_type": "Hybrid",
+        "description": "We value reproducible delivery and reviewable evidence.",
+        "responsibilities": "Build APIs and improve deployment repeatability.",
+        "industry": "Software"
+      },
+      "expected": {
+        "matched_skills": [
+          "Python",
+          "SQL"
+        ],
+        "partial_skills": [
+          "Docker"
+        ],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "blocking_risks": [],
+        "eligibility": "UNVERIFIED",
+        "recommendations": [
+          "CONSIDER",
+          "RECOMMENDED"
+        ],
+        "match_band": "MODERATE"
+      },
+      "rationale": "Docker appears on the resume but is unconfirmed and lacks evidence, so PARTIAL is the expected state rather than MATCHED."
+    },
+    {
+      "case_id": "H020",
+      "category": "HIGH_MATCH",
+      "resume": {
+        "skills": [
+          "Python",
+          "FastAPI",
+          "SQL",
+          "Git"
+        ],
+        "experience_years": 1,
+        "degree": "Bachelor of Computer Science",
+        "languages": [
+          "English"
+        ],
+        "location": "Wuhan",
+        "target_roles": [
+          "Software Engineer"
+        ]
+      },
+      "job": {
+        "title": "Graduate Software Engineer",
+        "skills": [
+          {
+            "name": "Python",
+            "required": true
+          },
+          {
+            "name": "FastAPI",
+            "required": true
+          },
+          {
+            "name": "SQL",
+            "required": true
+          },
+          {
+            "name": "Git",
+            "required": false
+          }
+        ],
+        "requirements": "Final-year students and recent graduates are encouraged to apply. Python, FastAPI and SQL are required; Git is preferred.",
+        "experience_level": "Graduate programme",
+        "education_requirement": "Bachelor degree in Computer Science or a related field",
+        "languages": [
+          "English"
+        ],
+        "location": "Wuhan",
+        "employment_type": "Hybrid",
+        "description": "Join a structured graduate programme with code review and mentoring.",
+        "responsibilities": "Implement service endpoints and automated tests.",
+        "industry": "Software"
+      },
+      "expected": {
+        "matched_skills": [
+          "Python",
+          "FastAPI",
+          "SQL",
+          "Git"
+        ],
+        "partial_skills": [],
+        "missing_skills": [],
+        "unknown_skills": [],
+        "blocking_risks": [],
+        "eligibility": "ELIGIBLE",
+        "recommendations": [
+          "STRONGLY_RECOMMENDED",
+          "RECOMMENDED"
+        ],
+        "match_band": "HIGH"
+      },
+      "rationale": "Final-year/graduate wording is a positive eligibility context; one year of project/work evidence is not compared against a senior minimum."
+    }
+  ],
+  "results": [
+    {
+      "case_id": "H001",
+      "category": "HIGH_MATCH",
+      "scoring_version": "deterministic-v1.1",
+      "rule_score": 98.0,
+      "recommendation": "RECOMMENDED",
+      "skill_statuses": {
+        "FastAPI": "MATCHED",
+        "PostgreSQL": "MATCHED",
+        "Python": "MATCHED",
+        "Docker": "MATCHED"
+      },
+      "risks": {
+        "JOB_REQUIREMENTS_INCOMPLETE": "INFO"
+      },
+      "evidence_complete": 8,
+      "evidence_total": 8,
+      "required_skill_evidence_complete": 3,
+      "required_skill_evidence_total": 3,
+      "blocking_evidence_complete": 0,
+      "blocking_evidence_total": 0,
+      "not_provided_count": 2,
+      "unknown_count": 0,
+      "job_information_completeness": 0.725,
+      "report_confidence": 0.725,
+      "report_confidence_level": "MEDIUM",
+      "recommendation_cap": "RECOMMENDED",
+      "policy_version": "blocking-policy-v1",
+      "information_statuses": {
+        "required_skills": "PROVIDED",
+        "preferred_skills": "PROVIDED",
+        "experience_requirement": "UNPARSEABLE",
+        "education_requirement": "PROVIDED",
+        "language_requirements": "PROVIDED",
+        "location_requirement": "PROVIDED",
+        "work_eligibility": "NOT_PROVIDED",
+        "certificates": "NOT_PROVIDED",
+        "responsibilities": "PROVIDED",
+        "employment_type": "PROVIDED"
+      },
+      "duration_ms": 14.6632,
+      "dimension_scores": {
+        "hard_skills": 100.0,
+        "evidence_strength": 90.0,
+        "experience_education": 100.0,
+        "language_location_eligibility": 100.0,
+        "user_preferences": 100.0,
+        "other_conditions": 100.0
+      },
+      "weighted_score_sum": 98.0,
+      "evidence_signature": [
+        "FastAPI|102|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "FastAPI|102|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "PostgreSQL|103|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "PostgreSQL|103|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|101|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|101|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Docker|104|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Docker|104|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE"
+      ],
+      "config_snapshot": {
+        "version": "deterministic-v1.1",
+        "skill_dictionary_version": "skill-dictionary-v1",
+        "job_requirement_extractor_version": "job-requirements-v1",
+        "weights": {
+          "hard_skills": 35,
+          "evidence_strength": 20,
+          "experience_education": 15,
+          "language_location_eligibility": 10,
+          "user_preferences": 10,
+          "other_conditions": 10
+        },
+        "partial_skill_credit": 0.5,
+        "unknown_criterion_credit": 0.7,
+        "required_skill_weight": 2,
+        "preferred_skill_weight": 1,
+        "blocking_policy": {
+          "policy_version": "blocking-policy-v1",
+          "work_eligibility_rule": "explicit_requirement_and_confirmed_conflict",
+          "mandatory_certificate_rule": "explicit_mandatory_and_confirmed_absence",
+          "mandatory_language_rule": "explicit_mandatory_and_confirmed_mismatch",
+          "experience_gap_rule": "explicit_minimum_and_gap_threshold",
+          "education_rule": "explicit_non_substitutable_minimum",
+          "explicit_requirement_markers": [
+            "must",
+            "required",
+            "mandatory",
+            "must have",
+            "minimum",
+            "at least",
+            "必须",
+            "必需",
+            "持有",
+            "最低",
+            "至少",
+            "硬性要求",
+            "不可替代"
+          ],
+          "preferred_requirement_markers": [
+            "preferred",
+            "nice to have",
+            "plus",
+            "bonus",
+            "优先",
+            "加分",
+            "更佳"
+          ],
+          "blocking_experience_gap_years": 3.0,
+          "confidence_thresholds": {
+            "high_min": 0.8,
+            "medium_min": 0.6,
+            "low_min": 0.5
+          },
+          "completeness_thresholds": {
+            "unrestricted_min": 0.8,
+            "recommended_cap_min": 0.6,
+            "consider_cap_min": 0.5
+          }
+        },
+        "base_rule_version": null,
+        "semantic": null,
+        "hybrid_weights": null,
+        "embedding_config": null
+      },
+      "expected_order_group": null,
+      "expected_order_rank": null
+    },
+    {
+      "case_id": "H002",
+      "category": "SKILL_GAP",
+      "scoring_version": "deterministic-v1.1",
+      "rule_score": 74.33,
+      "recommendation": "HIGH_RISK",
+      "skill_statuses": {
+        "Docker": "MISSING",
+        "FastAPI": "MATCHED",
+        "Python": "MATCHED"
+      },
+      "risks": {
+        "REQUIRED_SKILL_MISSING": "HIGH",
+        "USER_PREFERENCE_MISMATCH": "LOW",
+        "JOB_REQUIREMENTS_INCOMPLETE": "INFO"
+      },
+      "evidence_complete": 5,
+      "evidence_total": 5,
+      "required_skill_evidence_complete": 2,
+      "required_skill_evidence_total": 2,
+      "blocking_evidence_complete": 0,
+      "blocking_evidence_total": 0,
+      "not_provided_count": 3,
+      "unknown_count": 0,
+      "job_information_completeness": 0.625,
+      "report_confidence": 0.625,
+      "report_confidence_level": "MEDIUM",
+      "recommendation_cap": "RECOMMENDED",
+      "policy_version": "blocking-policy-v1",
+      "information_statuses": {
+        "required_skills": "PROVIDED",
+        "preferred_skills": "NOT_PROVIDED",
+        "experience_requirement": "UNPARSEABLE",
+        "education_requirement": "PROVIDED",
+        "language_requirements": "PROVIDED",
+        "location_requirement": "PROVIDED",
+        "work_eligibility": "NOT_PROVIDED",
+        "certificates": "NOT_PROVIDED",
+        "responsibilities": "PROVIDED",
+        "employment_type": "PROVIDED"
+      },
+      "duration_ms": 1.5183,
+      "dimension_scores": {
+        "hard_skills": 66.67,
+        "evidence_strength": 60.0,
+        "experience_education": 100.0,
+        "language_location_eligibility": 100.0,
+        "user_preferences": 40.0,
+        "other_conditions": 100.0
+      },
+      "weighted_score_sum": 74.33,
+      "evidence_signature": [
+        "Docker|||job_skills|CANONICAL_EXACT",
+        "FastAPI|202|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "FastAPI|202|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|201|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|201|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE"
+      ],
+      "config_snapshot": {
+        "version": "deterministic-v1.1",
+        "skill_dictionary_version": "skill-dictionary-v1",
+        "job_requirement_extractor_version": "job-requirements-v1",
+        "weights": {
+          "hard_skills": 35,
+          "evidence_strength": 20,
+          "experience_education": 15,
+          "language_location_eligibility": 10,
+          "user_preferences": 10,
+          "other_conditions": 10
+        },
+        "partial_skill_credit": 0.5,
+        "unknown_criterion_credit": 0.7,
+        "required_skill_weight": 2,
+        "preferred_skill_weight": 1,
+        "blocking_policy": {
+          "policy_version": "blocking-policy-v1",
+          "work_eligibility_rule": "explicit_requirement_and_confirmed_conflict",
+          "mandatory_certificate_rule": "explicit_mandatory_and_confirmed_absence",
+          "mandatory_language_rule": "explicit_mandatory_and_confirmed_mismatch",
+          "experience_gap_rule": "explicit_minimum_and_gap_threshold",
+          "education_rule": "explicit_non_substitutable_minimum",
+          "explicit_requirement_markers": [
+            "must",
+            "required",
+            "mandatory",
+            "must have",
+            "minimum",
+            "at least",
+            "必须",
+            "必需",
+            "持有",
+            "最低",
+            "至少",
+            "硬性要求",
+            "不可替代"
+          ],
+          "preferred_requirement_markers": [
+            "preferred",
+            "nice to have",
+            "plus",
+            "bonus",
+            "优先",
+            "加分",
+            "更佳"
+          ],
+          "blocking_experience_gap_years": 3.0,
+          "confidence_thresholds": {
+            "high_min": 0.8,
+            "medium_min": 0.6,
+            "low_min": 0.5
+          },
+          "completeness_thresholds": {
+            "unrestricted_min": 0.8,
+            "recommended_cap_min": 0.6,
+            "consider_cap_min": 0.5
+          }
+        },
+        "base_rule_version": null,
+        "semantic": null,
+        "hybrid_weights": null,
+        "embedding_config": null
+      },
+      "expected_order_group": null,
+      "expected_order_rank": null
+    },
+    {
+      "case_id": "H003",
+      "category": "MEDIUM_MATCH",
+      "scoring_version": "deterministic-v1.1",
+      "rule_score": 84.42,
+      "recommendation": "RECOMMENDED",
+      "skill_statuses": {
+        "Python": "MATCHED",
+        "SQL": "MATCHED",
+        "Data Analysis": "MISSING",
+        "Tableau": "UNKNOWN"
+      },
+      "risks": {
+        "JOB_REQUIREMENTS_INCOMPLETE": "INFO"
+      },
+      "evidence_complete": 6,
+      "evidence_total": 6,
+      "required_skill_evidence_complete": 2,
+      "required_skill_evidence_total": 2,
+      "blocking_evidence_complete": 0,
+      "blocking_evidence_total": 0,
+      "not_provided_count": 2,
+      "unknown_count": 1,
+      "job_information_completeness": 0.725,
+      "report_confidence": 0.6991,
+      "report_confidence_level": "MEDIUM",
+      "recommendation_cap": "RECOMMENDED",
+      "policy_version": "blocking-policy-v1",
+      "information_statuses": {
+        "required_skills": "PROVIDED",
+        "preferred_skills": "PROVIDED",
+        "experience_requirement": "UNPARSEABLE",
+        "education_requirement": "PROVIDED",
+        "language_requirements": "PROVIDED",
+        "location_requirement": "PROVIDED",
+        "work_eligibility": "NOT_PROVIDED",
+        "certificates": "NOT_PROVIDED",
+        "responsibilities": "PROVIDED",
+        "employment_type": "PROVIDED"
+      },
+      "duration_ms": 1.5268,
+      "dimension_scores": {
+        "hard_skills": 78.33,
+        "evidence_strength": 60.0,
+        "experience_education": 100.0,
+        "language_location_eligibility": 100.0,
+        "user_preferences": 100.0,
+        "other_conditions": 100.0
+      },
+      "weighted_score_sum": 84.42,
+      "evidence_signature": [
+        "Python|301|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|301|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "SQL|302|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "SQL|302|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Data Analysis|||job_skills|CANONICAL_EXACT",
+        "Tableau|||job_skills|NORMALIZED_TEXT"
+      ],
+      "config_snapshot": {
+        "version": "deterministic-v1.1",
+        "skill_dictionary_version": "skill-dictionary-v1",
+        "job_requirement_extractor_version": "job-requirements-v1",
+        "weights": {
+          "hard_skills": 35,
+          "evidence_strength": 20,
+          "experience_education": 15,
+          "language_location_eligibility": 10,
+          "user_preferences": 10,
+          "other_conditions": 10
+        },
+        "partial_skill_credit": 0.5,
+        "unknown_criterion_credit": 0.7,
+        "required_skill_weight": 2,
+        "preferred_skill_weight": 1,
+        "blocking_policy": {
+          "policy_version": "blocking-policy-v1",
+          "work_eligibility_rule": "explicit_requirement_and_confirmed_conflict",
+          "mandatory_certificate_rule": "explicit_mandatory_and_confirmed_absence",
+          "mandatory_language_rule": "explicit_mandatory_and_confirmed_mismatch",
+          "experience_gap_rule": "explicit_minimum_and_gap_threshold",
+          "education_rule": "explicit_non_substitutable_minimum",
+          "explicit_requirement_markers": [
+            "must",
+            "required",
+            "mandatory",
+            "must have",
+            "minimum",
+            "at least",
+            "必须",
+            "必需",
+            "持有",
+            "最低",
+            "至少",
+            "硬性要求",
+            "不可替代"
+          ],
+          "preferred_requirement_markers": [
+            "preferred",
+            "nice to have",
+            "plus",
+            "bonus",
+            "优先",
+            "加分",
+            "更佳"
+          ],
+          "blocking_experience_gap_years": 3.0,
+          "confidence_thresholds": {
+            "high_min": 0.8,
+            "medium_min": 0.6,
+            "low_min": 0.5
+          },
+          "completeness_thresholds": {
+            "unrestricted_min": 0.8,
+            "recommended_cap_min": 0.6,
+            "consider_cap_min": 0.5
+          }
+        },
+        "base_rule_version": null,
+        "semantic": null,
+        "hybrid_weights": null,
+        "embedding_config": null
+      },
+      "expected_order_group": null,
+      "expected_order_rank": null
+    },
+    {
+      "case_id": "H004",
+      "category": "HIGH_MATCH",
+      "scoring_version": "deterministic-v1.1",
+      "rule_score": 98.67,
+      "recommendation": "RECOMMENDED",
+      "skill_statuses": {
+        "CI/CD": "MATCHED",
+        "Docker": "MATCHED",
+        "Kubernetes": "MATCHED"
+      },
+      "risks": {
+        "JOB_REQUIREMENTS_INCOMPLETE": "INFO"
+      },
+      "evidence_complete": 6,
+      "evidence_total": 6,
+      "required_skill_evidence_complete": 3,
+      "required_skill_evidence_total": 3,
+      "blocking_evidence_complete": 0,
+      "blocking_evidence_total": 0,
+      "not_provided_count": 3,
+      "unknown_count": 0,
+      "job_information_completeness": 0.625,
+      "report_confidence": 0.625,
+      "report_confidence_level": "MEDIUM",
+      "recommendation_cap": "RECOMMENDED",
+      "policy_version": "blocking-policy-v1",
+      "information_statuses": {
+        "required_skills": "PROVIDED",
+        "preferred_skills": "NOT_PROVIDED",
+        "experience_requirement": "UNPARSEABLE",
+        "education_requirement": "PROVIDED",
+        "language_requirements": "PROVIDED",
+        "location_requirement": "PROVIDED",
+        "work_eligibility": "NOT_PROVIDED",
+        "certificates": "NOT_PROVIDED",
+        "responsibilities": "PROVIDED",
+        "employment_type": "PROVIDED"
+      },
+      "duration_ms": 1.5603,
+      "dimension_scores": {
+        "hard_skills": 100.0,
+        "evidence_strength": 93.33,
+        "experience_education": 100.0,
+        "language_location_eligibility": 100.0,
+        "user_preferences": 100.0,
+        "other_conditions": 100.0
+      },
+      "weighted_score_sum": 98.67,
+      "evidence_signature": [
+        "CI/CD|403|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "CI/CD|403|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Docker|401|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Docker|401|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Kubernetes|402|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Kubernetes|402|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE"
+      ],
+      "config_snapshot": {
+        "version": "deterministic-v1.1",
+        "skill_dictionary_version": "skill-dictionary-v1",
+        "job_requirement_extractor_version": "job-requirements-v1",
+        "weights": {
+          "hard_skills": 35,
+          "evidence_strength": 20,
+          "experience_education": 15,
+          "language_location_eligibility": 10,
+          "user_preferences": 10,
+          "other_conditions": 10
+        },
+        "partial_skill_credit": 0.5,
+        "unknown_criterion_credit": 0.7,
+        "required_skill_weight": 2,
+        "preferred_skill_weight": 1,
+        "blocking_policy": {
+          "policy_version": "blocking-policy-v1",
+          "work_eligibility_rule": "explicit_requirement_and_confirmed_conflict",
+          "mandatory_certificate_rule": "explicit_mandatory_and_confirmed_absence",
+          "mandatory_language_rule": "explicit_mandatory_and_confirmed_mismatch",
+          "experience_gap_rule": "explicit_minimum_and_gap_threshold",
+          "education_rule": "explicit_non_substitutable_minimum",
+          "explicit_requirement_markers": [
+            "must",
+            "required",
+            "mandatory",
+            "must have",
+            "minimum",
+            "at least",
+            "必须",
+            "必需",
+            "持有",
+            "最低",
+            "至少",
+            "硬性要求",
+            "不可替代"
+          ],
+          "preferred_requirement_markers": [
+            "preferred",
+            "nice to have",
+            "plus",
+            "bonus",
+            "优先",
+            "加分",
+            "更佳"
+          ],
+          "blocking_experience_gap_years": 3.0,
+          "confidence_thresholds": {
+            "high_min": 0.8,
+            "medium_min": 0.6,
+            "low_min": 0.5
+          },
+          "completeness_thresholds": {
+            "unrestricted_min": 0.8,
+            "recommended_cap_min": 0.6,
+            "consider_cap_min": 0.5
+          }
+        },
+        "base_rule_version": null,
+        "semantic": null,
+        "hybrid_weights": null,
+        "embedding_config": null
+      },
+      "expected_order_group": null,
+      "expected_order_rank": null
+    },
+    {
+      "case_id": "H005",
+      "category": "SKILL_GAP",
+      "scoring_version": "deterministic-v1.1",
+      "rule_score": 70.8,
+      "recommendation": "HIGH_RISK",
+      "skill_statuses": {
+        "PostgreSQL": "MISSING",
+        "SQL": "MATCHED",
+        "Python": "MATCHED"
+      },
+      "risks": {
+        "REQUIRED_SKILL_MISSING": "HIGH",
+        "USER_PREFERENCE_MISMATCH": "LOW",
+        "JOB_REQUIREMENTS_INCOMPLETE": "INFO"
+      },
+      "evidence_complete": 5,
+      "evidence_total": 5,
+      "required_skill_evidence_complete": 1,
+      "required_skill_evidence_total": 1,
+      "blocking_evidence_complete": 0,
+      "blocking_evidence_total": 0,
+      "not_provided_count": 2,
+      "unknown_count": 0,
+      "job_information_completeness": 0.725,
+      "report_confidence": 0.725,
+      "report_confidence_level": "MEDIUM",
+      "recommendation_cap": "RECOMMENDED",
+      "policy_version": "blocking-policy-v1",
+      "information_statuses": {
+        "required_skills": "PROVIDED",
+        "preferred_skills": "PROVIDED",
+        "experience_requirement": "UNPARSEABLE",
+        "education_requirement": "PROVIDED",
+        "language_requirements": "PROVIDED",
+        "location_requirement": "PROVIDED",
+        "work_eligibility": "NOT_PROVIDED",
+        "certificates": "NOT_PROVIDED",
+        "responsibilities": "PROVIDED",
+        "employment_type": "PROVIDED"
+      },
+      "duration_ms": 1.5139,
+      "dimension_scores": {
+        "hard_skills": 60.0,
+        "evidence_strength": 54.0,
+        "experience_education": 100.0,
+        "language_location_eligibility": 100.0,
+        "user_preferences": 40.0,
+        "other_conditions": 100.0
+      },
+      "weighted_score_sum": 70.8,
+      "evidence_signature": [
+        "PostgreSQL|||job_skills|CANONICAL_EXACT",
+        "SQL|502|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "SQL|502|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|501|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|501|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE"
+      ],
+      "config_snapshot": {
+        "version": "deterministic-v1.1",
+        "skill_dictionary_version": "skill-dictionary-v1",
+        "job_requirement_extractor_version": "job-requirements-v1",
+        "weights": {
+          "hard_skills": 35,
+          "evidence_strength": 20,
+          "experience_education": 15,
+          "language_location_eligibility": 10,
+          "user_preferences": 10,
+          "other_conditions": 10
+        },
+        "partial_skill_credit": 0.5,
+        "unknown_criterion_credit": 0.7,
+        "required_skill_weight": 2,
+        "preferred_skill_weight": 1,
+        "blocking_policy": {
+          "policy_version": "blocking-policy-v1",
+          "work_eligibility_rule": "explicit_requirement_and_confirmed_conflict",
+          "mandatory_certificate_rule": "explicit_mandatory_and_confirmed_absence",
+          "mandatory_language_rule": "explicit_mandatory_and_confirmed_mismatch",
+          "experience_gap_rule": "explicit_minimum_and_gap_threshold",
+          "education_rule": "explicit_non_substitutable_minimum",
+          "explicit_requirement_markers": [
+            "must",
+            "required",
+            "mandatory",
+            "must have",
+            "minimum",
+            "at least",
+            "必须",
+            "必需",
+            "持有",
+            "最低",
+            "至少",
+            "硬性要求",
+            "不可替代"
+          ],
+          "preferred_requirement_markers": [
+            "preferred",
+            "nice to have",
+            "plus",
+            "bonus",
+            "优先",
+            "加分",
+            "更佳"
+          ],
+          "blocking_experience_gap_years": 3.0,
+          "confidence_thresholds": {
+            "high_min": 0.8,
+            "medium_min": 0.6,
+            "low_min": 0.5
+          },
+          "completeness_thresholds": {
+            "unrestricted_min": 0.8,
+            "recommended_cap_min": 0.6,
+            "consider_cap_min": 0.5
+          }
+        },
+        "base_rule_version": null,
+        "semantic": null,
+        "hybrid_weights": null,
+        "embedding_config": null
+      },
+      "expected_order_group": null,
+      "expected_order_rank": null
+    },
+    {
+      "case_id": "H006",
+      "category": "SKILL_GAP",
+      "scoring_version": "deterministic-v1.1",
+      "rule_score": 69.0,
+      "recommendation": "HIGH_RISK",
+      "skill_statuses": {
+        "Artificial Intelligence": "MISSING",
+        "Python": "MATCHED",
+        "PyTorch": "UNKNOWN",
+        "Machine Learning": "MATCHED"
+      },
+      "risks": {
+        "REQUIRED_SKILL_MISSING": "HIGH",
+        "REQUIRED_SKILL_UNKNOWN": "INFO",
+        "USER_PREFERENCE_MISMATCH": "LOW",
+        "JOB_REQUIREMENTS_INCOMPLETE": "INFO"
+      },
+      "evidence_complete": 6,
+      "evidence_total": 6,
+      "required_skill_evidence_complete": 1,
+      "required_skill_evidence_total": 1,
+      "blocking_evidence_complete": 0,
+      "blocking_evidence_total": 0,
+      "not_provided_count": 2,
+      "unknown_count": 1,
+      "job_information_completeness": 0.725,
+      "report_confidence": 0.6991,
+      "report_confidence_level": "MEDIUM",
+      "recommendation_cap": "RECOMMENDED",
+      "policy_version": "blocking-policy-v1",
+      "information_statuses": {
+        "required_skills": "PROVIDED",
+        "preferred_skills": "PROVIDED",
+        "experience_requirement": "UNPARSEABLE",
+        "education_requirement": "PROVIDED",
+        "language_requirements": "PROVIDED",
+        "location_requirement": "PROVIDED",
+        "work_eligibility": "NOT_PROVIDED",
+        "certificates": "NOT_PROVIDED",
+        "responsibilities": "PROVIDED",
+        "employment_type": "PROVIDED"
+      },
+      "duration_ms": 1.5186,
+      "dimension_scores": {
+        "hard_skills": 62.86,
+        "evidence_strength": 40.0,
+        "experience_education": 100.0,
+        "language_location_eligibility": 100.0,
+        "user_preferences": 40.0,
+        "other_conditions": 100.0
+      },
+      "weighted_score_sum": 69.0,
+      "evidence_signature": [
+        "Artificial Intelligence|||requirements|LOCAL_ALIAS",
+        "Python|601|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|601|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "PyTorch|||job_skills|NORMALIZED_TEXT",
+        "Machine Learning|602|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Machine Learning|602|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE"
+      ],
+      "config_snapshot": {
+        "version": "deterministic-v1.1",
+        "skill_dictionary_version": "skill-dictionary-v1",
+        "job_requirement_extractor_version": "job-requirements-v1",
+        "weights": {
+          "hard_skills": 35,
+          "evidence_strength": 20,
+          "experience_education": 15,
+          "language_location_eligibility": 10,
+          "user_preferences": 10,
+          "other_conditions": 10
+        },
+        "partial_skill_credit": 0.5,
+        "unknown_criterion_credit": 0.7,
+        "required_skill_weight": 2,
+        "preferred_skill_weight": 1,
+        "blocking_policy": {
+          "policy_version": "blocking-policy-v1",
+          "work_eligibility_rule": "explicit_requirement_and_confirmed_conflict",
+          "mandatory_certificate_rule": "explicit_mandatory_and_confirmed_absence",
+          "mandatory_language_rule": "explicit_mandatory_and_confirmed_mismatch",
+          "experience_gap_rule": "explicit_minimum_and_gap_threshold",
+          "education_rule": "explicit_non_substitutable_minimum",
+          "explicit_requirement_markers": [
+            "must",
+            "required",
+            "mandatory",
+            "must have",
+            "minimum",
+            "at least",
+            "必须",
+            "必需",
+            "持有",
+            "最低",
+            "至少",
+            "硬性要求",
+            "不可替代"
+          ],
+          "preferred_requirement_markers": [
+            "preferred",
+            "nice to have",
+            "plus",
+            "bonus",
+            "优先",
+            "加分",
+            "更佳"
+          ],
+          "blocking_experience_gap_years": 3.0,
+          "confidence_thresholds": {
+            "high_min": 0.8,
+            "medium_min": 0.6,
+            "low_min": 0.5
+          },
+          "completeness_thresholds": {
+            "unrestricted_min": 0.8,
+            "recommended_cap_min": 0.6,
+            "consider_cap_min": 0.5
+          }
+        },
+        "base_rule_version": null,
+        "semantic": null,
+        "hybrid_weights": null,
+        "embedding_config": null
+      },
+      "expected_order_group": null,
+      "expected_order_rank": null
+    },
+    {
+      "case_id": "H007",
+      "category": "SKILL_GAP",
+      "scoring_version": "deterministic-v1.1",
+      "rule_score": 64.5,
+      "recommendation": "HIGH_RISK",
+      "skill_statuses": {
+        "AWS": "UNKNOWN",
+        "Docker": "MISSING",
+        "Python": "MATCHED"
+      },
+      "risks": {
+        "REQUIRED_SKILL_UNKNOWN": "INFO",
+        "REQUIRED_SKILL_MISSING": "HIGH",
+        "USER_PREFERENCE_MISMATCH": "LOW",
+        "JOB_REQUIREMENTS_INCOMPLETE": "INFO"
+      },
+      "evidence_complete": 4,
+      "evidence_total": 4,
+      "required_skill_evidence_complete": 1,
+      "required_skill_evidence_total": 1,
+      "blocking_evidence_complete": 0,
+      "blocking_evidence_total": 0,
+      "not_provided_count": 3,
+      "unknown_count": 1,
+      "job_information_completeness": 0.625,
+      "report_confidence": 0.599,
+      "report_confidence_level": "LOW",
+      "recommendation_cap": "RECOMMENDED",
+      "policy_version": "blocking-policy-v1",
+      "information_statuses": {
+        "required_skills": "PROVIDED",
+        "preferred_skills": "NOT_PROVIDED",
+        "experience_requirement": "UNPARSEABLE",
+        "education_requirement": "PROVIDED",
+        "language_requirements": "PROVIDED",
+        "location_requirement": "PROVIDED",
+        "work_eligibility": "NOT_PROVIDED",
+        "certificates": "NOT_PROVIDED",
+        "responsibilities": "PROVIDED",
+        "employment_type": "PROVIDED"
+      },
+      "duration_ms": 1.3813,
+      "dimension_scores": {
+        "hard_skills": 56.67,
+        "evidence_strength": 28.33,
+        "experience_education": 100.0,
+        "language_location_eligibility": 100.0,
+        "user_preferences": 40.0,
+        "other_conditions": 100.0
+      },
+      "weighted_score_sum": 64.5,
+      "evidence_signature": [
+        "AWS|||job_skills|NORMALIZED_TEXT",
+        "Docker|||requirements|CANONICAL_EXACT",
+        "Python|701|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|701|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE"
+      ],
+      "config_snapshot": {
+        "version": "deterministic-v1.1",
+        "skill_dictionary_version": "skill-dictionary-v1",
+        "job_requirement_extractor_version": "job-requirements-v1",
+        "weights": {
+          "hard_skills": 35,
+          "evidence_strength": 20,
+          "experience_education": 15,
+          "language_location_eligibility": 10,
+          "user_preferences": 10,
+          "other_conditions": 10
+        },
+        "partial_skill_credit": 0.5,
+        "unknown_criterion_credit": 0.7,
+        "required_skill_weight": 2,
+        "preferred_skill_weight": 1,
+        "blocking_policy": {
+          "policy_version": "blocking-policy-v1",
+          "work_eligibility_rule": "explicit_requirement_and_confirmed_conflict",
+          "mandatory_certificate_rule": "explicit_mandatory_and_confirmed_absence",
+          "mandatory_language_rule": "explicit_mandatory_and_confirmed_mismatch",
+          "experience_gap_rule": "explicit_minimum_and_gap_threshold",
+          "education_rule": "explicit_non_substitutable_minimum",
+          "explicit_requirement_markers": [
+            "must",
+            "required",
+            "mandatory",
+            "must have",
+            "minimum",
+            "at least",
+            "必须",
+            "必需",
+            "持有",
+            "最低",
+            "至少",
+            "硬性要求",
+            "不可替代"
+          ],
+          "preferred_requirement_markers": [
+            "preferred",
+            "nice to have",
+            "plus",
+            "bonus",
+            "优先",
+            "加分",
+            "更佳"
+          ],
+          "blocking_experience_gap_years": 3.0,
+          "confidence_thresholds": {
+            "high_min": 0.8,
+            "medium_min": 0.6,
+            "low_min": 0.5
+          },
+          "completeness_thresholds": {
+            "unrestricted_min": 0.8,
+            "recommended_cap_min": 0.6,
+            "consider_cap_min": 0.5
+          }
+        },
+        "base_rule_version": null,
+        "semantic": null,
+        "hybrid_weights": null,
+        "embedding_config": null
+      },
+      "expected_order_group": null,
+      "expected_order_rank": null
+    },
+    {
+      "case_id": "H008",
+      "category": "HIGH_MATCH",
+      "scoring_version": "deterministic-v1.1",
+      "rule_score": 98.0,
+      "recommendation": "RECOMMENDED",
+      "skill_statuses": {
+        "Python": "MATCHED",
+        "Git": "MATCHED"
+      },
+      "risks": {
+        "JOB_REQUIREMENTS_INCOMPLETE": "INFO"
+      },
+      "evidence_complete": 4,
+      "evidence_total": 4,
+      "required_skill_evidence_complete": 1,
+      "required_skill_evidence_total": 1,
+      "blocking_evidence_complete": 0,
+      "blocking_evidence_total": 0,
+      "not_provided_count": 2,
+      "unknown_count": 0,
+      "job_information_completeness": 0.725,
+      "report_confidence": 0.725,
+      "report_confidence_level": "MEDIUM",
+      "recommendation_cap": "RECOMMENDED",
+      "policy_version": "blocking-policy-v1",
+      "information_statuses": {
+        "required_skills": "PROVIDED",
+        "preferred_skills": "PROVIDED",
+        "experience_requirement": "UNPARSEABLE",
+        "education_requirement": "PROVIDED",
+        "language_requirements": "PROVIDED",
+        "location_requirement": "PROVIDED",
+        "work_eligibility": "NOT_PROVIDED",
+        "certificates": "NOT_PROVIDED",
+        "responsibilities": "PROVIDED",
+        "employment_type": "PROVIDED"
+      },
+      "duration_ms": 1.3643,
+      "dimension_scores": {
+        "hard_skills": 100.0,
+        "evidence_strength": 90.0,
+        "experience_education": 100.0,
+        "language_location_eligibility": 100.0,
+        "user_preferences": 100.0,
+        "other_conditions": 100.0
+      },
+      "weighted_score_sum": 98.0,
+      "evidence_signature": [
+        "Python|801|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|801|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Git|802|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Git|802|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE"
+      ],
+      "config_snapshot": {
+        "version": "deterministic-v1.1",
+        "skill_dictionary_version": "skill-dictionary-v1",
+        "job_requirement_extractor_version": "job-requirements-v1",
+        "weights": {
+          "hard_skills": 35,
+          "evidence_strength": 20,
+          "experience_education": 15,
+          "language_location_eligibility": 10,
+          "user_preferences": 10,
+          "other_conditions": 10
+        },
+        "partial_skill_credit": 0.5,
+        "unknown_criterion_credit": 0.7,
+        "required_skill_weight": 2,
+        "preferred_skill_weight": 1,
+        "blocking_policy": {
+          "policy_version": "blocking-policy-v1",
+          "work_eligibility_rule": "explicit_requirement_and_confirmed_conflict",
+          "mandatory_certificate_rule": "explicit_mandatory_and_confirmed_absence",
+          "mandatory_language_rule": "explicit_mandatory_and_confirmed_mismatch",
+          "experience_gap_rule": "explicit_minimum_and_gap_threshold",
+          "education_rule": "explicit_non_substitutable_minimum",
+          "explicit_requirement_markers": [
+            "must",
+            "required",
+            "mandatory",
+            "must have",
+            "minimum",
+            "at least",
+            "必须",
+            "必需",
+            "持有",
+            "最低",
+            "至少",
+            "硬性要求",
+            "不可替代"
+          ],
+          "preferred_requirement_markers": [
+            "preferred",
+            "nice to have",
+            "plus",
+            "bonus",
+            "优先",
+            "加分",
+            "更佳"
+          ],
+          "blocking_experience_gap_years": 3.0,
+          "confidence_thresholds": {
+            "high_min": 0.8,
+            "medium_min": 0.6,
+            "low_min": 0.5
+          },
+          "completeness_thresholds": {
+            "unrestricted_min": 0.8,
+            "recommended_cap_min": 0.6,
+            "consider_cap_min": 0.5
+          }
+        },
+        "base_rule_version": null,
+        "semantic": null,
+        "hybrid_weights": null,
+        "embedding_config": null
+      },
+      "expected_order_group": null,
+      "expected_order_rank": null
+    },
+    {
+      "case_id": "H009",
+      "category": "MEDIUM_MATCH",
+      "scoring_version": "deterministic-v1.1",
+      "rule_score": 89.75,
+      "recommendation": "STRONGLY_RECOMMENDED",
+      "skill_statuses": {
+        "JavaScript": "MATCHED",
+        "React": "MATCHED"
+      },
+      "risks": {
+        "EXPERIENCE_UNKNOWN": "INFO",
+        "USER_PREFERENCE_MISMATCH": "LOW"
+      },
+      "evidence_complete": 4,
+      "evidence_total": 4,
+      "required_skill_evidence_complete": 1,
+      "required_skill_evidence_total": 1,
+      "blocking_evidence_complete": 0,
+      "blocking_evidence_total": 0,
+      "not_provided_count": 2,
+      "unknown_count": 1,
+      "job_information_completeness": 0.8,
+      "report_confidence": 0.775,
+      "report_confidence_level": "MEDIUM",
+      "recommendation_cap": null,
+      "policy_version": "blocking-policy-v1",
+      "information_statuses": {
+        "required_skills": "PROVIDED",
+        "preferred_skills": "PROVIDED",
+        "experience_requirement": "PROVIDED",
+        "education_requirement": "PROVIDED",
+        "language_requirements": "PROVIDED",
+        "location_requirement": "PROVIDED",
+        "work_eligibility": "NOT_PROVIDED",
+        "certificates": "NOT_PROVIDED",
+        "responsibilities": "PROVIDED",
+        "employment_type": "PROVIDED"
+      },
+      "duration_ms": 1.6878,
+      "dimension_scores": {
+        "hard_skills": 100.0,
+        "evidence_strength": 90.0,
+        "experience_education": 85.0,
+        "language_location_eligibility": 100.0,
+        "user_preferences": 40.0,
+        "other_conditions": 100.0
+      },
+      "weighted_score_sum": 89.75,
+      "evidence_signature": [
+        "JavaScript|901|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "JavaScript|901|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "React|902|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "React|902|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE"
+      ],
+      "config_snapshot": {
+        "version": "deterministic-v1.1",
+        "skill_dictionary_version": "skill-dictionary-v1",
+        "job_requirement_extractor_version": "job-requirements-v1",
+        "weights": {
+          "hard_skills": 35,
+          "evidence_strength": 20,
+          "experience_education": 15,
+          "language_location_eligibility": 10,
+          "user_preferences": 10,
+          "other_conditions": 10
+        },
+        "partial_skill_credit": 0.5,
+        "unknown_criterion_credit": 0.7,
+        "required_skill_weight": 2,
+        "preferred_skill_weight": 1,
+        "blocking_policy": {
+          "policy_version": "blocking-policy-v1",
+          "work_eligibility_rule": "explicit_requirement_and_confirmed_conflict",
+          "mandatory_certificate_rule": "explicit_mandatory_and_confirmed_absence",
+          "mandatory_language_rule": "explicit_mandatory_and_confirmed_mismatch",
+          "experience_gap_rule": "explicit_minimum_and_gap_threshold",
+          "education_rule": "explicit_non_substitutable_minimum",
+          "explicit_requirement_markers": [
+            "must",
+            "required",
+            "mandatory",
+            "must have",
+            "minimum",
+            "at least",
+            "必须",
+            "必需",
+            "持有",
+            "最低",
+            "至少",
+            "硬性要求",
+            "不可替代"
+          ],
+          "preferred_requirement_markers": [
+            "preferred",
+            "nice to have",
+            "plus",
+            "bonus",
+            "优先",
+            "加分",
+            "更佳"
+          ],
+          "blocking_experience_gap_years": 3.0,
+          "confidence_thresholds": {
+            "high_min": 0.8,
+            "medium_min": 0.6,
+            "low_min": 0.5
+          },
+          "completeness_thresholds": {
+            "unrestricted_min": 0.8,
+            "recommended_cap_min": 0.6,
+            "consider_cap_min": 0.5
+          }
+        },
+        "base_rule_version": null,
+        "semantic": null,
+        "hybrid_weights": null,
+        "embedding_config": null
+      },
+      "expected_order_group": null,
+      "expected_order_rank": null
+    },
+    {
+      "case_id": "H010",
+      "category": "BLOCKING",
+      "scoring_version": "deterministic-v1.1",
+      "rule_score": 92.38,
+      "recommendation": "NOT_RECOMMENDED",
+      "skill_statuses": {
+        "FastAPI": "MATCHED",
+        "Python": "MATCHED"
+      },
+      "risks": {
+        "MINIMUM_EXPERIENCE_NOT_MET": "BLOCKING"
+      },
+      "evidence_complete": 4,
+      "evidence_total": 4,
+      "required_skill_evidence_complete": 2,
+      "required_skill_evidence_total": 2,
+      "blocking_evidence_complete": 1,
+      "blocking_evidence_total": 1,
+      "not_provided_count": 3,
+      "unknown_count": 0,
+      "job_information_completeness": 0.7,
+      "report_confidence": 0.7,
+      "report_confidence_level": "MEDIUM",
+      "recommendation_cap": "RECOMMENDED",
+      "policy_version": "blocking-policy-v1",
+      "information_statuses": {
+        "required_skills": "PROVIDED",
+        "preferred_skills": "NOT_PROVIDED",
+        "experience_requirement": "PROVIDED",
+        "education_requirement": "PROVIDED",
+        "language_requirements": "PROVIDED",
+        "location_requirement": "PROVIDED",
+        "work_eligibility": "NOT_PROVIDED",
+        "certificates": "NOT_PROVIDED",
+        "responsibilities": "PROVIDED",
+        "employment_type": "PROVIDED"
+      },
+      "duration_ms": 1.3412,
+      "dimension_scores": {
+        "hard_skills": 100.0,
+        "evidence_strength": 90.0,
+        "experience_education": 62.5,
+        "language_location_eligibility": 100.0,
+        "user_preferences": 100.0,
+        "other_conditions": 100.0
+      },
+      "weighted_score_sum": 92.38,
+      "evidence_signature": [
+        "FastAPI|1002|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "FastAPI|1002|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|1001|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|1001|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE"
+      ],
+      "config_snapshot": {
+        "version": "deterministic-v1.1",
+        "skill_dictionary_version": "skill-dictionary-v1",
+        "job_requirement_extractor_version": "job-requirements-v1",
+        "weights": {
+          "hard_skills": 35,
+          "evidence_strength": 20,
+          "experience_education": 15,
+          "language_location_eligibility": 10,
+          "user_preferences": 10,
+          "other_conditions": 10
+        },
+        "partial_skill_credit": 0.5,
+        "unknown_criterion_credit": 0.7,
+        "required_skill_weight": 2,
+        "preferred_skill_weight": 1,
+        "blocking_policy": {
+          "policy_version": "blocking-policy-v1",
+          "work_eligibility_rule": "explicit_requirement_and_confirmed_conflict",
+          "mandatory_certificate_rule": "explicit_mandatory_and_confirmed_absence",
+          "mandatory_language_rule": "explicit_mandatory_and_confirmed_mismatch",
+          "experience_gap_rule": "explicit_minimum_and_gap_threshold",
+          "education_rule": "explicit_non_substitutable_minimum",
+          "explicit_requirement_markers": [
+            "must",
+            "required",
+            "mandatory",
+            "must have",
+            "minimum",
+            "at least",
+            "必须",
+            "必需",
+            "持有",
+            "最低",
+            "至少",
+            "硬性要求",
+            "不可替代"
+          ],
+          "preferred_requirement_markers": [
+            "preferred",
+            "nice to have",
+            "plus",
+            "bonus",
+            "优先",
+            "加分",
+            "更佳"
+          ],
+          "blocking_experience_gap_years": 3.0,
+          "confidence_thresholds": {
+            "high_min": 0.8,
+            "medium_min": 0.6,
+            "low_min": 0.5
+          },
+          "completeness_thresholds": {
+            "unrestricted_min": 0.8,
+            "recommended_cap_min": 0.6,
+            "consider_cap_min": 0.5
+          }
+        },
+        "base_rule_version": null,
+        "semantic": null,
+        "hybrid_weights": null,
+        "embedding_config": null
+      },
+      "expected_order_group": null,
+      "expected_order_rank": null
+    },
+    {
+      "case_id": "H011",
+      "category": "MEDIUM_MATCH",
+      "scoring_version": "deterministic-v1.1",
+      "rule_score": 98.0,
+      "recommendation": "RECOMMENDED",
+      "skill_statuses": {
+        "Python": "MATCHED",
+        "SQL": "MATCHED"
+      },
+      "risks": {
+        "JOB_REQUIREMENTS_INCOMPLETE": "INFO"
+      },
+      "evidence_complete": 4,
+      "evidence_total": 4,
+      "required_skill_evidence_complete": 2,
+      "required_skill_evidence_total": 2,
+      "blocking_evidence_complete": 0,
+      "blocking_evidence_total": 0,
+      "not_provided_count": 3,
+      "unknown_count": 0,
+      "job_information_completeness": 0.625,
+      "report_confidence": 0.625,
+      "report_confidence_level": "MEDIUM",
+      "recommendation_cap": "RECOMMENDED",
+      "policy_version": "blocking-policy-v1",
+      "information_statuses": {
+        "required_skills": "PROVIDED",
+        "preferred_skills": "NOT_PROVIDED",
+        "experience_requirement": "UNPARSEABLE",
+        "education_requirement": "PROVIDED",
+        "language_requirements": "PROVIDED",
+        "location_requirement": "PROVIDED",
+        "work_eligibility": "NOT_PROVIDED",
+        "certificates": "NOT_PROVIDED",
+        "responsibilities": "PROVIDED",
+        "employment_type": "PROVIDED"
+      },
+      "duration_ms": 1.3503,
+      "dimension_scores": {
+        "hard_skills": 100.0,
+        "evidence_strength": 90.0,
+        "experience_education": 100.0,
+        "language_location_eligibility": 100.0,
+        "user_preferences": 100.0,
+        "other_conditions": 100.0
+      },
+      "weighted_score_sum": 98.0,
+      "evidence_signature": [
+        "Python|1101|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|1101|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "SQL|1102|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "SQL|1102|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE"
+      ],
+      "config_snapshot": {
+        "version": "deterministic-v1.1",
+        "skill_dictionary_version": "skill-dictionary-v1",
+        "job_requirement_extractor_version": "job-requirements-v1",
+        "weights": {
+          "hard_skills": 35,
+          "evidence_strength": 20,
+          "experience_education": 15,
+          "language_location_eligibility": 10,
+          "user_preferences": 10,
+          "other_conditions": 10
+        },
+        "partial_skill_credit": 0.5,
+        "unknown_criterion_credit": 0.7,
+        "required_skill_weight": 2,
+        "preferred_skill_weight": 1,
+        "blocking_policy": {
+          "policy_version": "blocking-policy-v1",
+          "work_eligibility_rule": "explicit_requirement_and_confirmed_conflict",
+          "mandatory_certificate_rule": "explicit_mandatory_and_confirmed_absence",
+          "mandatory_language_rule": "explicit_mandatory_and_confirmed_mismatch",
+          "experience_gap_rule": "explicit_minimum_and_gap_threshold",
+          "education_rule": "explicit_non_substitutable_minimum",
+          "explicit_requirement_markers": [
+            "must",
+            "required",
+            "mandatory",
+            "must have",
+            "minimum",
+            "at least",
+            "必须",
+            "必需",
+            "持有",
+            "最低",
+            "至少",
+            "硬性要求",
+            "不可替代"
+          ],
+          "preferred_requirement_markers": [
+            "preferred",
+            "nice to have",
+            "plus",
+            "bonus",
+            "优先",
+            "加分",
+            "更佳"
+          ],
+          "blocking_experience_gap_years": 3.0,
+          "confidence_thresholds": {
+            "high_min": 0.8,
+            "medium_min": 0.6,
+            "low_min": 0.5
+          },
+          "completeness_thresholds": {
+            "unrestricted_min": 0.8,
+            "recommended_cap_min": 0.6,
+            "consider_cap_min": 0.5
+          }
+        },
+        "base_rule_version": null,
+        "semantic": null,
+        "hybrid_weights": null,
+        "embedding_config": null
+      },
+      "expected_order_group": null,
+      "expected_order_rank": null
+    },
+    {
+      "case_id": "H012",
+      "category": "BLOCKING",
+      "scoring_version": "deterministic-v1.1",
+      "rule_score": 98.0,
+      "recommendation": "RECOMMENDED",
+      "skill_statuses": {
+        "Python": "MATCHED",
+        "SQL": "MATCHED"
+      },
+      "risks": {
+        "JOB_REQUIREMENTS_INCOMPLETE": "INFO"
+      },
+      "evidence_complete": 4,
+      "evidence_total": 4,
+      "required_skill_evidence_complete": 2,
+      "required_skill_evidence_total": 2,
+      "blocking_evidence_complete": 0,
+      "blocking_evidence_total": 0,
+      "not_provided_count": 3,
+      "unknown_count": 0,
+      "job_information_completeness": 0.625,
+      "report_confidence": 0.625,
+      "report_confidence_level": "MEDIUM",
+      "recommendation_cap": "RECOMMENDED",
+      "policy_version": "blocking-policy-v1",
+      "information_statuses": {
+        "required_skills": "PROVIDED",
+        "preferred_skills": "NOT_PROVIDED",
+        "experience_requirement": "UNPARSEABLE",
+        "education_requirement": "PROVIDED",
+        "language_requirements": "PROVIDED",
+        "location_requirement": "PROVIDED",
+        "work_eligibility": "NOT_PROVIDED",
+        "certificates": "NOT_PROVIDED",
+        "responsibilities": "PROVIDED",
+        "employment_type": "PROVIDED"
+      },
+      "duration_ms": 1.5836,
+      "dimension_scores": {
+        "hard_skills": 100.0,
+        "evidence_strength": 90.0,
+        "experience_education": 100.0,
+        "language_location_eligibility": 100.0,
+        "user_preferences": 100.0,
+        "other_conditions": 100.0
+      },
+      "weighted_score_sum": 98.0,
+      "evidence_signature": [
+        "Python|1201|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|1201|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "SQL|1202|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "SQL|1202|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE"
+      ],
+      "config_snapshot": {
+        "version": "deterministic-v1.1",
+        "skill_dictionary_version": "skill-dictionary-v1",
+        "job_requirement_extractor_version": "job-requirements-v1",
+        "weights": {
+          "hard_skills": 35,
+          "evidence_strength": 20,
+          "experience_education": 15,
+          "language_location_eligibility": 10,
+          "user_preferences": 10,
+          "other_conditions": 10
+        },
+        "partial_skill_credit": 0.5,
+        "unknown_criterion_credit": 0.7,
+        "required_skill_weight": 2,
+        "preferred_skill_weight": 1,
+        "blocking_policy": {
+          "policy_version": "blocking-policy-v1",
+          "work_eligibility_rule": "explicit_requirement_and_confirmed_conflict",
+          "mandatory_certificate_rule": "explicit_mandatory_and_confirmed_absence",
+          "mandatory_language_rule": "explicit_mandatory_and_confirmed_mismatch",
+          "experience_gap_rule": "explicit_minimum_and_gap_threshold",
+          "education_rule": "explicit_non_substitutable_minimum",
+          "explicit_requirement_markers": [
+            "must",
+            "required",
+            "mandatory",
+            "must have",
+            "minimum",
+            "at least",
+            "必须",
+            "必需",
+            "持有",
+            "最低",
+            "至少",
+            "硬性要求",
+            "不可替代"
+          ],
+          "preferred_requirement_markers": [
+            "preferred",
+            "nice to have",
+            "plus",
+            "bonus",
+            "优先",
+            "加分",
+            "更佳"
+          ],
+          "blocking_experience_gap_years": 3.0,
+          "confidence_thresholds": {
+            "high_min": 0.8,
+            "medium_min": 0.6,
+            "low_min": 0.5
+          },
+          "completeness_thresholds": {
+            "unrestricted_min": 0.8,
+            "recommended_cap_min": 0.6,
+            "consider_cap_min": 0.5
+          }
+        },
+        "base_rule_version": null,
+        "semantic": null,
+        "hybrid_weights": null,
+        "embedding_config": null
+      },
+      "expected_order_group": null,
+      "expected_order_rank": null
+    },
+    {
+      "case_id": "H013",
+      "category": "BLOCKING",
+      "scoring_version": "deterministic-v1.1",
+      "rule_score": 93.0,
+      "recommendation": "NOT_RECOMMENDED",
+      "skill_statuses": {
+        "JavaScript": "MATCHED",
+        "React": "MATCHED"
+      },
+      "risks": {
+        "LANGUAGE_REQUIREMENT_NOT_MET": "HIGH",
+        "WORK_ELIGIBILITY_BLOCKED": "BLOCKING",
+        "JOB_REQUIREMENTS_INCOMPLETE": "INFO"
+      },
+      "evidence_complete": 4,
+      "evidence_total": 4,
+      "required_skill_evidence_complete": 2,
+      "required_skill_evidence_total": 2,
+      "blocking_evidence_complete": 1,
+      "blocking_evidence_total": 1,
+      "not_provided_count": 2,
+      "unknown_count": 0,
+      "job_information_completeness": 0.725,
+      "report_confidence": 0.725,
+      "report_confidence_level": "MEDIUM",
+      "recommendation_cap": "RECOMMENDED",
+      "policy_version": "blocking-policy-v1",
+      "information_statuses": {
+        "required_skills": "PROVIDED",
+        "preferred_skills": "NOT_PROVIDED",
+        "experience_requirement": "UNPARSEABLE",
+        "education_requirement": "PROVIDED",
+        "language_requirements": "PROVIDED",
+        "location_requirement": "PROVIDED",
+        "work_eligibility": "PROVIDED",
+        "certificates": "NOT_PROVIDED",
+        "responsibilities": "PROVIDED",
+        "employment_type": "PROVIDED"
+      },
+      "duration_ms": 1.2021,
+      "dimension_scores": {
+        "hard_skills": 100.0,
+        "evidence_strength": 90.0,
+        "experience_education": 100.0,
+        "language_location_eligibility": 50.0,
+        "user_preferences": 100.0,
+        "other_conditions": 100.0
+      },
+      "weighted_score_sum": 93.0,
+      "evidence_signature": [
+        "JavaScript|1301|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "JavaScript|1301|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "React|1302|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "React|1302|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE"
+      ],
+      "config_snapshot": {
+        "version": "deterministic-v1.1",
+        "skill_dictionary_version": "skill-dictionary-v1",
+        "job_requirement_extractor_version": "job-requirements-v1",
+        "weights": {
+          "hard_skills": 35,
+          "evidence_strength": 20,
+          "experience_education": 15,
+          "language_location_eligibility": 10,
+          "user_preferences": 10,
+          "other_conditions": 10
+        },
+        "partial_skill_credit": 0.5,
+        "unknown_criterion_credit": 0.7,
+        "required_skill_weight": 2,
+        "preferred_skill_weight": 1,
+        "blocking_policy": {
+          "policy_version": "blocking-policy-v1",
+          "work_eligibility_rule": "explicit_requirement_and_confirmed_conflict",
+          "mandatory_certificate_rule": "explicit_mandatory_and_confirmed_absence",
+          "mandatory_language_rule": "explicit_mandatory_and_confirmed_mismatch",
+          "experience_gap_rule": "explicit_minimum_and_gap_threshold",
+          "education_rule": "explicit_non_substitutable_minimum",
+          "explicit_requirement_markers": [
+            "must",
+            "required",
+            "mandatory",
+            "must have",
+            "minimum",
+            "at least",
+            "必须",
+            "必需",
+            "持有",
+            "最低",
+            "至少",
+            "硬性要求",
+            "不可替代"
+          ],
+          "preferred_requirement_markers": [
+            "preferred",
+            "nice to have",
+            "plus",
+            "bonus",
+            "优先",
+            "加分",
+            "更佳"
+          ],
+          "blocking_experience_gap_years": 3.0,
+          "confidence_thresholds": {
+            "high_min": 0.8,
+            "medium_min": 0.6,
+            "low_min": 0.5
+          },
+          "completeness_thresholds": {
+            "unrestricted_min": 0.8,
+            "recommended_cap_min": 0.6,
+            "consider_cap_min": 0.5
+          }
+        },
+        "base_rule_version": null,
+        "semantic": null,
+        "hybrid_weights": null,
+        "embedding_config": null
+      },
+      "expected_order_group": null,
+      "expected_order_rank": null
+    },
+    {
+      "case_id": "H014",
+      "category": "MEDIUM_MATCH",
+      "scoring_version": "deterministic-v1.1",
+      "rule_score": 98.0,
+      "recommendation": "RECOMMENDED",
+      "skill_statuses": {
+        "JavaScript": "MATCHED",
+        "React": "MATCHED"
+      },
+      "risks": {
+        "JOB_REQUIREMENTS_INCOMPLETE": "INFO"
+      },
+      "evidence_complete": 4,
+      "evidence_total": 4,
+      "required_skill_evidence_complete": 2,
+      "required_skill_evidence_total": 2,
+      "blocking_evidence_complete": 0,
+      "blocking_evidence_total": 0,
+      "not_provided_count": 2,
+      "unknown_count": 0,
+      "job_information_completeness": 0.725,
+      "report_confidence": 0.725,
+      "report_confidence_level": "MEDIUM",
+      "recommendation_cap": "RECOMMENDED",
+      "policy_version": "blocking-policy-v1",
+      "information_statuses": {
+        "required_skills": "PROVIDED",
+        "preferred_skills": "NOT_PROVIDED",
+        "experience_requirement": "UNPARSEABLE",
+        "education_requirement": "PROVIDED",
+        "language_requirements": "PROVIDED",
+        "location_requirement": "PROVIDED",
+        "work_eligibility": "PROVIDED",
+        "certificates": "NOT_PROVIDED",
+        "responsibilities": "PROVIDED",
+        "employment_type": "PROVIDED"
+      },
+      "duration_ms": 1.1214,
+      "dimension_scores": {
+        "hard_skills": 100.0,
+        "evidence_strength": 90.0,
+        "experience_education": 100.0,
+        "language_location_eligibility": 100.0,
+        "user_preferences": 100.0,
+        "other_conditions": 100.0
+      },
+      "weighted_score_sum": 98.0,
+      "evidence_signature": [
+        "JavaScript|1401|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "JavaScript|1401|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "React|1402|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "React|1402|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE"
+      ],
+      "config_snapshot": {
+        "version": "deterministic-v1.1",
+        "skill_dictionary_version": "skill-dictionary-v1",
+        "job_requirement_extractor_version": "job-requirements-v1",
+        "weights": {
+          "hard_skills": 35,
+          "evidence_strength": 20,
+          "experience_education": 15,
+          "language_location_eligibility": 10,
+          "user_preferences": 10,
+          "other_conditions": 10
+        },
+        "partial_skill_credit": 0.5,
+        "unknown_criterion_credit": 0.7,
+        "required_skill_weight": 2,
+        "preferred_skill_weight": 1,
+        "blocking_policy": {
+          "policy_version": "blocking-policy-v1",
+          "work_eligibility_rule": "explicit_requirement_and_confirmed_conflict",
+          "mandatory_certificate_rule": "explicit_mandatory_and_confirmed_absence",
+          "mandatory_language_rule": "explicit_mandatory_and_confirmed_mismatch",
+          "experience_gap_rule": "explicit_minimum_and_gap_threshold",
+          "education_rule": "explicit_non_substitutable_minimum",
+          "explicit_requirement_markers": [
+            "must",
+            "required",
+            "mandatory",
+            "must have",
+            "minimum",
+            "at least",
+            "必须",
+            "必需",
+            "持有",
+            "最低",
+            "至少",
+            "硬性要求",
+            "不可替代"
+          ],
+          "preferred_requirement_markers": [
+            "preferred",
+            "nice to have",
+            "plus",
+            "bonus",
+            "优先",
+            "加分",
+            "更佳"
+          ],
+          "blocking_experience_gap_years": 3.0,
+          "confidence_thresholds": {
+            "high_min": 0.8,
+            "medium_min": 0.6,
+            "low_min": 0.5
+          },
+          "completeness_thresholds": {
+            "unrestricted_min": 0.8,
+            "recommended_cap_min": 0.6,
+            "consider_cap_min": 0.5
+          }
+        },
+        "base_rule_version": null,
+        "semantic": null,
+        "hybrid_weights": null,
+        "embedding_config": null
+      },
+      "expected_order_group": null,
+      "expected_order_rank": null
+    },
+    {
+      "case_id": "H015",
+      "category": "BLOCKING",
+      "scoring_version": "deterministic-v1.1",
+      "rule_score": 93.0,
+      "recommendation": "NOT_RECOMMENDED",
+      "skill_statuses": {
+        "FastAPI": "MATCHED",
+        "Python": "MATCHED"
+      },
+      "risks": {
+        "LOCATION_MISMATCH": "LOW",
+        "WORK_ELIGIBILITY_BLOCKED": "BLOCKING",
+        "JOB_REQUIREMENTS_INCOMPLETE": "INFO"
+      },
+      "evidence_complete": 4,
+      "evidence_total": 4,
+      "required_skill_evidence_complete": 2,
+      "required_skill_evidence_total": 2,
+      "blocking_evidence_complete": 1,
+      "blocking_evidence_total": 1,
+      "not_provided_count": 2,
+      "unknown_count": 0,
+      "job_information_completeness": 0.725,
+      "report_confidence": 0.725,
+      "report_confidence_level": "MEDIUM",
+      "recommendation_cap": "RECOMMENDED",
+      "policy_version": "blocking-policy-v1",
+      "information_statuses": {
+        "required_skills": "PROVIDED",
+        "preferred_skills": "NOT_PROVIDED",
+        "experience_requirement": "UNPARSEABLE",
+        "education_requirement": "PROVIDED",
+        "language_requirements": "PROVIDED",
+        "location_requirement": "PROVIDED",
+        "work_eligibility": "PROVIDED",
+        "certificates": "NOT_PROVIDED",
+        "responsibilities": "PROVIDED",
+        "employment_type": "PROVIDED"
+      },
+      "duration_ms": 1.0675,
+      "dimension_scores": {
+        "hard_skills": 100.0,
+        "evidence_strength": 90.0,
+        "experience_education": 100.0,
+        "language_location_eligibility": 50.0,
+        "user_preferences": 100.0,
+        "other_conditions": 100.0
+      },
+      "weighted_score_sum": 93.0,
+      "evidence_signature": [
+        "FastAPI|1502|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "FastAPI|1502|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|1501|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|1501|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE"
+      ],
+      "config_snapshot": {
+        "version": "deterministic-v1.1",
+        "skill_dictionary_version": "skill-dictionary-v1",
+        "job_requirement_extractor_version": "job-requirements-v1",
+        "weights": {
+          "hard_skills": 35,
+          "evidence_strength": 20,
+          "experience_education": 15,
+          "language_location_eligibility": 10,
+          "user_preferences": 10,
+          "other_conditions": 10
+        },
+        "partial_skill_credit": 0.5,
+        "unknown_criterion_credit": 0.7,
+        "required_skill_weight": 2,
+        "preferred_skill_weight": 1,
+        "blocking_policy": {
+          "policy_version": "blocking-policy-v1",
+          "work_eligibility_rule": "explicit_requirement_and_confirmed_conflict",
+          "mandatory_certificate_rule": "explicit_mandatory_and_confirmed_absence",
+          "mandatory_language_rule": "explicit_mandatory_and_confirmed_mismatch",
+          "experience_gap_rule": "explicit_minimum_and_gap_threshold",
+          "education_rule": "explicit_non_substitutable_minimum",
+          "explicit_requirement_markers": [
+            "must",
+            "required",
+            "mandatory",
+            "must have",
+            "minimum",
+            "at least",
+            "必须",
+            "必需",
+            "持有",
+            "最低",
+            "至少",
+            "硬性要求",
+            "不可替代"
+          ],
+          "preferred_requirement_markers": [
+            "preferred",
+            "nice to have",
+            "plus",
+            "bonus",
+            "优先",
+            "加分",
+            "更佳"
+          ],
+          "blocking_experience_gap_years": 3.0,
+          "confidence_thresholds": {
+            "high_min": 0.8,
+            "medium_min": 0.6,
+            "low_min": 0.5
+          },
+          "completeness_thresholds": {
+            "unrestricted_min": 0.8,
+            "recommended_cap_min": 0.6,
+            "consider_cap_min": 0.5
+          }
+        },
+        "base_rule_version": null,
+        "semantic": null,
+        "hybrid_weights": null,
+        "embedding_config": null
+      },
+      "expected_order_group": null,
+      "expected_order_rank": null
+    },
+    {
+      "case_id": "H016",
+      "category": "MEDIUM_MATCH",
+      "scoring_version": "deterministic-v1.1",
+      "rule_score": 98.0,
+      "recommendation": "RECOMMENDED",
+      "skill_statuses": {
+        "Git": "MATCHED",
+        "Python": "MATCHED"
+      },
+      "risks": {
+        "JOB_REQUIREMENTS_INCOMPLETE": "INFO"
+      },
+      "evidence_complete": 4,
+      "evidence_total": 4,
+      "required_skill_evidence_complete": 2,
+      "required_skill_evidence_total": 2,
+      "blocking_evidence_complete": 0,
+      "blocking_evidence_total": 0,
+      "not_provided_count": 3,
+      "unknown_count": 0,
+      "job_information_completeness": 0.625,
+      "report_confidence": 0.625,
+      "report_confidence_level": "MEDIUM",
+      "recommendation_cap": "RECOMMENDED",
+      "policy_version": "blocking-policy-v1",
+      "information_statuses": {
+        "required_skills": "PROVIDED",
+        "preferred_skills": "NOT_PROVIDED",
+        "experience_requirement": "UNPARSEABLE",
+        "education_requirement": "PROVIDED",
+        "language_requirements": "PROVIDED",
+        "location_requirement": "PROVIDED",
+        "work_eligibility": "NOT_PROVIDED",
+        "certificates": "NOT_PROVIDED",
+        "responsibilities": "PROVIDED",
+        "employment_type": "PROVIDED"
+      },
+      "duration_ms": 1.4026,
+      "dimension_scores": {
+        "hard_skills": 100.0,
+        "evidence_strength": 90.0,
+        "experience_education": 100.0,
+        "language_location_eligibility": 100.0,
+        "user_preferences": 100.0,
+        "other_conditions": 100.0
+      },
+      "weighted_score_sum": 98.0,
+      "evidence_signature": [
+        "Git|1602|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Git|1602|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|1601|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|1601|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE"
+      ],
+      "config_snapshot": {
+        "version": "deterministic-v1.1",
+        "skill_dictionary_version": "skill-dictionary-v1",
+        "job_requirement_extractor_version": "job-requirements-v1",
+        "weights": {
+          "hard_skills": 35,
+          "evidence_strength": 20,
+          "experience_education": 15,
+          "language_location_eligibility": 10,
+          "user_preferences": 10,
+          "other_conditions": 10
+        },
+        "partial_skill_credit": 0.5,
+        "unknown_criterion_credit": 0.7,
+        "required_skill_weight": 2,
+        "preferred_skill_weight": 1,
+        "blocking_policy": {
+          "policy_version": "blocking-policy-v1",
+          "work_eligibility_rule": "explicit_requirement_and_confirmed_conflict",
+          "mandatory_certificate_rule": "explicit_mandatory_and_confirmed_absence",
+          "mandatory_language_rule": "explicit_mandatory_and_confirmed_mismatch",
+          "experience_gap_rule": "explicit_minimum_and_gap_threshold",
+          "education_rule": "explicit_non_substitutable_minimum",
+          "explicit_requirement_markers": [
+            "must",
+            "required",
+            "mandatory",
+            "must have",
+            "minimum",
+            "at least",
+            "必须",
+            "必需",
+            "持有",
+            "最低",
+            "至少",
+            "硬性要求",
+            "不可替代"
+          ],
+          "preferred_requirement_markers": [
+            "preferred",
+            "nice to have",
+            "plus",
+            "bonus",
+            "优先",
+            "加分",
+            "更佳"
+          ],
+          "blocking_experience_gap_years": 3.0,
+          "confidence_thresholds": {
+            "high_min": 0.8,
+            "medium_min": 0.6,
+            "low_min": 0.5
+          },
+          "completeness_thresholds": {
+            "unrestricted_min": 0.8,
+            "recommended_cap_min": 0.6,
+            "consider_cap_min": 0.5
+          }
+        },
+        "base_rule_version": null,
+        "semantic": null,
+        "hybrid_weights": null,
+        "embedding_config": null
+      },
+      "expected_order_group": null,
+      "expected_order_rank": null
+    },
+    {
+      "case_id": "H017",
+      "category": "MEDIUM_MATCH",
+      "scoring_version": "deterministic-v1.1",
+      "rule_score": 98.0,
+      "recommendation": "RECOMMENDED",
+      "skill_statuses": {
+        "Python": "MATCHED",
+        "SQL": "MATCHED"
+      },
+      "risks": {
+        "JOB_REQUIREMENTS_INCOMPLETE": "INFO"
+      },
+      "evidence_complete": 4,
+      "evidence_total": 4,
+      "required_skill_evidence_complete": 2,
+      "required_skill_evidence_total": 2,
+      "blocking_evidence_complete": 0,
+      "blocking_evidence_total": 0,
+      "not_provided_count": 3,
+      "unknown_count": 0,
+      "job_information_completeness": 0.625,
+      "report_confidence": 0.625,
+      "report_confidence_level": "MEDIUM",
+      "recommendation_cap": "RECOMMENDED",
+      "policy_version": "blocking-policy-v1",
+      "information_statuses": {
+        "required_skills": "PROVIDED",
+        "preferred_skills": "NOT_PROVIDED",
+        "experience_requirement": "UNPARSEABLE",
+        "education_requirement": "PROVIDED",
+        "language_requirements": "PROVIDED",
+        "location_requirement": "PROVIDED",
+        "work_eligibility": "NOT_PROVIDED",
+        "certificates": "NOT_PROVIDED",
+        "responsibilities": "PROVIDED",
+        "employment_type": "PROVIDED"
+      },
+      "duration_ms": 1.5099,
+      "dimension_scores": {
+        "hard_skills": 100.0,
+        "evidence_strength": 90.0,
+        "experience_education": 100.0,
+        "language_location_eligibility": 100.0,
+        "user_preferences": 100.0,
+        "other_conditions": 100.0
+      },
+      "weighted_score_sum": 98.0,
+      "evidence_signature": [
+        "Python|1701|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|1701|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "SQL|1702|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "SQL|1702|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE"
+      ],
+      "config_snapshot": {
+        "version": "deterministic-v1.1",
+        "skill_dictionary_version": "skill-dictionary-v1",
+        "job_requirement_extractor_version": "job-requirements-v1",
+        "weights": {
+          "hard_skills": 35,
+          "evidence_strength": 20,
+          "experience_education": 15,
+          "language_location_eligibility": 10,
+          "user_preferences": 10,
+          "other_conditions": 10
+        },
+        "partial_skill_credit": 0.5,
+        "unknown_criterion_credit": 0.7,
+        "required_skill_weight": 2,
+        "preferred_skill_weight": 1,
+        "blocking_policy": {
+          "policy_version": "blocking-policy-v1",
+          "work_eligibility_rule": "explicit_requirement_and_confirmed_conflict",
+          "mandatory_certificate_rule": "explicit_mandatory_and_confirmed_absence",
+          "mandatory_language_rule": "explicit_mandatory_and_confirmed_mismatch",
+          "experience_gap_rule": "explicit_minimum_and_gap_threshold",
+          "education_rule": "explicit_non_substitutable_minimum",
+          "explicit_requirement_markers": [
+            "must",
+            "required",
+            "mandatory",
+            "must have",
+            "minimum",
+            "at least",
+            "必须",
+            "必需",
+            "持有",
+            "最低",
+            "至少",
+            "硬性要求",
+            "不可替代"
+          ],
+          "preferred_requirement_markers": [
+            "preferred",
+            "nice to have",
+            "plus",
+            "bonus",
+            "优先",
+            "加分",
+            "更佳"
+          ],
+          "blocking_experience_gap_years": 3.0,
+          "confidence_thresholds": {
+            "high_min": 0.8,
+            "medium_min": 0.6,
+            "low_min": 0.5
+          },
+          "completeness_thresholds": {
+            "unrestricted_min": 0.8,
+            "recommended_cap_min": 0.6,
+            "consider_cap_min": 0.5
+          }
+        },
+        "base_rule_version": null,
+        "semantic": null,
+        "hybrid_weights": null,
+        "embedding_config": null
+      },
+      "expected_order_group": null,
+      "expected_order_rank": null
+    },
+    {
+      "case_id": "H018",
+      "category": "INCOMPLETE_JOB",
+      "scoring_version": "deterministic-v1.1",
+      "rule_score": 97.0,
+      "recommendation": "CONSIDER",
+      "skill_statuses": {
+        "Python": "MATCHED"
+      },
+      "risks": {
+        "JOB_REQUIREMENTS_INCOMPLETE": "INFO"
+      },
+      "evidence_complete": 2,
+      "evidence_total": 2,
+      "required_skill_evidence_complete": 1,
+      "required_skill_evidence_total": 1,
+      "blocking_evidence_complete": 0,
+      "blocking_evidence_total": 0,
+      "not_provided_count": 8,
+      "unknown_count": 0,
+      "job_information_completeness": 0.2,
+      "report_confidence": 0.2,
+      "report_confidence_level": "VERY_LOW",
+      "recommendation_cap": "CONSIDER",
+      "policy_version": "blocking-policy-v1",
+      "information_statuses": {
+        "required_skills": "PROVIDED",
+        "preferred_skills": "NOT_PROVIDED",
+        "experience_requirement": "NOT_PROVIDED",
+        "education_requirement": "NOT_PROVIDED",
+        "language_requirements": "NOT_PROVIDED",
+        "location_requirement": "NOT_PROVIDED",
+        "work_eligibility": "NOT_PROVIDED",
+        "certificates": "NOT_PROVIDED",
+        "responsibilities": "PROVIDED",
+        "employment_type": "NOT_PROVIDED"
+      },
+      "duration_ms": 1.2854,
+      "dimension_scores": {
+        "hard_skills": 100.0,
+        "evidence_strength": 85.0,
+        "experience_education": 100.0,
+        "language_location_eligibility": 100.0,
+        "user_preferences": 100.0,
+        "other_conditions": 100.0
+      },
+      "weighted_score_sum": 97.0,
+      "evidence_signature": [
+        "Python|1801|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|1801|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE"
+      ],
+      "config_snapshot": {
+        "version": "deterministic-v1.1",
+        "skill_dictionary_version": "skill-dictionary-v1",
+        "job_requirement_extractor_version": "job-requirements-v1",
+        "weights": {
+          "hard_skills": 35,
+          "evidence_strength": 20,
+          "experience_education": 15,
+          "language_location_eligibility": 10,
+          "user_preferences": 10,
+          "other_conditions": 10
+        },
+        "partial_skill_credit": 0.5,
+        "unknown_criterion_credit": 0.7,
+        "required_skill_weight": 2,
+        "preferred_skill_weight": 1,
+        "blocking_policy": {
+          "policy_version": "blocking-policy-v1",
+          "work_eligibility_rule": "explicit_requirement_and_confirmed_conflict",
+          "mandatory_certificate_rule": "explicit_mandatory_and_confirmed_absence",
+          "mandatory_language_rule": "explicit_mandatory_and_confirmed_mismatch",
+          "experience_gap_rule": "explicit_minimum_and_gap_threshold",
+          "education_rule": "explicit_non_substitutable_minimum",
+          "explicit_requirement_markers": [
+            "must",
+            "required",
+            "mandatory",
+            "must have",
+            "minimum",
+            "at least",
+            "必须",
+            "必需",
+            "持有",
+            "最低",
+            "至少",
+            "硬性要求",
+            "不可替代"
+          ],
+          "preferred_requirement_markers": [
+            "preferred",
+            "nice to have",
+            "plus",
+            "bonus",
+            "优先",
+            "加分",
+            "更佳"
+          ],
+          "blocking_experience_gap_years": 3.0,
+          "confidence_thresholds": {
+            "high_min": 0.8,
+            "medium_min": 0.6,
+            "low_min": 0.5
+          },
+          "completeness_thresholds": {
+            "unrestricted_min": 0.8,
+            "recommended_cap_min": 0.6,
+            "consider_cap_min": 0.5
+          }
+        },
+        "base_rule_version": null,
+        "semantic": null,
+        "hybrid_weights": null,
+        "embedding_config": null
+      },
+      "expected_order_group": null,
+      "expected_order_rank": null
+    },
+    {
+      "case_id": "H019",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "scoring_version": "deterministic-v1.1",
+      "rule_score": 85.8,
+      "recommendation": "RECOMMENDED",
+      "skill_statuses": {
+        "Docker": "PARTIAL",
+        "Python": "MATCHED",
+        "SQL": "MATCHED"
+      },
+      "risks": {
+        "REQUIRED_SKILL_PARTIAL": "MEDIUM",
+        "JOB_REQUIREMENTS_INCOMPLETE": "INFO"
+      },
+      "evidence_complete": 5,
+      "evidence_total": 5,
+      "required_skill_evidence_complete": 1,
+      "required_skill_evidence_total": 1,
+      "blocking_evidence_complete": 0,
+      "blocking_evidence_total": 0,
+      "not_provided_count": 2,
+      "unknown_count": 0,
+      "job_information_completeness": 0.725,
+      "report_confidence": 0.725,
+      "report_confidence_level": "MEDIUM",
+      "recommendation_cap": "RECOMMENDED",
+      "policy_version": "blocking-policy-v1",
+      "information_statuses": {
+        "required_skills": "PROVIDED",
+        "preferred_skills": "PROVIDED",
+        "experience_requirement": "UNPARSEABLE",
+        "education_requirement": "PROVIDED",
+        "language_requirements": "PROVIDED",
+        "location_requirement": "PROVIDED",
+        "work_eligibility": "NOT_PROVIDED",
+        "certificates": "NOT_PROVIDED",
+        "responsibilities": "PROVIDED",
+        "employment_type": "PROVIDED"
+      },
+      "duration_ms": 1.3904,
+      "dimension_scores": {
+        "hard_skills": 80.0,
+        "evidence_strength": 64.0,
+        "experience_education": 100.0,
+        "language_location_eligibility": 100.0,
+        "user_preferences": 100.0,
+        "other_conditions": 100.0
+      },
+      "weighted_score_sum": 85.8,
+      "evidence_signature": [
+        "Docker|1903|page-1-block-0|job_skills|SKILL_NAME_WITH_INCOMPLETE_EVIDENCE",
+        "Python|1901|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|1901|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "SQL|1902|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "SQL|1902|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE"
+      ],
+      "config_snapshot": {
+        "version": "deterministic-v1.1",
+        "skill_dictionary_version": "skill-dictionary-v1",
+        "job_requirement_extractor_version": "job-requirements-v1",
+        "weights": {
+          "hard_skills": 35,
+          "evidence_strength": 20,
+          "experience_education": 15,
+          "language_location_eligibility": 10,
+          "user_preferences": 10,
+          "other_conditions": 10
+        },
+        "partial_skill_credit": 0.5,
+        "unknown_criterion_credit": 0.7,
+        "required_skill_weight": 2,
+        "preferred_skill_weight": 1,
+        "blocking_policy": {
+          "policy_version": "blocking-policy-v1",
+          "work_eligibility_rule": "explicit_requirement_and_confirmed_conflict",
+          "mandatory_certificate_rule": "explicit_mandatory_and_confirmed_absence",
+          "mandatory_language_rule": "explicit_mandatory_and_confirmed_mismatch",
+          "experience_gap_rule": "explicit_minimum_and_gap_threshold",
+          "education_rule": "explicit_non_substitutable_minimum",
+          "explicit_requirement_markers": [
+            "must",
+            "required",
+            "mandatory",
+            "must have",
+            "minimum",
+            "at least",
+            "必须",
+            "必需",
+            "持有",
+            "最低",
+            "至少",
+            "硬性要求",
+            "不可替代"
+          ],
+          "preferred_requirement_markers": [
+            "preferred",
+            "nice to have",
+            "plus",
+            "bonus",
+            "优先",
+            "加分",
+            "更佳"
+          ],
+          "blocking_experience_gap_years": 3.0,
+          "confidence_thresholds": {
+            "high_min": 0.8,
+            "medium_min": 0.6,
+            "low_min": 0.5
+          },
+          "completeness_thresholds": {
+            "unrestricted_min": 0.8,
+            "recommended_cap_min": 0.6,
+            "consider_cap_min": 0.5
+          }
+        },
+        "base_rule_version": null,
+        "semantic": null,
+        "hybrid_weights": null,
+        "embedding_config": null
+      },
+      "expected_order_group": null,
+      "expected_order_rank": null
+    },
+    {
+      "case_id": "H020",
+      "category": "HIGH_MATCH",
+      "scoring_version": "deterministic-v1.1",
+      "rule_score": 98.0,
+      "recommendation": "RECOMMENDED",
+      "skill_statuses": {
+        "FastAPI": "MATCHED",
+        "Python": "MATCHED",
+        "SQL": "MATCHED",
+        "Git": "MATCHED"
+      },
+      "risks": {
+        "JOB_REQUIREMENTS_INCOMPLETE": "INFO"
+      },
+      "evidence_complete": 8,
+      "evidence_total": 8,
+      "required_skill_evidence_complete": 3,
+      "required_skill_evidence_total": 3,
+      "blocking_evidence_complete": 0,
+      "blocking_evidence_total": 0,
+      "not_provided_count": 2,
+      "unknown_count": 0,
+      "job_information_completeness": 0.725,
+      "report_confidence": 0.725,
+      "report_confidence_level": "MEDIUM",
+      "recommendation_cap": "RECOMMENDED",
+      "policy_version": "blocking-policy-v1",
+      "information_statuses": {
+        "required_skills": "PROVIDED",
+        "preferred_skills": "PROVIDED",
+        "experience_requirement": "UNPARSEABLE",
+        "education_requirement": "PROVIDED",
+        "language_requirements": "PROVIDED",
+        "location_requirement": "PROVIDED",
+        "work_eligibility": "NOT_PROVIDED",
+        "certificates": "NOT_PROVIDED",
+        "responsibilities": "PROVIDED",
+        "employment_type": "PROVIDED"
+      },
+      "duration_ms": 1.6857,
+      "dimension_scores": {
+        "hard_skills": 100.0,
+        "evidence_strength": 90.0,
+        "experience_education": 100.0,
+        "language_location_eligibility": 100.0,
+        "user_preferences": 100.0,
+        "other_conditions": 100.0
+      },
+      "weighted_score_sum": 98.0,
+      "evidence_signature": [
+        "FastAPI|2002|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "FastAPI|2002|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|2001|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Python|2001|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "SQL|2003|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "SQL|2003|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Git|2004|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE",
+        "Git|2004|page-1-block-0|job_skills|CANONICAL_SKILL_WITH_CONFIRMED_EVIDENCE"
+      ],
+      "config_snapshot": {
+        "version": "deterministic-v1.1",
+        "skill_dictionary_version": "skill-dictionary-v1",
+        "job_requirement_extractor_version": "job-requirements-v1",
+        "weights": {
+          "hard_skills": 35,
+          "evidence_strength": 20,
+          "experience_education": 15,
+          "language_location_eligibility": 10,
+          "user_preferences": 10,
+          "other_conditions": 10
+        },
+        "partial_skill_credit": 0.5,
+        "unknown_criterion_credit": 0.7,
+        "required_skill_weight": 2,
+        "preferred_skill_weight": 1,
+        "blocking_policy": {
+          "policy_version": "blocking-policy-v1",
+          "work_eligibility_rule": "explicit_requirement_and_confirmed_conflict",
+          "mandatory_certificate_rule": "explicit_mandatory_and_confirmed_absence",
+          "mandatory_language_rule": "explicit_mandatory_and_confirmed_mismatch",
+          "experience_gap_rule": "explicit_minimum_and_gap_threshold",
+          "education_rule": "explicit_non_substitutable_minimum",
+          "explicit_requirement_markers": [
+            "must",
+            "required",
+            "mandatory",
+            "must have",
+            "minimum",
+            "at least",
+            "必须",
+            "必需",
+            "持有",
+            "最低",
+            "至少",
+            "硬性要求",
+            "不可替代"
+          ],
+          "preferred_requirement_markers": [
+            "preferred",
+            "nice to have",
+            "plus",
+            "bonus",
+            "优先",
+            "加分",
+            "更佳"
+          ],
+          "blocking_experience_gap_years": 3.0,
+          "confidence_thresholds": {
+            "high_min": 0.8,
+            "medium_min": 0.6,
+            "low_min": 0.5
+          },
+          "completeness_thresholds": {
+            "unrestricted_min": 0.8,
+            "recommended_cap_min": 0.6,
+            "consider_cap_min": 0.5
+          }
+        },
+        "base_rule_version": null,
+        "semantic": null,
+        "hybrid_weights": null,
+        "embedding_config": null
+      },
+      "expected_order_group": null,
+      "expected_order_rank": null
+    }
+  ]
+}

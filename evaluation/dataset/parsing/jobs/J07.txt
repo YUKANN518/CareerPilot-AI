@@ -1,0 +1,5 @@
+Web Engineer
+Requirements
+Vue is required. TypeScript and JavaScript are preferred.
+Responsibilities
+Deliver reliable work with the team.

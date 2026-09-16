@@ -1,0 +1,94 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "careerpilot-backend"
+version = "0.1.0"
+description = "CareerPilot AI FastAPI backend"
+requires-python = ">=3.12"
+dependencies = [
+  "alembic>=1.14,<2",
+  "beautifulsoup4>=4.12,<5",
+  "cryptography>=44,<47",
+  "email-validator>=2.2,<3",
+  "fastapi>=0.115,<1",
+  "httpx>=0.28,<1",
+  "faiss-cpu>=1.9,<2",
+  "langchain-community>=0.3,<1",
+  "langchain-core>=0.3,<1",
+  "langchain-text-splitters>=0.3,<1",
+  "langgraph>=0.4,<1",
+  "pydantic>=2.10,<3",
+  "pydantic-settings>=2.7,<3",
+  "PyJWT>=2.10,<3",
+  "pwdlib[argon2]>=0.2,<1",
+  "pypdf>=5,<6",
+  "python-docx>=1.1,<2",
+  "python-multipart>=0.0.20,<1",
+  "sqlalchemy>=2.0.36,<3",
+  "sentence-transformers>=3.3,<6",
+  "uvicorn[standard]>=0.34,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "matplotlib>=3.10,<4",
+  "mypy>=1.14,<2",
+  "pytest>=8.3,<9",
+  "pytest-asyncio>=0.25,<1",
+  "pytest-cov>=6,<7",
+  "reportlab>=4.2,<5",
+  "ruff>=0.9,<1",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*", "evaluation*"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+extend-exclude = ["alembic/versions"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "RUF"]
+allowed-confusables = ["，", "（", "）", "？", "：", "；"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.pytest.ini_options]
+addopts = [
+  "-ra",
+  "--strict-config",
+  "--strict-markers",
+  "--cov=app/api",
+  "--cov=app/core",
+  "--cov=app/services",
+  "--cov-report=term-missing",
+]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+cache_dir = "pytest-cache"
+
+[tool.coverage.run]
+branch = true
+data_file = "coverage-data"
+
+[tool.mypy]
+python_version = "3.12"
+plugins = ["pydantic.mypy"]
+strict = true
+warn_unused_ignores = true
+exclude = ["alembic/versions"]
+cache_dir = "mypy-cache"
+incremental = false
+
+[[tool.mypy.overrides]]
+module = ["faiss.*", "pwdlib.*", "sentence_transformers.*"]
+ignore_missing_imports = true

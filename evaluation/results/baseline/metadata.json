@@ -1,0 +1,7 @@
+{
+  "matching_version": "deterministic-v1.1",
+  "rules_version": "blocking-policy-v1",
+  "dataset_version": "eval-v1",
+  "evaluation_date": "2026-09-16",
+  "dataset_source_sha256": "6de77983bb99ef430d7290b33ef58cc46bd23dd69e6778807dd0407253b101a5"
+}

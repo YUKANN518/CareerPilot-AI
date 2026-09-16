@@ -1,0 +1,5 @@
+Backend Engineer
+Requirements
+Required: Python, FastAPI, and PostgreSQL. Docker is preferred.
+Responsibilities
+Deliver reliable work with the team.

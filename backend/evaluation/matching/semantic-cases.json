@@ -1,0 +1,95 @@
+[
+  {
+    "case_id": "S01",
+    "category": "TRANSFERABLE_SKILL",
+    "resume_skills": ["Docker", "Python"],
+    "job_skills": ["Kubernetes", "Python"],
+    "resume_text": "Designed container orchestration and automated deployment of containerized Python services.",
+    "job_text": "Own container orchestration and deployment of containerized backend services on Kubernetes.",
+    "expected_relevance": 1.0
+  },
+  {
+    "case_id": "S02",
+    "category": "PROJECT_RESPONSIBILITY",
+    "resume_skills": ["Python", "SQL"],
+    "job_skills": ["Python", "Data Analysis"],
+    "resume_text": "Built a batch data pipeline that cleaned events and generated daily business metrics.",
+    "job_text": "Build batch data pipelines, clean product events, and publish daily business metrics.",
+    "expected_relevance": 1.0
+  },
+  {
+    "case_id": "S03",
+    "category": "SEMANTIC_SKILL",
+    "resume_skills": ["FastAPI", "Python"],
+    "job_skills": ["Django", "Python"],
+    "resume_text": "Implemented asynchronous REST API services with authentication, validation, and observability.",
+    "job_text": "Develop REST API services with authentication, validation, and production observability.",
+    "expected_relevance": 0.9
+  },
+  {
+    "case_id": "S04",
+    "category": "BILINGUAL",
+    "resume_skills": ["Vue", "TypeScript"],
+    "job_skills": ["React", "TypeScript"],
+    "resume_text": "负责企业级单页应用 SPA，implemented accessible TypeScript component workflows.",
+    "job_text": "Build 企业级单页应用 SPA and accessible TypeScript component workflows.",
+    "expected_relevance": 0.9
+  },
+  {
+    "case_id": "S05",
+    "category": "UNRELATED",
+    "resume_skills": ["Vue", "CSS"],
+    "job_skills": ["Machine Learning", "Python"],
+    "resume_text": "Created responsive marketing pages, typography systems, and browser animations.",
+    "job_text": "Train machine learning models for fraud detection and deploy Python inference services.",
+    "expected_relevance": 0.0
+  },
+  {
+    "case_id": "S06",
+    "category": "TEXT_SIMILAR_BLOCKING",
+    "resume_skills": ["Python", "FastAPI"],
+    "job_skills": ["Python", "FastAPI"],
+    "resume_text": "Built the same Python API platform described by the role, including authentication and deployment.",
+    "job_text": "Build a Python API platform with authentication and deployment. Must have work authorization in China.",
+    "expected_relevance": 1.0,
+    "blocking": true
+  },
+  {
+    "case_id": "S07",
+    "category": "INCOMPLETE_JOB",
+    "resume_skills": ["Python"],
+    "job_skills": [],
+    "resume_text": "Developed Python automation for internal operational reporting.",
+    "job_text": "Develop Python automation for operational reporting.",
+    "expected_relevance": 1.0,
+    "incomplete": true
+  },
+  {
+    "case_id": "S08",
+    "category": "EDUCATION_RELEVANCE",
+    "resume_skills": ["SQL"],
+    "job_skills": ["Data Analysis"],
+    "resume_text": "Computer science coursework covered statistics, databases, and experimental analysis.",
+    "job_text": "Apply statistics, databases, and experimental analysis to product decisions.",
+    "expected_relevance": 0.8
+  },
+  {
+    "case_id": "S09",
+    "category": "CERTIFICATE_RELEVANCE",
+    "resume_skills": ["Cloud"],
+    "job_skills": ["AWS"],
+    "resume_text": "AWS architecture certification with evidence of secure cloud infrastructure design.",
+    "job_text": "Design secure AWS cloud infrastructure and review architecture decisions.",
+    "expected_relevance": 0.9
+  },
+  {
+    "case_id": "S10",
+    "category": "DUPLICATE_EVIDENCE",
+    "resume_skills": ["Python"],
+    "job_skills": ["Python"],
+    "resume_text": "Built Python services. Built Python services. Built Python services.",
+    "job_text": "Build and maintain Python services.",
+    "expected_relevance": 0.8,
+    "duplicate_text": true
+  }
+]

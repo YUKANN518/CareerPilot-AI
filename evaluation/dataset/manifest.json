@@ -1,0 +1,10 @@
+{
+  "dataset_version": "eval-v1",
+  "case_source": "backend/evaluation/matching/labels/labels.json",
+  "resume_source": "backend/evaluation/matching/fixtures/resumes.json",
+  "job_source": "backend/evaluation/matching/fixtures/jobs.json",
+  "semantic_source": "backend/evaluation/matching/semantic-cases.json",
+  "annotation_status": "manually-authored-synthetic",
+  "case_count": 52,
+  "semantic_case_count": 10
+}

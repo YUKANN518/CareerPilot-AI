@@ -1,0 +1,80 @@
+:root {
+  color-scheme: light;
+
+  --color-background: 220 33% 98%;
+  --color-surface: 0 0% 100%;
+  --color-surface-muted: 220 32% 96%;
+  --color-border: 220 24% 90%;
+  --color-text: 224 35% 13%;
+  --color-text-muted: 220 13% 45%;
+  --color-primary: 226 64% 40%;
+  --color-primary-hover: 226 67% 34%;
+  --color-primary-soft: 226 75% 96%;
+  --color-info: 196 84% 41%;
+  --color-info-soft: 195 80% 95%;
+  --color-success: 153 57% 36%;
+  --color-success-soft: 151 56% 95%;
+  --color-warning: 35 92% 44%;
+  --color-warning-soft: 38 92% 95%;
+  --color-danger: 1 70% 48%;
+  --color-danger-soft: 0 78% 96%;
+  --color-purple: 263 62% 52%;
+  --color-purple-soft: 263 70% 96%;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+
+  --shadow-sm: 0 1px 3px rgb(31 43 78 / 0.05);
+  --shadow-md: 0 8px 24px rgb(31 43 78 / 0.07);
+  --shadow-lg: 0 20px 44px rgb(31 43 78 / 0.1);
+
+  --motion-fast: 150ms;
+  --motion-normal: 200ms;
+  --motion-slow: 300ms;
+
+  --font-size-caption: 0.75rem;
+  --line-height-caption: 1.125rem;
+  --font-size-support: 0.8125rem;
+  --line-height-support: 1.25rem;
+  --font-size-card: 0.875rem;
+  --line-height-card: 1.375rem;
+  --font-size-body: 0.9375rem;
+  --line-height-body: 1.5rem;
+  --font-size-section: 1.125rem;
+  --line-height-section: 1.625rem;
+  --font-size-page: 1.75rem;
+  --line-height-page: 2.25rem;
+  --font-size-metric: 1.875rem;
+  --line-height-metric: 2.375rem;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --color-background: 222 30% 10%;
+  --color-surface: 222 26% 13%;
+  --color-surface-muted: 218 22% 18%;
+  --color-border: 217 18% 27%;
+  --color-text: 210 20% 96%;
+  --color-text-muted: 215 16% 68%;
+  --color-primary: 218 78% 64%;
+  --color-primary-hover: 218 82% 70%;
+  --color-primary-soft: 222 30% 19%;
+  --color-info-soft: 196 30% 18%;
+  --color-success-soft: 153 26% 17%;
+  --color-warning-soft: 35 30% 18%;
+  --color-danger-soft: 0 30% 19%;
+  --color-purple-soft: 263 28% 19%;
+}

@@ -1,0 +1,53 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      APP_ENV: demo
+      APP_NAME: CareerPilot AI
+      AUTO_CREATE_TABLES: "true"
+      DATABASE_URL: sqlite:////workspace/data/runtime/demo/careerpilot-demo.db
+      UPLOAD_DIRECTORY: /workspace/data/runtime/demo/uploads
+      FAISS_INDEX_DIR: /workspace/data/runtime/demo/vector_store
+      AI_PROVIDER: mock
+      EMBEDDING_PROVIDER: fake
+      DIFY_PROVIDER_MODE: fake
+      DEMO_ADMIN_ENABLED: "true"
+      DEMO_ADMIN_EMAIL: admin@careerpilot.local
+      DEMO_ADMIN_PASSWORD: Admin123456!
+      JWT_SECRET_KEY: careerpilot-docker-demo-only-secret-key-32-characters
+      CORS_ORIGINS: http://localhost:5173,http://127.0.0.1:5173
+    volumes:
+      - ./data/runtime/docker-demo:/workspace/data
+    ports:
+      - "8000:8000"
+    command:
+      - sh
+      - -c
+      - >-
+        uv run --no-sync alembic upgrade head &&
+        uv run --no-sync python -m scripts.check_demo_config &&
+        uv run --no-sync python -m scripts.seed_demo &&
+        exec uv run --no-sync uvicorn app.main:app --host 0.0.0.0 --port 8000
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=3)"
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        VITE_API_BASE_URL: http://localhost:8000/api
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "5173:80"
+
