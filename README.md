@@ -291,7 +291,10 @@ The pre-publication inventory is [PORTFOLIO_ENGINEERING_AUDIT.md](PORTFOLIO_ENGI
 Dependency findings from `npm audit` are recorded in
 [DEPENDENCY_SECURITY_REPORT.md](DEPENDENCY_SECURITY_REPORT.md), and the public architecture is
 shown in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). CI uses Demo/Fake mode and does not require
-DeepSeek or Dify secrets. See [LICENSE](LICENSE) for the MIT license.
+DeepSeek or Dify secrets. The final engineering evidence is in
+[PHASE_5_PORTFOLIO_ENGINEERING_REPORT.md](PHASE_5_PORTFOLIO_ENGINEERING_REPORT.md), with the
+publication checklist in [PUBLICATION_SECURITY_CHECKLIST.md](PUBLICATION_SECURITY_CHECKLIST.md).
+See [LICENSE](LICENSE) for the MIT license.
 
 ## Known limitations
 
