@@ -141,7 +141,7 @@ cd backend
 py -3.12 -m pip install uv
 uv sync --extra dev --locked
 cd ..
-Copy-Item ..\.env.example .env
+Copy-Item .env.example .env
 cd backend
 uv run alembic upgrade head
 uv run uvicorn app.main:app --reload --host 127.0.0.1 --port 8000

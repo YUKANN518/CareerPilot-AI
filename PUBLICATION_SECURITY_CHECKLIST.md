@@ -22,6 +22,8 @@ hygiene without reproducing any secret or private resume content.
   should still be reviewed before any public release containing personal-looking text.
 - [x] Real-provider output is metadata-only in tracked reports; raw output is ignored.
 - [x] Demo credentials are clearly labelled local demo-only credentials in the README.
+- [x] DOCX fixture scan found only a synthetic `example.test` email domain in the test fixture;
+  no real-looking phone number or government ID was found.
 
 ## Review before pushing to a public remote
 
