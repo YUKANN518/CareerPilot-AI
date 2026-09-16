@@ -88,7 +88,7 @@ Previous static validation:
 
 - Compose syntax/config: **PASS** (`docker compose config --quiet`).
 - `docker compose build --no-cache`: **BLOCKED** as detailed in the follow-up section above.
-- `docker compose up` and container smoke: **NOT RUN**, because the complete build did not finish.
+- Container startup and smoke: **BLOCKED**, because the complete build did not finish.
 
 This is an external registry/dependency-download limitation, not a claimed application success.
 Re-run the build and runtime smoke after Docker Hub/GHCR/PyPI downloads are reliable.
