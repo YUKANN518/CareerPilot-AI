@@ -74,9 +74,9 @@ configured.
 ## Git
 
 The repository was initialized on branch `main` after the privacy cleanup. The first release
-commit is `0e0a13a` (`feat: prepare CareerPilot AI portfolio release`); the final documentation
-follow-up is `5a93bc6` (`docs: finalize publication guidance`). The working tree is clean and no
-remote was added or pushed.
+commit is `0e0a13a` (`feat: prepare CareerPilot AI portfolio release`). Documentation follow-ups
+are `5a93bc6` (`docs: finalize publication guidance`) and `25043d0` (`docs: record portfolio
+engineering validation`). The working tree is clean and no remote was added or pushed.
 
 ## Clean clone test
 
