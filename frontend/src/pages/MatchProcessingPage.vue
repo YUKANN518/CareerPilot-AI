@@ -42,6 +42,25 @@ const nodeLabels: Record<string, string> = {
   human_review: "人工确认",
 }
 
+const nodeStatusLabels: Record<MatchNodeStatus, string> = {
+  PENDING: "待处理",
+  RUNNING: "进行中",
+  SUCCEEDED: "已完成",
+  SKIPPED: "已跳过",
+  FAILED: "失败",
+  WAITING_REVIEW: "等待确认",
+  CANCELLED: "已取消",
+}
+
+const runStatusLabels: Record<string, string> = {
+  CREATED: "已创建",
+  RUNNING: "运行中",
+  WAITING_REVIEW: "等待确认",
+  SUCCEEDED: "已完成",
+  FAILED: "失败",
+  CANCELLED: "已取消",
+}
+
 function stepTone(status: MatchNodeStatus): "success" | "danger" | "primary" | "neutral" {
   if (status === "SUCCEEDED" || status === "SKIPPED") return "success"
   if (status === "FAILED") return "danger"
@@ -243,7 +262,7 @@ onBeforeUnmount(() => disconnect?.())
               <div class="rounded-md border p-4">
                 <div class="flex items-center justify-between gap-3">
                   <h2 class="font-semibold">{{ nodeLabels[step.node_name] }}</h2>
-                  <StatusBadge :tone="stepTone(step.status)">{{ step.status }}</StatusBadge>
+                  <StatusBadge :tone="stepTone(step.status)">{{ nodeStatusLabels[step.status] }}</StatusBadge>
                 </div>
                 <p class="mt-2 text-sm text-muted-foreground">
                   {{ step.summary.reason ?? step.summary }}
@@ -267,7 +286,7 @@ onBeforeUnmount(() => disconnect?.())
           <h2 class="font-semibold">运行摘要</h2>
           <dl class="mt-4 space-y-3 text-sm">
             <div class="flex justify-between"><dt>运行编号</dt><dd>#{{ run.run_id }}</dd></div>
-            <div class="flex justify-between"><dt>状态</dt><dd>{{ run.status }}</dd></div>
+            <div class="flex justify-between"><dt>状态</dt><dd>{{ runStatusLabels[run.status] ?? run.status }}</dd></div>
             <div class="flex justify-between"><dt>评分版本</dt><dd>{{ run.scoring_version }}</dd></div>
             <div class="flex justify-between"><dt>规则分</dt><dd>{{ run.rule_score ?? "—" }}</dd></div>
             <div class="flex justify-between"><dt>语义分</dt><dd>{{ run.semantic_score ?? "—" }}</dd></div>
