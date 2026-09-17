@@ -37,7 +37,7 @@ const nodeLabels: Record<string, string> = {
   load_inputs: "读取并验证输入",
   deterministic_matching: "确定性规则匹配",
   semantic_retrieval: "本地语义检索",
-  blocking_risk_check: "Blocking 风险检查",
+  blocking_risk_check: "阻断风险检查",
   save_report: "保存不可覆盖报告",
   human_review: "人工确认",
 }
@@ -176,7 +176,7 @@ onBeforeUnmount(() => disconnect?.())
     />
     <template v-else-if="run">
       <PageHeader
-        eyebrow="LangGraph workflow"
+        eyebrow="LangGraph 匹配流程"
         title="实时匹配流程"
         description="节点状态、耗时与摘要来自后端 SSE，不使用伪造进度。"
       >
@@ -266,7 +266,7 @@ onBeforeUnmount(() => disconnect?.())
         <aside class="rounded-lg border bg-surface p-5 shadow-sm">
           <h2 class="font-semibold">运行摘要</h2>
           <dl class="mt-4 space-y-3 text-sm">
-            <div class="flex justify-between"><dt>Run ID</dt><dd>#{{ run.run_id }}</dd></div>
+            <div class="flex justify-between"><dt>运行编号</dt><dd>#{{ run.run_id }}</dd></div>
             <div class="flex justify-between"><dt>状态</dt><dd>{{ run.status }}</dd></div>
             <div class="flex justify-between"><dt>评分版本</dt><dd>{{ run.scoring_version }}</dd></div>
             <div class="flex justify-between"><dt>规则分</dt><dd>{{ run.rule_score ?? "—" }}</dd></div>

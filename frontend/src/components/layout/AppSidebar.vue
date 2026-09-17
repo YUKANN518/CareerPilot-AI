@@ -34,27 +34,27 @@ interface NavigationItem {
 const workspaceItems: NavigationItem[] = [
   { label: "工作台", icon: LayoutDashboard, routeName: "dashboard" },
   {
-    label: "我的简历",
+    label: "简历",
     icon: FileText,
     routeName: "resumes",
     routePrefix: "resume",
   },
-  { label: "目标岗位", icon: BriefcaseBusiness, routeName: "jobs" },
+  { label: "岗位", icon: BriefcaseBusiness, routeName: "jobs" },
   {
-    label: "匹配任务",
+    label: "岗位匹配",
     icon: Target,
     routeName: "matches",
     routePrefix: "match",
   },
-  { label: "AI 职业助手", icon: Bot, routeName: "career-assistant" },
-  { label: "投递管理", icon: ClipboardList, routeName: "applications", routePrefix: "application" },
+  { label: "AI 求职助手", icon: Bot, routeName: "career-assistant" },
+  { label: "求职进度", icon: ClipboardList, routeName: "applications", routePrefix: "application" },
 ]
 
 const route = useRoute()
 const authStore = useAuthStore()
 const accountItems = computed<NavigationItem[]>(() => [
   ...(authStore.user?.role === "ADMIN"
-    ? [{ label: "知识库管理", icon: Database, routeName: "admin-knowledge-documents" }]
+    ? [{ label: "知识库", icon: Database, routeName: "admin-knowledge-documents" }]
     : []),
 ])
 const displayName = computed(
@@ -115,7 +115,7 @@ function isActive(item: NavigationItem): boolean {
         v-if="!collapsed"
         class="px-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground/70"
       >
-        Workspace
+        工作区
       </p>
       <ul class="mt-3 space-y-1">
         <li
@@ -149,7 +149,7 @@ function isActive(item: NavigationItem): boolean {
 
       <template v-if="!collapsed && accountItems.length > 0">
         <p class="mt-8 px-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground/70">
-          Account
+          账户
         </p>
       </template>
       <ul class="mt-3 space-y-1">

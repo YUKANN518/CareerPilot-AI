@@ -161,7 +161,7 @@ async function addToApplications(job: Job): Promise<void> {
   actionError.value = null
   try {
     await applicationService.create({ job_id: job.id, status: "SAVED" })
-    actionMessage.value = `已加入投递管理：${job.title}`
+    actionMessage.value = `已加入求职进度：${job.title}`
   } catch (error) {
     actionError.value = getApiErrorMessage(error)
   } finally {
@@ -274,8 +274,8 @@ onMounted(() => load())
 <template>
   <section class="space-y-6">
     <PageHeader
-      eyebrow="Target job analysis"
-      title="目标岗位"
+      eyebrow="岗位分析"
+      title="岗位"
       description="粘贴职位描述或批量导入 CSV，确认岗位要求后选择简历生成人岗匹配报告。"
     >
       <template #actions>

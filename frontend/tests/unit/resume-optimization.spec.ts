@@ -148,7 +148,7 @@ describe("resume optimizations list page", () => {
     expect(wrapper.text()).toContain("针对岗位调整项目顺序与关键词")
     expect(wrapper.text()).toContain("DRAFT")
     expect(wrapper.text()).toContain("2 个章节建议")
-    expect(wrapper.text()).toContain("Provider: dify")
+    expect(wrapper.text()).toContain("服务提供方：dify")
   })
 
   it("shows error state when the API call fails", async () => {

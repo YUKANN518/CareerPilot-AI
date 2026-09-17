@@ -128,7 +128,7 @@ onMounted(load)
         返回岗位详情
       </RouterLink>
       <PageHeader
-        eyebrow="Evidence-grounded match"
+        eyebrow="基于证据的岗位匹配"
         title="开始证据约束匹配"
         :description="`${job.title} · ${job.company}`"
       />
@@ -166,7 +166,7 @@ onMounted(load)
             <div>
               <h2 class="font-semibold">选择已确认简历版本</h2>
               <p class="mt-1 text-sm text-muted-foreground">
-                只有属于当前账号且已经人工确认（Human Verified）的正式版本可用于评分。
+                只有属于当前账号且已经人工确认的正式版本可用于评分。
               </p>
             </div>
           </div>
@@ -264,7 +264,7 @@ onMounted(load)
             <div>
               <dt class="text-xs text-muted-foreground">简历证据状态</dt>
               <dd class="mt-1 flex items-center gap-2 font-semibold">
-                <StatusBadge tone="success">Human Verified</StatusBadge>
+                <StatusBadge tone="success">已人工确认</StatusBadge>
                 <span v-if="selectedVersion">v{{ selectedVersion.version.version_number }}</span>
               </dd>
             </div>

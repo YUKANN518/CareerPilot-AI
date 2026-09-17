@@ -7,16 +7,16 @@ import { useAuthStore } from "@/stores/auth"
 
 const routeLabels: Record<string, string> = {
   dashboard: "工作台",
-  resumes: "我的简历",
+  resumes: "简历",
   "resume-upload": "上传简历",
   "resume-status": "简历处理",
   "resume-confirm": "解析确认",
   "resume-version": "版本详情",
-  jobs: "目标岗位",
+  jobs: "岗位",
   "job-detail": "目标岗位详情",
   "job-favorites": "我的收藏",
-  applications: "投递管理",
-  matches: "人岗匹配",
+  applications: "求职进度",
+  matches: "岗位匹配",
   "match-new": "发起匹配",
   "match-processing": "匹配流程",
   "match-report": "匹配报告",
@@ -80,7 +80,7 @@ onMounted(() => {
     </RouterLink>
 
     <div class="hidden min-w-0 flex-1 items-center gap-2 sm:flex">
-      <span class="text-sm text-muted-foreground">Workspace</span>
+      <span class="text-sm text-muted-foreground">工作区</span>
       <span class="text-muted-foreground/40">/</span>
       <span class="truncate text-sm font-semibold">{{ pageLabel }}</span>
     </div>

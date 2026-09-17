@@ -201,8 +201,8 @@ onBeforeUnmount(() => disconnect?.())
 <template>
   <section class="space-y-6">
     <PageHeader
-      eyebrow="Career assistant"
-      title="AI 职业助手"
+      eyebrow="AI 求职助手"
+      title="AI 求职助手"
       description="Demo / Optional Dify Integration · 基于本地知识库检索与 Dify 生成的问答，引用片段可追溯、不可伪造。"
     >
       <template #actions>

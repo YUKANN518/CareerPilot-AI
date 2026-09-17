@@ -33,15 +33,15 @@ function sourceLabel(item: EvidenceTrace): string {
 
 function sectionLabel(section: string | null): string {
   const labels: Record<string, string> = {
-    education: "Education",
-    project_experience: "Project Experience",
-    work_experience: "Work Experience",
-    skill_section: "Skill Section",
-    technical_skills: "Skill Section",
-    soft_skills: "Skill Section",
-    other_resume_text: "Other Resume Text",
+    education: "教育经历",
+    project_experience: "项目经历",
+    work_experience: "工作经历",
+    skill_section: "技能部分",
+    technical_skills: "技能部分",
+    soft_skills: "技能部分",
+    other_resume_text: "其他简历内容",
   }
-  return section ? (labels[section] ?? section) : "Source not classified"
+  return section ? (labels[section] ?? section) : "来源未分类"
 }
 </script>
 

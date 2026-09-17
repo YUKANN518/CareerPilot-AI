@@ -90,7 +90,7 @@ describe("match report page", () => {
       "后端结论",
     )
     expect(wrapper.get('[data-testid="matching-methodology"]').text()).toContain(
-      "Semantic Relevance 只表示文本相关程度",
+      "语义相关性只表示文本相关程度",
     )
   })
 
@@ -122,7 +122,7 @@ describe("match report page", () => {
       expect(wrapper.find(`[data-testid="skills-${status}"]`).exists()).toBe(true)
     }
     expect(wrapper.get('[data-testid="skills-MISSING"]').text()).toContain(
-      "No verified evidence found",
+      "未找到已确认的证据",
     )
   })
 
@@ -134,12 +134,12 @@ describe("match report page", () => {
     await flushPromises()
 
     expect(wrapper.get('[data-testid="semantic-evidence-section"]').text()).toContain(
-      "Semantic Relevance",
+      "语义相关性",
     )
     expect(wrapper.text()).toContain("82")
     expect(wrapper.text()).toContain("85.68")
     expect(wrapper.text()).toContain("fake-deterministic-v1")
-    expect(wrapper.text()).toContain("Supporting signal")
+    expect(wrapper.text()).toContain("辅助信号")
 
     await wrapper.get('[data-testid="semantic-evidence-1"]').trigger("click")
     const drawer = wrapper.findComponent(MatchEvidenceDrawer)
@@ -160,7 +160,7 @@ describe("match report page", () => {
     await flushPromises()
 
     const evidence = wrapper.get('[data-testid="skill-evidence-Python"]')
-    expect(evidence.text()).toContain("Verified · Work Experience")
+    expect(evidence.text()).toContain("Verified · 工作经历")
     expect(evidence.text()).toContain("Built a production Python API")
     expect(wrapper.get('[data-testid="evidence-coverage"]').text()).toContain("25%")
   })

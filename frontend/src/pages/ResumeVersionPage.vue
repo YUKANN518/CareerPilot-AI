@@ -210,7 +210,7 @@ onMounted(load)
     />
     <template v-else-if="version">
       <PageHeader
-        eyebrow="Resume version · 版本详情"
+        eyebrow="简历版本 · 版本详情"
         :title="`简历版本 ${version.version_number}`"
         description="已确认的历史版本不可覆盖，所有技能判断都可以回溯到简历原文。"
       >

@@ -56,6 +56,45 @@ export const riskLabels: Record<RiskSeverity, string> = {
   BLOCKING: "阻断",
 }
 
+export const dimensionStatusLabels: Record<string, string> = {
+  GOOD: "良好",
+  PARTIAL: "部分匹配",
+  WEAK: "较弱",
+  UNKNOWN: "无法判断",
+}
+
+export const verificationStatusLabels: Record<string, string> = {
+  CONFIRMED: "已确认",
+  UNVERIFIED: "未确认",
+  CONFLICT: "存在冲突",
+}
+
+export const requirementTypeLabels: Record<string, string> = {
+  REQUIRED: "必需",
+  PREFERRED: "加分项",
+}
+
+export const dimensionLabels: Record<string, string> = {
+  hard_skills: "硬技能",
+  evidence_strength: "证据强度",
+  experience_education: "经验与教育背景",
+  language_location_eligibility: "语言、地点与任职资格",
+  user_preferences: "求职偏好",
+  other_conditions: "其他条件",
+}
+
+export const dimensionDataStatusLabels: Record<string, string> = {
+  SATISFIED: "满足",
+  PARTIAL: "部分匹配",
+  UNSATISFIED: "不满足",
+  UNKNOWN: "无法判断",
+  NOT_PROVIDED: "未提供",
+}
+
+export function displayLabel(labels: Record<string, string>, value: string): string {
+  return labels[value] ?? value
+}
+
 export function recommendationLabel(value: RecommendationLevel | null): string {
   return value ? recommendationLabels[value] : "尚无结论"
 }

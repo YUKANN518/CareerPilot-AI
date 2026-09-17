@@ -41,6 +41,11 @@ import type { ResumeVersion } from "@/types/resume"
 import type { ResumeSkill } from "@/types/resume"
 import {
   evidenceFor,
+  dimensionStatusLabels,
+  dimensionDataStatusLabels,
+  dimensionLabels,
+  requirementTypeLabels,
+  verificationStatusLabels,
   groupSkillMatches,
   isPositiveInteger,
   recommendationLabel,
@@ -102,10 +107,10 @@ const snapshotJob = computed(() => report.value?.input_snapshot?.job ?? null)
 const snapshotResume = computed(() => report.value?.input_snapshot?.resume ?? null)
 const scoreBand = computed(() => {
   const score = report.value?.final_score
-  if (score === null || score === undefined) return "Pending"
-  if (score >= 85) return "High Match"
-  if (score >= 55) return "Moderate Match"
-  return "Low Match"
+  if (score === null || score === undefined) return "待计算"
+  if (score >= 85) return "高度匹配"
+  if (score >= 55) return "中度匹配"
+  return "低度匹配"
 })
 
 function recommendationTone(value: RecommendationLevel | null) {
@@ -144,15 +149,15 @@ function dimensionTone(status: string) {
 
 function evidenceSourceLabel(section: string | null): string {
   const labels: Record<string, string> = {
-    education: "Education",
-    project_experience: "Project Experience",
-    work_experience: "Work Experience",
-    skill_section: "Skill Section",
-    technical_skills: "Skill Section",
-    soft_skills: "Skill Section",
-    other_resume_text: "Other Resume Text",
+    education: "教育经历",
+    project_experience: "项目经历",
+    work_experience: "工作经历",
+    skill_section: "技能部分",
+    technical_skills: "技能部分",
+    soft_skills: "技能部分",
+    other_resume_text: "其他简历内容",
   }
-  return section ? (labels[section] ?? section) : "Source not classified"
+  return section ? (labels[section] ?? section) : "来源未分类"
 }
 
 function firstSkillEvidence(skill: SkillMatch): EvidenceTrace | null {
@@ -337,7 +342,7 @@ onMounted(load)
         返回匹配历史
       </RouterLink>
       <PageHeader
-        eyebrow="Match report"
+        eyebrow="匹配报告"
         :title="`${snapshotJob?.title ?? job?.title ?? `岗位 #${report.job_id}`} · 人岗匹配报告`"
         :description="`${snapshotJob?.company ?? job?.company ?? '岗位公司'} · 正式简历版本 v${snapshotResume?.version_number ?? version?.version_number ?? report.resume_version_id}`"
       >
@@ -402,7 +407,7 @@ onMounted(load)
 
       <section class="grid gap-4 lg:grid-cols-[17rem_minmax(0,1fr)]">
         <article class="rounded-lg border bg-surface p-6 shadow-sm">
-          <p class="text-xs font-semibold uppercase tracking-widest text-primary">Overall match</p>
+          <p class="text-xs font-semibold uppercase tracking-widest text-primary">综合匹配度</p>
           <div class="mt-4 flex items-end gap-1">
             <strong class="text-5xl font-bold tracking-tight">{{ report.final_score ?? "—" }}</strong>
             <span class="mb-1 text-sm text-muted-foreground">/100</span>
@@ -421,7 +426,7 @@ onMounted(load)
             {{ scoreBand }}
           </p>
           <div class="mt-3 flex flex-wrap gap-2">
-            <StatusBadge tone="success">Human Verified Resume</StatusBadge>
+            <StatusBadge tone="success">已人工确认简历</StatusBadge>
             <StatusBadge
               tone="neutral"
               data-testid="scoring-version"
@@ -483,7 +488,7 @@ onMounted(load)
               </dd>
             </div>
             <div>
-              <dt class="text-xs text-muted-foreground">Blocking 政策</dt>
+              <dt class="text-xs text-muted-foreground">阻断政策</dt>
               <dd class="mt-1 font-semibold">
                 {{ report.policy_version || "deterministic-v1 历史规则" }}
               </dd>
@@ -520,7 +525,7 @@ onMounted(load)
             class="mt-3 rounded-md border border-primary/15 bg-primary-soft p-4 text-xs"
             data-testid="matching-methodology"
           >
-            <summary class="cursor-pointer font-semibold">How this score was calculated</summary>
+            <summary class="cursor-pointer font-semibold">评分计算方式</summary>
             <div class="mt-3 space-y-2 leading-5 text-muted-foreground">
               <p>
                 CareerPilot 使用确定性规则评估已确认的简历证据、技能、经验、学历与资格条件。
@@ -528,11 +533,11 @@ onMounted(load)
               </p>
               <p v-if="report.scoring_version === 'hybrid-v1'">
                 最终分 = 规则分 {{ Math.round((report.scoring_config_snapshot.hybrid_weights?.deterministic ?? 0.7) * 100) }}%
-                + Semantic Relevance {{ Math.round((report.scoring_config_snapshot.hybrid_weights?.semantic ?? 0.3) * 100) }}%。
+                + 语义相关性 {{ Math.round((report.scoring_config_snapshot.hybrid_weights?.semantic ?? 0.3) * 100) }}%。
               </p>
               <p v-else>最终分等于确定性规则分；当前报告未加入语义相关性信号。</p>
               <p>
-                Semantic Relevance 只表示文本相关程度，不证明候选人掌握技能，也不能覆盖 Blocking Risk。
+                语义相关性只表示文本相关程度，不证明候选人掌握技能，也不能覆盖阻断风险。
               </p>
             </div>
           </details>
@@ -544,7 +549,7 @@ onMounted(load)
         data-testid="evidence-coverage"
       >
         <article class="rounded-lg border bg-surface p-6 shadow-sm">
-          <p class="text-xs font-semibold uppercase tracking-widest text-primary">Evidence Coverage</p>
+          <p class="text-xs font-semibold uppercase tracking-widest text-primary">证据覆盖率</p>
           <p class="mt-3 text-4xl font-bold">{{ Math.round(report.evidence_coverage.coverage_percent) }}%</p>
           <p class="mt-2 text-xs leading-5 text-muted-foreground">
             仅统计岗位技能要求中具有人工确认简历证据的比例，不额外加入总分。
@@ -570,8 +575,8 @@ onMounted(load)
         <div class="flex flex-wrap items-start justify-between gap-3">
           <div>
             <div class="flex items-center gap-2">
-              <h2 class="text-lg font-semibold">Semantic Relevance</h2>
-              <StatusBadge tone="info">Supporting signal</StatusBadge>
+              <h2 class="text-lg font-semibold">语义相关性</h2>
+              <StatusBadge tone="info">辅助信号</StatusBadge>
             </div>
             <p class="mt-1 text-sm text-muted-foreground">
               本地 FAISS 返回的项目、工作经历和技能证据相关性；规则证据仍在各规则结论中独立展示。
@@ -629,7 +634,7 @@ onMounted(load)
           v-if="blockingRisks.length"
           class="mt-5 rounded-md bg-danger-soft p-4 text-sm text-danger"
         >
-          语义相关性不能抵消资格冲突；Blocking 案例仍为不建议申请。
+          语义相关性不能抵消资格冲突；阻断案例仍为不建议申请。
         </p>
       </section>
 
@@ -642,16 +647,16 @@ onMounted(load)
           <div>
             <h2 class="text-lg font-semibold">结构化岗位要求</h2>
             <p class="mt-1 text-sm text-muted-foreground">
-              Required、Preferred 与资格条件由确定性解析器从岗位 JD 提取。
+              必需、加分项与资格条件由确定性解析器从岗位 JD 提取。
             </p>
           </div>
           <StatusBadge tone="primary">
-            Parsed from JD · {{ report.job_requirements.extractor_version }}
+            已从岗位描述解析 · {{ report.job_requirements.extractor_version }}
           </StatusBadge>
         </div>
         <div class="mt-5 grid gap-4 lg:grid-cols-3">
           <article class="rounded-md border p-4">
-            <h3 class="font-semibold">Required Skills</h3>
+            <h3 class="font-semibold">必需技能</h3>
             <ul class="mt-3 space-y-2 text-sm">
               <li
                 v-for="skill in report.job_requirements.skills.filter((item) => item.required)"
@@ -670,7 +675,7 @@ onMounted(load)
             </ul>
           </article>
           <article class="rounded-md border p-4">
-            <h3 class="font-semibold">Preferred Skills</h3>
+            <h3 class="font-semibold">加分技能</h3>
             <ul class="mt-3 space-y-2 text-sm">
               <li
                 v-for="skill in report.job_requirements.skills.filter((item) => !item.required)"
@@ -689,18 +694,18 @@ onMounted(load)
             </ul>
           </article>
           <article class="rounded-md border p-4">
-            <h3 class="font-semibold">Qualifications</h3>
+            <h3 class="font-semibold">资格条件</h3>
             <dl class="mt-3 space-y-3 text-sm">
               <div>
-                <dt class="text-xs text-muted-foreground">Experience · {{ report.job_requirements.experience_required_explicit ? "Required" : "Optional / unspecified" }}</dt>
+                <dt class="text-xs text-muted-foreground">经验 · {{ report.job_requirements.experience_required_explicit ? "必需" : "可选 / 未说明" }}</dt>
                 <dd class="mt-1">{{ report.job_requirements.minimum_experience_years !== null ? `${report.job_requirements.minimum_experience_years} 年` : "未提供" }}</dd>
               </div>
               <div>
-                <dt class="text-xs text-muted-foreground">Education · {{ report.job_requirements.education_required_explicit ? "Required" : "Optional / unspecified" }}</dt>
+                <dt class="text-xs text-muted-foreground">学历 · {{ report.job_requirements.education_required_explicit ? "必需" : "可选 / 未说明" }}</dt>
                 <dd class="mt-1">{{ report.job_requirements.education_level || "未提供" }}</dd>
               </div>
               <div>
-                <dt class="text-xs text-muted-foreground">Language · {{ report.job_requirements.language_required_explicit ? "Required" : report.job_requirements.language_preferred ? "Preferred" : "Optional / unspecified" }}</dt>
+                <dt class="text-xs text-muted-foreground">语言 · {{ report.job_requirements.language_required_explicit ? "必需" : report.job_requirements.language_preferred ? "加分项" : "可选 / 未说明" }}</dt>
                 <dd class="mt-1">{{ report.job_requirements.languages.join("、") || "未提供" }}</dd>
               </div>
               <div>
@@ -738,19 +743,19 @@ onMounted(load)
             >
               <div class="flex items-center justify-between gap-3">
                 <div>
-                  <strong class="text-sm">{{ dimension.label }}</strong>
+                  <strong class="text-sm">{{ dimensionLabels[dimension.code] ?? dimension.label }}</strong>
                   <StatusBadge
                     class="mt-2"
                     :tone="dimensionTone(dimension.status)"
                   >
-                    {{ dimension.status }}
+                    {{ dimensionStatusLabels[dimension.status] ?? dimension.status }}
                   </StatusBadge>
                 </div>
                 <span class="text-xl font-bold">{{ dimension.score }}</span>
               </div>
               <p class="mt-2 text-xs text-muted-foreground">
                 权重 {{ snapshotWeight(dimension) }}% · 加权贡献 {{ dimension.weighted_score }}
-                · 数据状态 {{ dimensionDetail(dimension)?.status ?? "后端未提供" }}
+                · 数据状态 {{ dimensionDataStatusLabels[dimensionDetail(dimension)?.status ?? ""] ?? dimensionDetail(dimension)?.status ?? "后端未提供" }}
                 · 风险 {{ riskCountForDimension(report, dimension) }}
               </p>
               <p
@@ -770,10 +775,10 @@ onMounted(load)
 
       <section class="rounded-lg border bg-surface p-6 shadow-sm">
         <div>
-          <h2 class="text-lg font-semibold">Matched Skills 与 Skill Gaps</h2>
+          <h2 class="text-lg font-semibold">已匹配技能与技能缺口</h2>
           <p class="mt-1 text-sm text-muted-foreground">
-            Matched 只接受人工确认的简历原文证据；PARTIAL、MISSING、UNKNOWN 是技能差距，
-            不等同于 Blocking Risk。
+            已匹配仅接受人工确认的简历原文证据；PARTIAL、MISSING、UNKNOWN 是技能差距，
+            不等同于阻断风险。
           </p>
         </div>
         <div class="mt-5 grid gap-5 xl:grid-cols-2">
@@ -808,7 +813,7 @@ onMounted(load)
                 >
                   <div class="flex flex-wrap items-center justify-between gap-2">
                     <strong class="text-sm">{{ skill.job_raw_name }} → {{ skill.normalized_name }}</strong>
-                    <StatusBadge :tone="skillTone(skill.status)">{{ skill.requirement_type }}</StatusBadge>
+                    <StatusBadge :tone="skillTone(skill.status)">{{ requirementTypeLabels[skill.requirement_type] ?? skill.requirement_type }}</StatusBadge>
                   </div>
                   <p class="mt-2 text-xs text-muted-foreground">
                     简历技能 {{ resumeSkillFor(skill)?.normalized_name || "未关联" }}
@@ -835,17 +840,17 @@ onMounted(load)
                     class="mt-3 grid gap-2 rounded-sm border border-warning/20 bg-surface p-3 text-xs"
                   >
                     <div>
-                      <dt class="text-muted-foreground">Job Requirement</dt>
+                      <dt class="text-muted-foreground">岗位要求</dt>
                       <dd class="mt-1">{{ evidenceFor(report, skill.normalized_name)[0]?.job_snippet || skill.job_raw_name }}</dd>
                     </div>
                     <div>
-                      <dt class="text-muted-foreground">Candidate Evidence</dt>
+                      <dt class="text-muted-foreground">候选人证据</dt>
                       <dd class="mt-1">
-                        {{ firstSkillEvidence(skill)?.resume_evidence || "No verified evidence found" }}
+                        {{ firstSkillEvidence(skill)?.resume_evidence || "未找到已确认的证据" }}
                       </dd>
                     </div>
                     <div>
-                      <dt class="text-muted-foreground">Reason</dt>
+                      <dt class="text-muted-foreground">原因</dt>
                       <dd class="mt-1">{{ skill.explanation }}</dd>
                     </div>
                   </dl>
@@ -863,7 +868,7 @@ onMounted(load)
       >
         <div class="flex items-center justify-between gap-3">
           <div>
-            <h2 class="text-lg font-semibold">Blocking Risk</h2>
+            <h2 class="text-lg font-semibold">阻断风险</h2>
             <p class="mt-1 text-sm text-muted-foreground">
               资格类风险与 Skill Gap 独立。UNVERIFIED 表示尚无证据，CONFLICT 表示已知冲突。
             </p>
@@ -896,13 +901,13 @@ onMounted(load)
                   <strong class="text-sm">{{ risk.title }}</strong>
                 </div>
                 <StatusBadge :tone="verificationTone(risk.verification_status)">
-                  {{ risk.verification_status }}
+                  {{ verificationStatusLabels[risk.verification_status] ?? risk.verification_status }}
                 </StatusBadge>
               </div>
               <p class="mt-3 text-sm leading-6">{{ risk.explanation }}</p>
               <dl class="mt-3 grid gap-3 text-xs sm:grid-cols-3">
                 <div><dt class="text-muted-foreground">岗位要求</dt><dd class="mt-1">{{ risk.job_requirement || "未提供" }}</dd></div>
-                <div><dt class="text-muted-foreground">Resume Evidence</dt><dd class="mt-1">{{ risk.resume_evidence || "No verified evidence found" }}</dd></div>
+                <div><dt class="text-muted-foreground">简历证据</dt><dd class="mt-1">{{ risk.resume_evidence || "未找到已确认的证据" }}</dd></div>
                 <div><dt class="text-muted-foreground">补救建议</dt><dd class="mt-1">{{ risk.remediation }}</dd></div>
               </dl>
             </button>
@@ -928,7 +933,7 @@ onMounted(load)
             <div class="flex flex-wrap items-center justify-between gap-2">
               <strong class="text-sm">{{ risk.title }}</strong>
               <StatusBadge :tone="severityTone(risk.severity)">
-                {{ riskLabels[risk.severity] }} · {{ risk.verification_status }}
+                {{ riskLabels[risk.severity] }} · {{ verificationStatusLabels[risk.verification_status] ?? risk.verification_status }}
               </StatusBadge>
             </div>
             <p class="mt-2 text-sm leading-6">{{ risk.explanation }}</p>

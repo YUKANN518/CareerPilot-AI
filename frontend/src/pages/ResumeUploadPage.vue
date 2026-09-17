@@ -82,7 +82,7 @@ async function submit(): Promise<void> {
 <template>
   <section class="space-y-6">
     <PageHeader
-      eyebrow="Resume workflow"
+      eyebrow="简历流程"
       title="上传简历"
       description="AI 将读取简历内容并生成结构化草稿，所有解析结果都需要你人工确认。"
     >
@@ -227,7 +227,7 @@ async function submit(): Promise<void> {
           <section class="rounded-lg border bg-surface p-5 shadow-sm">
             <div class="flex items-center justify-between">
               <h2 class="text-sm font-semibold">文件状态</h2>
-              <span class="text-xs text-muted-foreground">Upload</span>
+              <span class="text-xs text-muted-foreground">上传</span>
             </div>
             <div
               v-if="selectedFile && !errorMessage"
@@ -235,7 +235,7 @@ async function submit(): Promise<void> {
             >
               <FileCheck2 class="size-5 shrink-0 text-success" />
               <div class="min-w-0">
-                <p class="truncate text-xs font-semibold">Ready</p>
+                <p class="truncate text-xs font-semibold">就绪</p>
                 <p class="truncate text-xs text-muted-foreground">{{ selectedFile.name }}</p>
               </div>
             </div>

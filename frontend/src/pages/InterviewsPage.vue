@@ -54,6 +54,17 @@ function typeLabel(type: InterviewType): string {
   return labels[type] ?? type
 }
 
+function statusLabel(status: InterviewStatus): string {
+  const labels: Record<InterviewStatus, string> = {
+    PLANNED: "已计划",
+    IN_PROGRESS: "进行中",
+    COMPLETED: "已完成",
+    REPORTED: "已生成报告",
+    FAILED: "失败",
+  }
+  return labels[status] ?? status
+}
+
 function preview(text: string): string {
   if (!text) return "（暂无摘要）"
   return text.length > 120 ? text.slice(0, 120) + "…" : text
@@ -78,7 +89,7 @@ onMounted(load)
 <template>
   <section class="space-y-6">
     <PageHeader
-      eyebrow="Interview"
+      eyebrow="面试记录"
       title="模拟面试"
       description="基于已确认简历版本与真实岗位生成结构化面试问答，记录作答评分、事实校验与 AI 反馈。"
     >
@@ -150,12 +161,12 @@ onMounted(load)
               </p>
             </div>
             <StatusBadge :tone="statusTone(interview.status)">
-              {{ interview.status }}
+              {{ statusLabel(interview.status) }}
             </StatusBadge>
           </div>
           <div class="mt-3 flex flex-wrap gap-3 text-xs text-muted-foreground">
             <span>创建于 {{ formatDate(interview.created_at) }}</span>
-            <span v-if="interview.provider">Provider: {{ interview.provider }}</span>
+            <span v-if="interview.provider">服务提供方：{{ interview.provider }}</span>
           </div>
         </RouterLink>
       </div>

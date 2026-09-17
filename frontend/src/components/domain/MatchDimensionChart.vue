@@ -12,6 +12,7 @@ import type { GridComponentOption } from "echarts/components"
 import { onBeforeUnmount, onMounted, ref, watch } from "vue"
 
 import type { DimensionScore } from "@/types/matching"
+import { dimensionLabels } from "@/utils/matching"
 
 const props = defineProps<{ dimensions: DimensionScore[] }>()
 const chartElement = ref<HTMLDivElement | null>(null)
@@ -40,7 +41,7 @@ function render(): void {
         if (!item || typeof item !== "object" || !("dataIndex" in item)) return ""
         const dimension = props.dimensions[Number(item.dataIndex)]
         return dimension
-          ? `${dimension.label}<br/>维度分 ${dimension.score}<br/>权重 ${dimension.weight}%<br/>贡献 ${dimension.weighted_score}`
+          ? `${dimensionLabels[dimension.code] ?? dimension.label}<br/>维度分 ${dimension.score}<br/>权重 ${dimension.weight}%<br/>贡献 ${dimension.weighted_score}`
           : ""
       },
     },
@@ -54,7 +55,7 @@ function render(): void {
     yAxis: {
       type: "category",
       inverse: true,
-      data: props.dimensions.map((item) => item.label),
+      data: props.dimensions.map((item) => dimensionLabels[item.code] ?? item.label),
       axisTick: { show: false },
       axisLine: { show: false },
       axisLabel: {

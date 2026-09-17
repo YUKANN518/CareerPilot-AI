@@ -164,7 +164,7 @@ onUnmounted(() => window.removeEventListener("beforeunload", handleBeforeUnload)
     />
     <template v-else-if="profile && resume">
       <PageHeader
-        eyebrow="Resume workflow · Step 3 of 3"
+        eyebrow="简历流程 · 第 3 步 / 共 3 步"
         title="确认解析结果"
         description="左侧查看真实证据片段，右侧逐项核对字段；只有二次确认后才会生成不可覆盖版本。"
       >

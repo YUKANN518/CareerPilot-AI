@@ -257,7 +257,7 @@ onMounted(load)
     />
     <template v-else-if="optimization">
       <PageHeader
-        eyebrow="Resume optimization"
+        eyebrow="简历优化（实验功能）"
         :title="optimization.summary || '简历优化建议'"
         :description="`简历版本 #${optimization.resume_version_id} · 岗位 #${optimization.job_id} · 匹配报告 #${optimization.match_report_id}`"
       >
@@ -544,13 +544,13 @@ onMounted(load)
 
       <section class="grid gap-4 md:grid-cols-3">
         <div class="rounded-lg border bg-surface p-4">
-          <p class="text-xs text-muted-foreground">Workflow</p>
+          <p class="text-xs text-muted-foreground">流程</p>
           <p class="mt-1 text-sm font-semibold">
             {{ optimization.workflow_version || "未记录" }}
           </p>
         </div>
         <div class="rounded-lg border bg-surface p-4">
-          <p class="text-xs text-muted-foreground">Run ID</p>
+          <p class="text-xs text-muted-foreground">运行编号</p>
           <p class="mt-1 break-all text-sm font-semibold">
             {{ optimization.workflow_run_id || "未记录" }}
           </p>

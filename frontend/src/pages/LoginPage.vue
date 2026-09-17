@@ -59,7 +59,7 @@ onMounted(() => {
 
 <template>
   <section>
-    <p class="text-xs font-semibold uppercase tracking-widest text-primary">Welcome back</p>
+    <p class="text-xs font-semibold uppercase tracking-widest text-primary">欢迎回来</p>
     <h1 class="mt-3 text-3xl font-bold tracking-tight">登录 CareerPilot AI</h1>
     <p class="mt-3 text-sm leading-6 text-muted-foreground">
       继续管理你的简历版本、解析结果与技能证据。

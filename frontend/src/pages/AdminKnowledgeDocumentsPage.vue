@@ -270,9 +270,9 @@ onBeforeUnmount(stopStatusPolling)
 <template>
   <section class="space-y-6">
     <PageHeader
-      eyebrow="Knowledge base"
-      title="知识库管理"
-      description="上传 PDF/DOCX 知识文档并构建本地 FAISS 索引，供 AI 职业助手检索引用。"
+      eyebrow="知识库"
+      title="知识库"
+      description="上传 PDF/DOCX 知识文档并构建本地 FAISS 索引，供 AI 求职助手检索引用。"
     >
       <template #actions>
         <Button

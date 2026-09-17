@@ -152,7 +152,7 @@ describe("target job page", () => {
     await flushPromises()
 
     expect(service.listJobs).toHaveBeenCalledWith(expect.objectContaining({ visibility: "ALL" }))
-    expect(wrapper.get("h1").text()).toBe("目标岗位")
+    expect(wrapper.get("h1").text()).toBe("岗位")
     expect(wrapper.text()).toContain("输入岗位详情并匹配")
     expect(wrapper.text()).toContain("导入 CSV")
     expect(wrapper.text()).not.toContain("我的收藏")

@@ -310,7 +310,7 @@ watch(
     />
     <template v-else>
       <PageHeader
-        eyebrow="Target job details"
+        eyebrow="岗位详情"
         :title="job.title"
         :description="`${job.company} · ${job.location || '地点未注明'}`"
       >
@@ -321,7 +321,7 @@ watch(
             @click="addToApplications"
           >
             <BriefcaseBusiness class="mr-2 size-4" />
-            {{ applicationBusy ? "加入中…" : "加入投递管理" }}
+            {{ applicationBusy ? "加入中…" : "加入求职进度" }}
           </Button>
           <Button
             variant="outline"

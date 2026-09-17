@@ -13,8 +13,8 @@ test("ordinary user searches, filters, opens a real job, and cannot enter admin"
   await page.getByLabel("密码").fill("StrongPassword123!")
   await page.getByRole("button", { name: "注册", exact: true }).click()
 
-  await page.getByRole("link", { name: "目标岗位", exact: true }).click()
-  await expect(page.getByRole("heading", { name: "目标岗位", exact: true })).toBeVisible()
+  await page.getByRole("link", { name: "岗位", exact: true }).click()
+  await expect(page.getByRole("heading", { name: "岗位", exact: true })).toBeVisible()
   await showComplianceSnapshots(page)
   await expect(page.getByText("Seeded Backend Engineer")).toBeVisible()
 

@@ -16,7 +16,7 @@ test("user adds a job to the application board and persists status transitions",
   await showComplianceSnapshots(page)
   await page.getByRole("link", { name: "Seeded Backend Engineer" }).first().click()
   await expect(page.getByRole("heading", { name: "Seeded Backend Engineer" })).toBeVisible()
-  await page.getByRole("button", { name: "加入投递管理" }).click()
+  await page.getByRole("button", { name: "加入求职进度" }).click()
 
   await expect(page).toHaveURL(/\/applications$/)
   const applicationCard = page.locator('[draggable="true"]').filter({ hasText: "Seeded Backend Engineer" })

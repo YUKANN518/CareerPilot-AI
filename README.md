@@ -1,234 +1,135 @@
 # CareerPilot AI
 
-**Evidence-Grounded AI Job Matching & Career Decision Platform**
+**基于证据的 AI 求职匹配与职业决策平台**
 
-CareerPilot AI is an explainable job-matching platform that combines evidence-backed resume
-parsing, deterministic business rules, and semantic relevance. It is designed to reduce
-hallucinated skill claims and make every recommendation traceable to a resume, a job requirement,
-or an explicit uncertainty.
+CareerPilot AI 面向求职者提供一条可追溯的简历分析与岗位决策链路：简历解析结果必须绑定原文证据，岗位要求来自结构化输入，匹配结果由确定性规则与受控的语义相关性共同生成，并以可解释报告呈现。
 
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Vue](https://img.shields.io/badge/Vue-3-42B883?logo=vuedotjs&logoColor=white)](https://vuejs.org/)
 [![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)](https://docs.docker.com/compose/)
 
-![Explainable match report](docs/images/05_match_report.png)
+![可解释匹配报告](docs/images/05_match_report.png)
 
-## Why CareerPilot?
+## 项目简介
 
-Typical LLM matchers have three hard-to-debug failure modes: they may invent candidate skills,
-return similarity scores without a reason, and let a strong semantic match hide a hard eligibility
-conflict. CareerPilot separates these concerns:
+传统的 LLM 岗位匹配容易出现技能幻觉、评分不可解释，以及语义相似度掩盖学历/语言/任职资格冲突等问题。CareerPilot 将“事实、规则、语义信号”分层处理：
 
-- **Evidence-backed skills** — a skill is usable for matching only when it is attached to source
-  text and a location in the resume.
-- **Human-verified versions** — only confirmed, immutable resume versions enter the matcher.
-- **Deterministic + semantic matching** — six business dimensions remain the primary signal;
-  local semantic retrieval is a supporting signal, never proof of a skill.
-- **Blocking-risk policy** — education, language, eligibility, and other hard conflicts are shown
-  separately from skill gaps.
-- **Explainable reports** — scores, evidence, missing requirements, input snapshots, and scoring
-  versions are persisted for review.
-- **Reproducible validation** — regression, independent holdout, parsing, real-provider, and
-  Docker Demo checks are kept as separate claims.
+- 简历技能只有在具备用户确认的原文证据时才参与匹配。
+- 只有人工确认的不可变简历版本可以进入正式匹配。
+- 六维确定性评分是主信号，70/30 混合模式中的语义检索只提供辅助信号。
+- 阻断风险独立于技能缺口展示，避免高相似度掩盖硬性不合格。
+- 报告保存输入快照、证据链、评分版本和风险解释，便于复核。
 
-## Core workflow
+## 核心流程
 
 ```mermaid
 flowchart LR
-    R[Resume PDF/DOCX] --> P[Structured parsing]
-    P --> E[Field evidence]
-    E --> H[Human verification]
-    H --> J[Structured job input]
-    J --> M[Hybrid matching]
-    M --> B[Blocking policy]
-    B --> X[Explainable report]
-    X --> A[Application tracking]
+    R[PDF / DOCX 简历] --> P[结构化解析]
+    P --> E[绑定原文证据]
+    E --> H[人工确认]
+    H --> J[结构化岗位输入]
+    J --> M[混合匹配]
+    M --> B[阻断风险策略]
+    B --> X[可解释匹配报告]
+    X --> A[求职进度跟踪]
 ```
 
-## Core portfolio features
+## 核心功能
 
-- PDF/DOCX resume upload, parsing, evidence attachment, and human verification.
-- Manual structured job input, CSV import, and requirement representation.
-- Six-dimension deterministic scoring with a 70/30 deterministic/semantic hybrid mode.
-- Skill gaps, evidence coverage, blocking risks, and explainable match reports.
-- Lightweight application tracking with status history and notes.
+- PDF / DOCX 简历上传、DeepSeek 结构化解析、证据绑定与人工确认。
+- 手动结构化岗位输入与 CSV / 确定性导入。
+- 六维确定性评分、70/30 规则与语义辅助信号。
+- 技能缺口、证据覆盖率、阻断风险和可解释匹配报告。
+- 轻量级求职进度看板。
 
-Job requirements used by the production matcher come from structured job input. Real LLM job
-parsing was independently validated as a provider capability, but is intentionally not required
-by the production matching path. This keeps matching reproducible and reduces hallucination risk.
+生产匹配链路使用结构化岗位输入，不依赖 AI Job Parsing。LLM 岗位解析作为独立 Provider 能力验证过，但不是核心产品路径，以保持结果可复现并降低幻觉风险。
 
-### Optional integrations
+### 可选集成
 
-- **Career Assistant / Dify** — an optional Dify-backed integration with a Fake mode for local
-  demos. Real Dify deployment is not part of the Core Portfolio claim.
+Career Assistant 支持 Demo / 可选的 Dify 集成；真实 Dify 连接不属于 Core Portfolio 验证范围。
 
-### Hidden experimental modules
+### 隐藏实验模块
 
-Resume Optimization and Chat Interview remain implemented and tested, but are hidden from the
-default portfolio navigation. Learning plans, cover letters, extra agents, and new matching
-dimensions are out of scope.
+Resume Optimization 与 Chat Interview 仍保留在代码和测试中，但默认导航隐藏，不作为已完成的核心 AI 功能宣传。
 
-## Quick start: Docker Demo
+## 系统架构
 
-The recommended first run is an isolated Demo/Fake stack. It does not need a DeepSeek, Dify, or
-other external API key.
+```mermaid
+flowchart LR
+    UI[Vue 3 + TypeScript] --> API[FastAPI REST API]
+    API --> SVC[解析 / 匹配 / 报告服务]
+    SVC --> DB[(SQLite)]
+    SVC --> FS[私有文件存储]
+    SVC --> RET[FAISS + Sentence Transformers]
+    SVC -.可选.-> DIFY[Dify Career Assistant]
+    SVC -.简历解析.-> DS[DeepSeek / OpenAI-compatible API]
+```
+
+## 技术栈
+
+| 层次 | 技术 |
+| --- | --- |
+| 前端 | Vue 3、TypeScript、Vite、Pinia、Vue Router、Tailwind CSS、Axios |
+| 后端 | Python 3.12、FastAPI、Pydantic v2、SQLAlchemy 2、Alembic |
+| AI 与检索 | DeepSeek（OpenAI-compatible）、Sentence Transformers、FAISS、可选 Dify |
+| 匹配 | 六维确定性规则、70/30 混合评分、LangGraph 工作流 |
+| 数据 | SQLite、私有本地文件存储 |
+| 工程质量 | Pytest、Ruff、mypy、Vitest、ESLint、Playwright、Docker Compose |
+
+## 快速开始：Docker Demo
+
+Demo 使用 Fake / Mock Provider，不需要 DeepSeek 或 Dify API Key。
 
 ```powershell
-git clone <your-repository-url>
-cd CareerPilot
+git clone https://github.com/YUKANN518/CareerPilot-AI.git
+cd CareerPilot-AI
 docker compose up --build
 ```
 
-Open:
+访问：
 
-- Frontend: <http://localhost:5173>
-- Backend health: <http://localhost:8000/api/health>
-- API docs: <http://localhost:8000/docs>
+- 前端：http://localhost:5173
+- 后端健康检查：http://localhost:8000/api/health
+- API 文档：http://localhost:8000/docs
 
-Demo credentials are local-only synthetic credentials:
+Demo 账号为本地合成账号：
 
 ```text
-Email:    admin@careerpilot.local
-Password: Admin123456!
+邮箱：admin@careerpilot.local
+密码：Admin123456!
 ```
 
-The stack uses `AI_PROVIDER=mock`, `EMBEDDING_PROVIDER=fake`, and an isolated runtime under
-`data/runtime/docker-demo/`. Stop it with `docker compose down`.
+完整演示路径：登录 → 简历 → 岗位 → 岗位匹配 → 匹配报告。停止服务：`docker compose down`。
 
-## Local development
+## 项目验证
 
-Requirements: Python 3.12+, Node.js 20+, npm, and SQLite.
+验证数据为小规模合成样本或人工标注，不代表招聘结果预测。
 
-```powershell
-cd backend
-py -3.12 -m pip install uv
-uv sync --locked --extra dev
-uv run alembic upgrade head
-uv run uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
-```
+- `eval-v1`：52 个冻结回归案例，必需技能、缺失技能、阻断风险、证据有效性均达到 100%，未发现不支持的技能声明。
+- `holdout-v1`：必需技能 F1 100.00%，缺失技能 F1 66.66%，阻断风险召回率 40.00%，推荐一致率 65.00%，证据有效性 100.00%。
+- `parsing-v1`：简历技能 F1 97.30%，证据绑定 100%，岗位要求 F1 100%，必需/加分分类准确率 100%。
+- Real DeepSeek：6/6 简历结构化有效、10/10 岗位结构化有效、简历证据绑定 100%、测试样本未发现不支持的技能声明。
 
-In another terminal:
+## 工程质量
 
-```powershell
-cd frontend
-npm ci
-npm run dev
-```
+已完成 CPU-only Docker 构建、健康检查和 Demo/Fake 浏览器冒烟流程。后端产品测试 222 个、评测测试 8 个、前端单元测试 91 个、E2E 测试 16 个均通过；Ruff、mypy、TypeScript、ESLint、Alembic 与 Playwright 验证通过。
 
-Copy `.env.example` to `.env` before local configuration. Never commit `.env`.
+## 诚实的局限
 
-## Technology stack
+- 评测数据规模有限且主要为合成样本。
+- 独立 holdout 的阻断风险召回率为 40%，推荐一致率为 65%，不应外推为生产级准确率。
+- 语义相关性只能帮助排序，不能证明候选人具备技能。
+- SQLite 适合本作品集和 Demo 范围，不面向大规模并发生产流量。
+- 真实 Dify 连接是可选集成，未纳入 Core Portfolio 验证。
 
-| Area | Technology |
-| --- | --- |
-| Frontend | Vue 3, TypeScript, Vite, Pinia, Vue Router, Tailwind CSS, Axios |
-| Backend | Python 3.12, FastAPI, Pydantic v2, SQLAlchemy 2, Alembic |
-| AI providers | OpenAI-compatible API / DeepSeek for resume parsing; Dify for optional Career Assistant |
-| Matching | Deterministic six-dimension rules, optional local semantic supporting signal, LangGraph workflow |
-| Retrieval | Sentence Transformers, FAISS; deterministic fake embeddings in Demo mode |
-| Data | SQLite and private local file storage |
-| Quality | Pytest, evaluation fixtures, Ruff, mypy, Vitest, ESLint, Playwright |
-| Delivery | Docker Compose, uv.lock, npm lockfile, GitHub Actions CI |
+## 文档
 
-## Evaluation and honest limitations
-
-The metrics below are small synthetic or manually annotated measurements. They are not hiring
-outcome predictions, population estimates, or a claim of general model accuracy.
-
-### Regression validation (`eval-v1`)
-
-52 frozen resume-job cases cover skill gaps, blocking requirements, incomplete postings, and
-insufficient evidence. The deterministic-v1.1 baseline reports 100% required-skill F1, 100%
-missing-skill F1, 100% blocking-risk F1, 100% evidence validity, and 0% unsupported skill claims
-on this regression set.
-
-### Independent holdout (`holdout-v1`)
-
-20 independently authored cases expose long-tail generalization limits:
-
-| Metric | Result |
-| --- | ---: |
-| Required skill F1 | 100.00% |
-| Missing skill F1 | 66.66% |
-| Blocking risk recall | 40.00% |
-| Recommendation agreement | 65.00% |
-| Evidence validity | 100.00% |
-
-The holdout failures are retained. They show that aliases, hard eligibility interpretation, and
-recommendation calibration still need work before making production-scale claims.
-
-### Parsing validation (`parsing-v1`)
-
-Ten synthetic resumes (five PDF and five DOCX) and ten job descriptions were evaluated:
-
-- Resume skill F1: **97.30%** (precision 100.00%, recall 94.74%).
-- Resume evidence attachment: **100.00%**.
-- Job requirement F1: **100.00%**.
-- Required-vs-preferred accuracy: **100.00%**.
-
-### Real provider validation
-
-The opt-in DeepSeek run made 23 calls: six resumes, ten job descriptions, and seven Career
-Assistant/RAG calls. Results were:
-
-- Resume schema-valid outputs: **6/6**.
-- Job schema-valid outputs: **10/10**.
-- Resume evidence attachment: **100.00%**.
-- Unsupported skill claims in tested resumes: **0**.
-- Three unsupported questions were refused deterministically; citation correctness and
-  groundedness remain marked for manual review rather than overstated.
-
-## Engineering quality
-
-- 222 backend product tests and 8 evaluation tests.
-- 91 frontend unit tests and 16 existing E2E tests.
-- Ruff, mypy, TypeScript, ESLint, Alembic, and clean-clone checks pass.
-- CPU-only Docker build, health checks, and the complete Demo/Fake browser smoke pass.
-- Secret-safe Demo mode; no credentials are required for CI or Docker.
-
-## Enable real DeepSeek
-
-The default Demo does not use external providers. To run the opt-in real-provider validation,
-configure the names in `.env.example` locally, set `AI_PROVIDER=openai_compatible` and
-`RUN_REAL_AI_TESTS=1`, then run:
-
-```powershell
-cd backend
-.\.venv\Scripts\python.exe -m scripts.validate_real_provider --force
-```
-
-Never put a real key in README, Markdown reports, screenshots, Git history, or a committed `.env`.
-
-## Architecture
-
-The frozen architecture is documented in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). It shows
-only the Vue/FastAPI services, SQLite/private storage, FAISS retrieval, and the optional Dify
-boundary—no unimplemented Redis, Kafka, Kubernetes, or cloud vector database.
-
-## Limitations
-
-- Evaluation data is synthetic and limited in size.
-- Independent holdout blocking-risk recall is 40%; recommendation agreement is 65%.
-- Semantic relevance supports prioritization but cannot prove a candidate capability.
-- Resume parsing depends on source document quality and evidence locations.
-- Real Dify connectivity is optional and is not part of the public Core Demo.
-- SQLite is appropriate for this portfolio/demo scope, not large-scale production traffic.
-- Dependency advisories are documented in [DEPENDENCY_SECURITY_REPORT.md](DEPENDENCY_SECURITY_REPORT.md)
-  and were not force-upgraded.
-
-## Further portfolio material
-
-- [Demo script](docs/DEMO_SCRIPT.md)
-- [Portfolio summary](docs/PORTFOLIO_SUMMARY.md)
-- [Resume bullets](docs/RESUME_BULLETS.md)
-- [Interview pitch](docs/INTERVIEW_PITCH.md)
-- [Technical interview Q&A](docs/TECHNICAL_INTERVIEW_QA.md)
-- [Final tech stack](docs/TECH_STACK.md)
-- [GitHub metadata](docs/GITHUB_METADATA.md)
-- [Project status](docs/PROJECT_STATUS.md)
-- [Development notes](docs/development/README.md)
-- [Publication security checklist](PUBLICATION_SECURITY_CHECKLIST.md)
+- [系统架构](docs/ARCHITECTURE.md)
+- [Demo 演示脚本](docs/DEMO_SCRIPT.md)
+- [匹配方法](docs/MATCHING_METHODOLOGY.md)
+- [技术面试问答](docs/TECHNICAL_INTERVIEW_QA.md)
+- [简历项目表述](docs/RESUME_BULLETS.md)
 
 ## License
 
-CareerPilot AI is released under the [MIT License](LICENSE).
+CareerPilot AI 使用 [MIT License](LICENSE)。

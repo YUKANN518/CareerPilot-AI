@@ -345,7 +345,7 @@ onMounted(load)
             :to="{ name: 'applications' }"
             class="flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
           >
-            打开投递管理
+            打开求职进度
             <ArrowRight class="size-4" />
           </RouterLink>
         </div>

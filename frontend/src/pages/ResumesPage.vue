@@ -88,7 +88,7 @@ onMounted(load)
 <template>
   <section class="space-y-6">
     <PageHeader
-      title="我的简历"
+      title="简历"
       description="管理不同方向的简历版本，并跟踪每一份简历的真实处理状态。"
     >
       <template #actions>

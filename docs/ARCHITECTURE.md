@@ -1,7 +1,6 @@
-# CareerPilot AI Architecture
+# CareerPilot AI 系统架构
 
-CareerPilot is a modular FastAPI + Vue application. The diagram reflects the frozen portfolio
-scope; optional integrations are shown explicitly and no unimplemented infrastructure is implied.
+CareerPilot 是一个模块化 FastAPI + Vue 应用。下图对应已冻结的作品集范围；可选集成会明确标注，不暗示不存在的基础设施。
 
 ```mermaid
 flowchart TD
@@ -37,16 +36,13 @@ flowchart TD
     RAG --> DB
 ```
 
-## Core boundaries
+## 核心边界
 
-- Resume parsing may use the configured OpenAI-compatible Provider; Demo Mode uses Mock output.
-- Matching consumes confirmed resume evidence and structured Job Input. It does not require an
-  LLM Job parser and remains deterministic/hybrid according to the frozen scoring policy.
-- Applications are a lightweight state-tracking layer over persisted jobs and reports.
+- 简历解析可使用配置的 OpenAI-compatible Provider；Demo 模式使用 Mock 输出。
+- 匹配只消费已确认的简历证据和结构化岗位输入，不依赖 LLM 岗位解析，并遵循冻结的确定性/混合评分策略。
+- 求职进度是建立在岗位和报告之上的轻量状态跟踪层。
 
-## Optional and hidden boundaries
+## 可选与隐藏边界
 
-- Career Assistant is an optional Dify integration. Local retrieval/citation logic remains in the
-  backend; Fake mode is safe for Demo and CI.
-- Resume Optimization and Chat Interview remain hidden experimental modules and are not part of
-  the portfolio Core path.
+- Career Assistant 是可选 Dify 集成；本地检索与引用逻辑保留在后端，Fake 模式适用于 Demo 和 CI。
+- Resume Optimization 与 Chat Interview 是隐藏实验模块，不属于作品集核心路径。

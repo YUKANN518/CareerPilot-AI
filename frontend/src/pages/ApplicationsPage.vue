@@ -31,9 +31,9 @@ interface BoardColumn {
 const columns: BoardColumn[] = [
   { status: "SAVED", label: "收藏", tone: "neutral" },
   { status: "APPLIED", label: "已投递", tone: "primary" },
-  { status: "INTERVIEW", label: "面试", tone: "warning" },
-  { status: "OFFER", label: "Offer", tone: "success" },
-  { status: "REJECTED", label: "拒绝", tone: "danger" },
+  { status: "INTERVIEW", label: "面试中", tone: "warning" },
+  { status: "OFFER", label: "已获 Offer", tone: "success" },
+  { status: "REJECTED", label: "未通过", tone: "danger" },
 ]
 
 const board = ref<ApplicationBoard | null>(null)
@@ -169,8 +169,8 @@ onMounted(load)
 <template>
   <section class="space-y-6">
     <PageHeader
-      eyebrow="Application tracker"
-      title="投递管理"
+      eyebrow="求职进度"
+      title="求职进度"
       description="拖动岗位卡片更新状态；每次变化都会同步到后端并保留状态历史。"
     />
 
@@ -201,7 +201,7 @@ onMounted(load)
     <EmptyState
       v-else-if="applications.length === 0"
       title="还没有投递记录"
-      description="从岗位详情页将感兴趣的岗位加入投递管理，然后在这里推进求职进度。"
+      description="从岗位详情页收藏感兴趣的岗位，然后在这里推进求职进度。"
     >
       <RouterLink :to="{ name: 'jobs' }">
         <Button>浏览岗位</Button>

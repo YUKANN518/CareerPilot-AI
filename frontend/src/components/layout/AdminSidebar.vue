@@ -47,7 +47,7 @@ function isActive(item: AdminNavigationItem): boolean {
       aria-label="管理员导航"
     >
       <p class="px-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground/70">
-        Administration
+        管理功能
       </p>
       <ul class="mt-3 space-y-1">
         <li

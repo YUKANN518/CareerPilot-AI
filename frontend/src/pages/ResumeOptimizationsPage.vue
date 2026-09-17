@@ -50,7 +50,7 @@ onMounted(load)
 <template>
   <section class="space-y-6">
     <PageHeader
-      eyebrow="Resume optimization"
+      eyebrow="简历优化（实验功能）"
       title="简历定向优化"
       description="基于已确认简历版本、真实岗位摘要和匹配报告，生成逐段优化建议。仅优化表达与关键词，不虚构经历。"
     >
@@ -121,7 +121,7 @@ onMounted(load)
           <div class="mt-3 flex flex-wrap gap-3 text-xs text-muted-foreground">
             <span>{{ opt.sections.length }} 个章节建议</span>
             <span>创建于 {{ formatDate(opt.created_at) }}</span>
-            <span v-if="opt.provider">Provider: {{ opt.provider }}</span>
+            <span v-if="opt.provider">服务提供方：{{ opt.provider }}</span>
           </div>
         </RouterLink>
       </div>

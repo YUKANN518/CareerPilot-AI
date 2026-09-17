@@ -51,9 +51,9 @@ test("career assistant QA streams a knowledge-base answer without exposing citat
 }) => {
   await login(page)
 
-  await page.getByRole("link", { name: "AI 职业助手" }).click()
+  await page.getByRole("link", { name: "AI 求职助手" }).click()
   await expect(page).toHaveURL(/\/career-assistant$/)
-  await expect(page.getByRole("heading", { name: "AI 职业助手" })).toBeVisible()
+  await expect(page.getByRole("heading", { name: "AI 求职助手" })).toBeVisible()
 
   await page
     .getByTestId("career-question-input")
@@ -75,7 +75,7 @@ test("career assistant QA scope=personal answers from user data", async ({
 }) => {
   await login(page)
 
-  await page.getByRole("link", { name: "AI 职业助手" }).click()
+  await page.getByRole("link", { name: "AI 求职助手" }).click()
   await expect(page).toHaveURL(/\/career-assistant$/)
 
   // Select scope=personal (仅个人数据)
@@ -117,9 +117,9 @@ test("admin uploads, reindexes, and deletes a knowledge document", async ({
   await page.getByRole("button", { name: "登录", exact: true }).click()
   await expect(page).toHaveURL(/\/dashboard$/)
 
-  await page.getByRole("link", { name: "知识库管理" }).click()
+  await page.getByRole("link", { name: "知识库" }).click()
   await expect(page).toHaveURL(/\/admin\/knowledge-documents$/)
-  await expect(page.getByRole("heading", { name: "知识库管理" })).toBeVisible()
+  await expect(page.getByRole("heading", { name: "知识库" })).toBeVisible()
 
   // Seeded document must be present.
   await expect(page.getByText("E2E Career Knowledge Guide")).toBeVisible()

@@ -81,7 +81,7 @@ onMounted(load)
 <template>
   <section class="space-y-6">
     <PageHeader
-      eyebrow="Match history"
+      eyebrow="匹配历史"
       title="匹配任务与历史报告"
       description="每次显式重算都会创建新报告，旧评分版本和证据快照保持可访问。"
     >

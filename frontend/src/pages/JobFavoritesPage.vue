@@ -47,7 +47,7 @@ onMounted(load)
 <template>
   <section class="space-y-6">
     <PageHeader
-      eyebrow="Target jobs"
+      eyebrow="目标岗位"
       title="我的收藏"
       description="收藏记录仅属于当前账号，其他用户无法查看或修改。"
     >

@@ -334,7 +334,7 @@ onMounted(load)
     />
     <template v-else-if="resume">
       <PageHeader
-        eyebrow="Resume workflow · Step 2 of 3"
+        eyebrow="简历流程 · 第 2 步 / 共 3 步"
         :title="statusTitle"
         description="所有进度均来自服务器真实状态，页面不会模拟处理结果。"
       >
