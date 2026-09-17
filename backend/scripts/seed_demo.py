@@ -55,6 +55,17 @@ def evidence(value: str) -> dict[str, object]:
     }
 
 
+def empty_evidence() -> dict[str, object]:
+    """Represent a schema-required field for which the demo fixture has no evidence."""
+    return {
+        "value": "",
+        "confidence": 0.1,
+        "evidence_text": "",
+        "source_location": {"source_type": "unknown", "label": "not-found"},
+        "needs_confirmation": True,
+    }
+
+
 def load_json_fixture(relative_path: str) -> Any:
     path = SAMPLE_DATA_DIRECTORY / relative_path
     if not path.is_file():
@@ -70,6 +81,7 @@ def profile(persona: dict[str, Any]) -> dict[str, object]:
         "basic_info": {
             "full_name": evidence(persona["full_name"]),
             "email": evidence(persona["email"]),
+            "phone": empty_evidence(),
             "location": evidence(persona["location"]),
         },
         "education": [
@@ -77,18 +89,26 @@ def profile(persona: dict[str, Any]) -> dict[str, object]:
                 "institution": evidence(education["institution"]),
                 "degree": evidence(education["degree"]),
                 "field_of_study": evidence(education["field_of_study"]),
+                "start_date": empty_evidence(),
+                "end_date": empty_evidence(),
+                "description": empty_evidence(),
             }
         ],
         "work_experience": [
             {
                 "company": evidence(experience["company"]),
                 "title": evidence(experience["title"]),
+                "start_date": empty_evidence(),
+                "end_date": empty_evidence(),
                 "description": evidence(experience["description"]),
             }
         ],
         "project_experience": [
             {
                 "name": evidence(project["name"]),
+                "role": empty_evidence(),
+                "start_date": empty_evidence(),
+                "end_date": empty_evidence(),
                 "description": evidence(project["description"]),
             }
         ],
@@ -343,6 +363,38 @@ def seed() -> None:
         session.commit()
 
         storage = PrivateFileStorage(settings.upload_directory)
+        # The demo resume is synthetic, but the resume API still expects a private
+        # source asset so the normal Resume page can render it. Create that asset
+        # once in the isolated demo runtime; no user-uploaded file is involved.
+        demo_resumes = session.scalars(
+            select(Resume).where(
+                Resume.owner_id == admin.id,
+                Resume.title.startswith(DEMO_RESUME_PREFIX),
+            )
+        )
+        for demo_resume in demo_resumes:
+            if demo_resume.file_asset_id is None:
+                content = markdown_as_docx(
+                    f"# {demo_resume.title}\n\n{persona['summary']}\n\n"
+                    f"Skills: {', '.join(persona['skills'])}"
+                )
+                storage_key = storage.save(admin.id, "docx", content)
+                asset = FileAsset(
+                    owner_id=admin.id,
+                    storage_key=storage_key,
+                    original_name="careerpilot-demo-resume.docx",
+                    mime_type=(
+                        "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    ),
+                    size_bytes=len(content),
+                    sha256=sha256(content).hexdigest(),
+                    file_format="docx",
+                )
+                session.add(asset)
+                session.flush()
+                demo_resume.file_asset_id = asset.id
+        session.commit()
+
         knowledge_service = KnowledgeDocumentService(session, settings)
         knowledge_count = 0
         for path in sorted((SAMPLE_DATA_DIRECTORY / "knowledge_base").glob("*.md")):

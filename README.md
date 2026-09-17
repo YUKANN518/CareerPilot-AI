@@ -1,153 +1,113 @@
 # CareerPilot AI
 
-> 基于证据约束的人岗匹配与 AI 求职决策平台  
-> Evidence-Grounded AI Job Matching & Career Decision Platform
+**Evidence-Grounded AI Job Matching & Career Decision Platform**
 
-CareerPilot AI 不是招聘爬虫或功能堆叠式“AI 工具箱”。它围绕一条可演示、可解释的
-求职决策链路工作：
+CareerPilot AI is an explainable job-matching platform that combines evidence-backed resume
+parsing, deterministic business rules, and semantic relevance. It is designed to reduce
+hallucinated skill claims and make every recommendation traceable to a resume, a job requirement,
+or an explicit uncertainty.
+
+[![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Vue](https://img.shields.io/badge/Vue-3-42B883?logo=vuedotjs&logoColor=white)](https://vuejs.org/)
+[![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)](https://docs.docker.com/compose/)
+
+![Explainable match report](docs/images/05_match_report.png)
+
+## Why CareerPilot?
+
+Typical LLM matchers have three hard-to-debug failure modes: they may invent candidate skills,
+return similarity scores without a reason, and let a strong semantic match hide a hard eligibility
+conflict. CareerPilot separates these concerns:
+
+- **Evidence-backed skills** — a skill is usable for matching only when it is attached to source
+  text and a location in the resume.
+- **Human-verified versions** — only confirmed, immutable resume versions enter the matcher.
+- **Deterministic + semantic matching** — six business dimensions remain the primary signal;
+  local semantic retrieval is a supporting signal, never proof of a skill.
+- **Blocking-risk policy** — education, language, eligibility, and other hard conflicts are shown
+  separately from skill gaps.
+- **Explainable reports** — scores, evidence, missing requirements, input snapshots, and scoring
+  versions are persisted for review.
+- **Reproducible validation** — regression, independent holdout, parsing, real-provider, and
+  Docker Demo checks are kept as separate claims.
+
+## Core workflow
+
+```mermaid
+flowchart LR
+    R[Resume PDF/DOCX] --> P[Structured parsing]
+    P --> E[Field evidence]
+    E --> H[Human verification]
+    H --> J[Structured job input]
+    J --> M[Hybrid matching]
+    M --> B[Blocking policy]
+    B --> X[Explainable report]
+    X --> A[Application tracking]
+```
+
+## Core portfolio features
+
+- PDF/DOCX resume upload, parsing, evidence attachment, and human verification.
+- Manual structured job input, CSV import, and requirement representation.
+- Six-dimension deterministic scoring with a 70/30 deterministic/semantic hybrid mode.
+- Skill gaps, evidence coverage, blocking risks, and explainable match reports.
+- Lightweight application tracking with status history and notes.
+
+Job requirements used by the production matcher come from structured job input. Real LLM job
+parsing was independently validated as a provider capability, but is intentionally not required
+by the production matching path. This keeps matching reproducible and reduces hallucination risk.
+
+### Optional integrations
+
+- **Career Assistant / Dify** — an optional Dify-backed integration with a Fake mode for local
+  demos. Real Dify deployment is not part of the Core Portfolio claim.
+
+### Hidden experimental modules
+
+Resume Optimization and Chat Interview remain implemented and tested, but are hidden from the
+default portfolio navigation. Learning plans, cover letters, extra agents, and new matching
+dimensions are out of scope.
+
+## Quick start: Docker Demo
+
+The recommended first run is an isolated Demo/Fake stack. It does not need a DeepSeek, Dify, or
+other external API key.
+
+```powershell
+git clone <your-repository-url>
+cd CareerPilot
+docker compose up --build
+```
+
+Open:
+
+- Frontend: <http://localhost:5173>
+- Backend health: <http://localhost:8000/api/health>
+- API docs: <http://localhost:8000/docs>
+
+Demo credentials are local-only synthetic credentials:
 
 ```text
-Resume → Parsing → Evidence → Target Job → Requirements
-       → Hybrid Matching → Blocking Rules → Match Report
-       → Application Tracking
+Email:    admin@careerpilot.local
+Password: Admin123456!
 ```
 
-系统只把用户确认过、可以回溯到简历原文的内容当作候选人证据。匹配报告同时展示
-确定性规则、语义检索证据、硬性条件阻断和缺失信息，AI 助手则基于知识库与个人上下文
-回答问题并返回引用。
+The stack uses `AI_PROVIDER=mock`, `EMBEDDING_PROVIDER=fake`, and an isolated runtime under
+`data/runtime/docker-demo/`. Stop it with `docker compose down`.
 
-## Portfolio scope
+## Local development
 
-默认产品导航只包含：
-
-- 工作台（Dashboard）
-- 我的简历（Resume）
-- 目标岗位（Jobs）
-- 匹配任务（Matching）
-- AI 职业助手（可选集成，页面明确标记）
-- 投递管理（Applications）
-- 知识库（仅管理员）
-
-Resume Optimization 与 Chat Interview 的实现、接口和测试仍保留，但不出现在默认
-导航或匹配报告主操作中。Learning Plan、Cover Letter、旧版单题面试评分、职位抓取/API
-同步和职位源管理已经移除。投递漏斗统一为 `SAVED → APPLIED → INTERVIEW → OFFER`
-以及 `REJECTED` 五种状态。
-
-详细范围决策见 [SCOPE_CLEANUP_PLAN.md](SCOPE_CLEANUP_PLAN.md)，Dify 配置变更见
-[AI_CONFIG_AFTER_CLEANUP.md](AI_CONFIG_AFTER_CLEANUP.md)。真实的匹配公式、证据边界、
-阻断规则与限制见 [MATCHING_METHODOLOGY.md](MATCHING_METHODOLOGY.md)。
-
-## Core capabilities
-
-- PDF/DOCX 简历安全上传、文本提取、结构化解析和人工确认。
-- 不可覆盖的正式简历版本与字段级原文证据。
-- 手工结构化岗位输入、规范化预览、CSV 批量导入和用户私有岗位 CRUD。匹配引擎使用的
-  岗位要求来自结构化岗位输入；真实 LLM Job Parsing 已独立完成 Provider 能力验证，
-  但不是生产匹配链路的要求。
-- 硬技能、经验、学历、语言等确定性评分与硬性条件阻断。
-- FAISS 语义召回与可追溯的混合匹配报告。
-- 五状态投递看板、状态历史、备注与下一步时间。
-
-## Optional Integrations
-
-- **Career Assistant / Dify**：保留正式 API、检索、引用和 Fake/Dify Provider；当前默认
-  为 Demo/Fake，可在配置 Dify 后作为可选集成验证。它不是 Core Portfolio Feature，
-  不宣称真实 Dify 已验证。
-- Resume Optimization 与 Chat Interview：保留实现和测试，但属于隐藏的实验性功能，
-  不纳入核心作品集演示。
-
-## Evaluation
-
-The project deliberately separates four evaluation layers rather than presenting one misleading
-“overall accuracy” number. All numbers below are small, synthetic, manually annotated or
-deterministic fixture measurements—not hiring-success or population estimates.
-
-### Regression Validation
-
-`eval-v1` contains 52 resume-job cases covering high/medium matches, skill gaps, blocking
-requirements, incomplete postings and insufficient evidence, plus 10 fixed semantic diagnostic
-cases. Its first `deterministic-v1.1` baseline is frozen and regression-oriented.
-
-The first frozen baseline runs the released `deterministic-v1.1` matcher without changing its
-weights, aliases, thresholds or blocking policy:
-
-| Metric | Result |
-| --- | ---: |
-| Required Skill F1 | 100.00% |
-| Missing Skill F1 | 100.00% |
-| Blocking Risk F1 | 100.00% |
-| Evidence Validity | 100.00% |
-| Unsupported Skill Claim Rate | 0.00% |
-| Structured Result Validity | 100.00% |
-
-The controlled hybrid diagnostic preserved blocking in all cases, reported seven semantic-case
-improvements and zero new misjudgments. These are project-level validation results on synthetic
-fixtures, not an academic benchmark, population estimate or production accuracy claim. Details
-and failure analysis are stored under `evaluation/results/`.
-
-### Independent Synthetic Holdout
-
-`holdout-v1` is a separate label-first set of 20 newly authored Resume–Job cases. It covers
-related-but-not-equivalent concepts (for example containerized vs Docker, relational database vs
-PostgreSQL, AI vs PyTorch and cloud vs AWS), required/preferred wording, experience, education,
-language, Hong Kong work eligibility, internship/graduate context, hybrid/on-site work and sparse
-postings. Run it with:
-
-```powershell
-backend\\.venv\\Scripts\\python.exe -m evaluation.holdout
-```
-
-Its metrics are reported separately from `eval-v1`; no aggregate accuracy is calculated.
-
-### Semantic Diagnostic
-
-The existing fixed fake-embedding run is an integration/ranking diagnostic only. It is not a real
-embedding or semantic-quality benchmark, and semantic-only blocking metrics are `N/A`.
-
-### Parsing Validation
-
-`parsing-v1` validates deterministic text/evidence extraction on ten synthetic resumes (five PDF,
-five DOCX) and ten natural-language job descriptions. It measures section extraction, skill
-precision/recall, evidence attachment and required-vs-preferred detection without claiming an LLM
-or OCR benchmark. Run it with:
-
-```powershell
-backend\\.venv\\Scripts\\python.exe -m evaluation.parsing
-```
-
-See [PHASE_3_5_EVALUATION_HARDENING_REPORT.md](PHASE_3_5_EVALUATION_HARDENING_REPORT.md) and
-[evaluation/PORTFOLIO_METRICS.md](evaluation/PORTFOLIO_METRICS.md) for the full split and safe
-resume wording.
-
-## Technology stack
-
-| Layer | Technology |
-| --- | --- |
-| Frontend | Vue 3, TypeScript, Vite, Pinia, Vue Router, Tailwind CSS, Axios |
-| Backend | Python 3.12, FastAPI, Pydantic v2, SQLAlchemy 2, Alembic |
-| Data | SQLite, private local file storage |
-| AI/RAG | OpenAI-compatible API, Dify workflows/chatflow, LangChain, LangGraph |
-| Retrieval | Sentence Transformers, FAISS; deterministic fake embeddings in Demo Mode |
-| Quality | Pytest, Ruff, mypy, Vitest, ESLint, Playwright |
-
-## Local setup
-
-Requirements: Python 3.12+, Node.js 20+, npm. SQLite is the supported database.
-
-From the project root in PowerShell:
+Requirements: Python 3.12+, Node.js 20+, npm, and SQLite.
 
 ```powershell
 cd backend
 py -3.12 -m pip install uv
-uv sync --extra dev --locked
-cd ..
-Copy-Item .env.example .env
-cd backend
+uv sync --locked --extra dev
 uv run alembic upgrade head
 uv run uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
-In a second terminal:
+In another terminal:
 
 ```powershell
 cd frontend
@@ -155,158 +115,120 @@ npm ci
 npm run dev
 ```
 
-Open `http://127.0.0.1:5173`. API health and documentation are available at
-`http://127.0.0.1:8000/api/health` and `http://127.0.0.1:8000/docs`.
+Copy `.env.example` to `.env` before local configuration. Never commit `.env`.
 
-## Docker Demo
+## Technology stack
 
-The default Compose stack is an isolated Demo Mode and requires no external API key:
+| Area | Technology |
+| --- | --- |
+| Frontend | Vue 3, TypeScript, Vite, Pinia, Vue Router, Tailwind CSS, Axios |
+| Backend | Python 3.12, FastAPI, Pydantic v2, SQLAlchemy 2, Alembic |
+| AI providers | OpenAI-compatible API / DeepSeek for resume parsing; Dify for optional Career Assistant |
+| Matching | Deterministic six-dimension rules, optional local semantic supporting signal, LangGraph workflow |
+| Retrieval | Sentence Transformers, FAISS; deterministic fake embeddings in Demo mode |
+| Data | SQLite and private local file storage |
+| Quality | Pytest, evaluation fixtures, Ruff, mypy, Vitest, ESLint, Playwright |
+| Delivery | Docker Compose, uv.lock, npm lockfile, GitHub Actions CI |
 
-```powershell
-docker compose up --build
-```
+## Evaluation and honest limitations
 
-Open `http://localhost:5173`. The API is available at `http://localhost:8000`; demo credentials
-are `admin@careerpilot.local / Admin123456!` (**Demo-only local credentials**). Runtime SQLite,
-uploads and FAISS files are mounted under `data/runtime/docker-demo/` and are never copied into
-the images. Stop the stack with `docker compose down`.
+The metrics below are small synthetic or manually annotated measurements. They are not hiring
+outcome predictions, population estimates, or a claim of general model accuracy.
 
-## Demo Mode
+### Regression validation (`eval-v1`)
 
-Demo Mode needs no external API key:
+52 frozen resume-job cases cover skill gaps, blocking requirements, incomplete postings, and
+insufficient evidence. The deterministic-v1.1 baseline reports 100% required-skill F1, 100%
+missing-skill F1, 100% blocking-risk F1, 100% evidence validity, and 0% unsupported skill claims
+on this regression set.
 
-```powershell
-.\scripts\start-demo.ps1
-```
+### Independent holdout (`holdout-v1`)
 
-The wrapper uses isolated paths under `data/runtime/demo/`, runs migrations, loads fictional
-portfolio data and starts the API/UI. It does not overwrite `data/careerpilot.db`.
+20 independently authored cases expose long-tail generalization limits:
 
-```text
-Email: admin@careerpilot.local
-Password: Admin123456!
-```
+| Metric | Result |
+| --- | ---: |
+| Required skill F1 | 100.00% |
+| Missing skill F1 | 66.66% |
+| Blocking risk recall | 40.00% |
+| Recommendation agreement | 65.00% |
+| Evidence validity | 100.00% |
 
-Reset the isolated demo with:
+The holdout failures are retained. They show that aliases, hard eligibility interpretation, and
+recommendation calibration still need work before making production-scale claims.
 
-```powershell
-.\scripts\reset-demo.ps1
-```
+### Parsing validation (`parsing-v1`)
 
-演示数据和 AI 风格输出均由确定性的 Mock/Fake Provider 生成，不代表真实模型结果。
+Ten synthetic resumes (five PDF and five DOCX) and ten job descriptions were evaluated:
 
-## AI configuration
+- Resume skill F1: **97.30%** (precision 100.00%, recall 94.74%).
+- Resume evidence attachment: **100.00%**.
+- Job requirement F1: **100.00%**.
+- Required-vs-preferred accuracy: **100.00%**.
 
-`.env.example` at the repository root is the source of truth. `AI_PROVIDER=mock` and
-`DIFY_PROVIDER_MODE=fake` select the offline demo providers; real providers must be selected
-and configured explicitly. The normal product UI intentionally does not expose environment or
-development-mode labels.
+### Real provider validation
 
-The OpenAI-compatible provider powers resume parsing, the opt-in real Job parser and the direct
-QA validation contract. Dify powers product Knowledge QA and the hidden optional generation
-features. Every feature has an independent key; missing real-provider configuration fails
-explicitly. Secrets are never returned by `/api/health`.
+The opt-in DeepSeek run made 23 calls: six resumes, ten job descriptions, and seven Career
+Assistant/RAG calls. Results were:
 
-The formal product paths have been audited separately from the validation runner. Resume parsing
-is wired to the OpenAI-compatible provider and has an end-to-end real smoke result. The current
-product Job flow is deterministic manual import (the real Job parser is validation-only), and the
-formal Career Assistant path is Dify-backed; with local `DIFY_PROVIDER_MODE=fake`, it is an
-offline smoke path until real Dify credentials are configured. See
-[PRODUCT_AI_PATH_AUDIT.md](PRODUCT_AI_PATH_AUDIT.md),
-[REAL_AI_CAPABILITY_MATRIX.md](REAL_AI_CAPABILITY_MATRIX.md) and
-[PHASE_4_6_PRODUCT_PATH_REPORT.md](PHASE_4_6_PRODUCT_PATH_REPORT.md).
-The final portfolio scope is frozen in
-[PHASE_4_7_PORTFOLIO_SCOPE_FREEZE.md](PHASE_4_7_PORTFOLIO_SCOPE_FREEZE.md); optional integrations
-do not block portfolio engineering.
-The frozen system boundary is shown in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+- Resume schema-valid outputs: **6/6**.
+- Job schema-valid outputs: **10/10**.
+- Resume evidence attachment: **100.00%**.
+- Unsupported skill claims in tested resumes: **0**.
+- Three unsupported questions were refused deterministically; citation correctness and
+  groundedness remain marked for manual review rather than overstated.
 
-## AI Modes
+## Engineering quality
 
-CareerPilot has three explicit runtime modes exposed by the non-secret `/api/health` response:
+- 222 backend product tests and 8 evaluation tests.
+- 91 frontend unit tests and 16 existing E2E tests.
+- Ruff, mypy, TypeScript, ESLint, Alembic, and clean-clone checks pass.
+- CPU-only Docker build, health checks, and the complete Demo/Fake browser smoke pass.
+- Secret-safe Demo mode; no credentials are required for CI or Docker.
 
-- `demo`: Mock/Fake providers only; deterministic and offline.
-- `mixed`: at least one configured real provider and one offline provider.
-- `real`: configured real providers are required for the selected feature; a missing key or
-  provider failure is surfaced as an error instead of silently returning fake content.
+## Enable real DeepSeek
 
-The matching engine and its frozen evaluation fixtures are independent of this mode. Fake
-embeddings remain an explicitly named semantic diagnostic, not a hidden replacement for a real
-embedding provider.
-
-## Real Provider Validation
-
-Phase 4 provides an opt-in, secret-free validation runner for six resumes (three PDF and three
-DOCX), ten natural-language job descriptions and ten Career Assistant/RAG questions. Ordinary
-pytest runs never call the network. The runner also refuses to overwrite previous results:
+The default Demo does not use external providers. To run the opt-in real-provider validation,
+configure the names in `.env.example` locally, set `AI_PROVIDER=openai_compatible` and
+`RUN_REAL_AI_TESTS=1`, then run:
 
 ```powershell
 cd backend
 .\.venv\Scripts\python.exe -m scripts.validate_real_provider --force
 ```
 
-Before running, set `AI_PROVIDER=openai_compatible`, the OpenAI-compatible endpoint/model/key,
-and `RUN_REAL_AI_TESTS=1` in a local `.env`. The latest local run is recorded as a real
-DeepSeek result with key status shown only as `configured`; reports do not contain the key. See
-[REAL_PROVIDER_AUDIT.md](REAL_PROVIDER_AUDIT.md),
-[PHASE_4_REAL_PROVIDER_REPORT.md](PHASE_4_REAL_PROVIDER_REPORT.md), and
-[`evaluation/results/real-provider-v1/REAL_PROVIDER_VALIDATION.md`](evaluation/results/real-provider-v1/REAL_PROVIDER_VALIDATION.md).
+Never put a real key in README, Markdown reports, screenshots, Git history, or a committed `.env`.
 
-## Tests
+## Architecture
 
-Backend:
+The frozen architecture is documented in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). It shows
+only the Vue/FastAPI services, SQLite/private storage, FAISS retrieval, and the optional Dify
+boundary—no unimplemented Redis, Kafka, Kubernetes, or cloud vector database.
 
-```powershell
-cd backend
-.\.venv\Scripts\python.exe -m pytest
-.\.venv\Scripts\python.exe -m ruff check app tests scripts
-.\.venv\Scripts\python.exe -m mypy app
-```
+## Limitations
 
-Frontend:
+- Evaluation data is synthetic and limited in size.
+- Independent holdout blocking-risk recall is 40%; recommendation agreement is 65%.
+- Semantic relevance supports prioritization but cannot prove a candidate capability.
+- Resume parsing depends on source document quality and evidence locations.
+- Real Dify connectivity is optional and is not part of the public Core Demo.
+- SQLite is appropriate for this portfolio/demo scope, not large-scale production traffic.
+- Dependency advisories are documented in [DEPENDENCY_SECURITY_REPORT.md](DEPENDENCY_SECURITY_REPORT.md)
+  and were not force-upgraded.
 
-```powershell
-cd frontend
-npm ci
-npm run type-check
-npm run lint
-npm run test
-npm run build
-npm run test:e2e
-```
+## Further portfolio material
 
-The Playwright runner creates an isolated database, upload directory and FAISS index. Phase 1A
-baseline results are recorded in [TEST_BASELINE.md](TEST_BASELINE.md); Phase 1B results and the
-intentional test-count changes are recorded in [PHASE_1B_REPORT.md](PHASE_1B_REPORT.md). The core
-flow audit and completed explainability work are recorded in [CORE_FLOW_AUDIT.md](CORE_FLOW_AUDIT.md)
-and [PHASE_2_REPORT.md](PHASE_2_REPORT.md).
+- [Demo script](docs/DEMO_SCRIPT.md)
+- [Portfolio summary](docs/PORTFOLIO_SUMMARY.md)
+- [Resume bullets](docs/RESUME_BULLETS.md)
+- [Interview pitch](docs/INTERVIEW_PITCH.md)
+- [Technical interview Q&A](docs/TECHNICAL_INTERVIEW_QA.md)
+- [Final tech stack](docs/TECH_STACK.md)
+- [GitHub metadata](docs/GITHUB_METADATA.md)
+- [Project status](docs/PROJECT_STATUS.md)
+- [Development notes](docs/development/README.md)
+- [Publication security checklist](PUBLICATION_SECURITY_CHECKLIST.md)
 
-## Data and privacy
+## License
 
-Tracked fixtures under `sample_data/` are fictional. Files under `data/` are runtime artifacts
-and must not be published without review. See [DATA_PRIVACY_CHECKLIST.md](DATA_PRIVACY_CHECKLIST.md).
-
-## Engineering and publication
-
-The pre-publication inventory is [PORTFOLIO_ENGINEERING_AUDIT.md](PORTFOLIO_ENGINEERING_AUDIT.md).
-Dependency findings from `npm audit` are recorded in
-[DEPENDENCY_SECURITY_REPORT.md](DEPENDENCY_SECURITY_REPORT.md), and the public architecture is
-shown in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). CI uses Demo/Fake mode and does not require
-DeepSeek or Dify secrets. The final engineering evidence is in
-[PHASE_5_PORTFOLIO_ENGINEERING_REPORT.md](PHASE_5_PORTFOLIO_ENGINEERING_REPORT.md), with the
-publication checklist in [PUBLICATION_SECURITY_CHECKLIST.md](PUBLICATION_SECURITY_CHECKLIST.md).
-See [LICENSE](LICENSE) for the MIT license.
-
-## Known limitations
-
-- Formal Dify Career Assistant connectivity and real-model groundedness/citation correctness still
-  require local Dify credentials and manual review; the current product smoke uses Fake mode.
-- The real Job parser is validated as a provider contract only; the formal product Job import is
-  deterministic until a product parse endpoint is intentionally added.
-- `npm audit` currently reports historical moderate/high advisories, including a production ECharts
-  advisory; major upgrades are tracked separately and were not forced into the frozen release.
-- The native environment installs the sentence-transformers stack even when Demo Mode uses
-  fake embeddings.
-- Dependency upgrades for the audited advisories are intentionally deferred until compatibility
-  can be verified; they are recorded in `DEPENDENCY_SECURITY_REPORT.md`.
-- Hidden Resume Optimization and Chat Interview are not part of the default recruiter demo
-  path; expose them only after giving them a separate product decision.
+CareerPilot AI is released under the [MIT License](LICENSE).

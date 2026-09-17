@@ -8,9 +8,10 @@ flowchart TD
     UI[Vue 3 Frontend]
     API[FastAPI API]
     RES[Resume Service\nPDF/DOCX extraction + evidence]
+    VERIFY[Human verification\nimmutable resume version]
     AI[OpenAI-compatible Provider\nreal Resume parsing / Mock Demo]
     JOB[Structured Job Input\nmanual + CSV deterministic normalization]
-    MATCH[Matching Engine\n6 dimensions + optional semantic signal]
+    MATCH[Matching Engine\n6 dimensions + 70/30 hybrid]
     REPORT[Explainable Match Report\nblocking risk + evidence coverage]
     APP[Applications]
     RAG[Optional Career Assistant\nlocal retrieval + Fake/Dify]
@@ -20,6 +21,8 @@ flowchart TD
     UI --> API
     API --> RES
     RES --> AI
+    RES --> VERIFY
+    VERIFY --> MATCH
     API --> JOB
     API --> MATCH
     MATCH --> REPORT
@@ -47,4 +50,3 @@ flowchart TD
   backend; Fake mode is safe for Demo and CI.
 - Resume Optimization and Chat Interview remain hidden experimental modules and are not part of
   the portfolio Core path.
-
