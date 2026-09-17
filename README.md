@@ -127,7 +127,6 @@ Demo 账号为本地合成账号：
 - [系统架构](docs/ARCHITECTURE.md)
 - [Demo 演示脚本](docs/DEMO_SCRIPT.md)
 - [匹配方法](docs/MATCHING_METHODOLOGY.md)
-- [技术面试问答](docs/TECHNICAL_INTERVIEW_QA.md)
 - [简历项目表述](docs/RESUME_BULLETS.md)
 
 ## License
