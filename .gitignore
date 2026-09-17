@@ -34,6 +34,9 @@ playwright-report/
 test-results/
 output/
 
+# Private/local interview notes
+docs/TECHNICAL_INTERVIEW_QA.md
+
 # Generated evaluation scratch output
 evaluation/results/_raw/
 
