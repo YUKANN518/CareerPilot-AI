@@ -42,10 +42,10 @@ test("LangGraph SSE matching pauses for review and opens the real report", async
   await openSeededJob(page)
   await startRun(page)
 
-  await expect(page.getByTestId("node-load_inputs")).toContainText("SUCCEEDED")
-  await expect(page.getByTestId("node-deterministic_matching")).toContainText("SUCCEEDED")
-  await expect(page.getByTestId("node-semantic_retrieval")).toContainText("SKIPPED")
-  await expect(page.getByTestId("node-save_report")).toContainText("SUCCEEDED")
+  await expect(page.getByTestId("node-load_inputs")).toContainText("已完成")
+  await expect(page.getByTestId("node-deterministic_matching")).toContainText("已完成")
+  await expect(page.getByTestId("node-semantic_retrieval")).toContainText("已跳过")
+  await expect(page.getByTestId("node-save_report")).toContainText("已完成")
   await expect(page.getByRole("button", { name: "确认并打开报告" })).toBeVisible()
   await page.getByRole("button", { name: "确认并打开报告" }).click()
 
@@ -60,7 +60,7 @@ test("hybrid workflow executes semantic retrieval before human confirmation", as
   await openSeededJob(page)
   await startRun(page, true)
 
-  await expect(page.getByTestId("node-semantic_retrieval")).toContainText("SUCCEEDED")
+  await expect(page.getByTestId("node-semantic_retrieval")).toContainText("已完成")
   await expect(page.getByRole("button", { name: "确认并打开报告" })).toBeVisible()
   await page.getByRole("button", { name: "确认并打开报告" }).click()
   await expect(page).toHaveURL(/\/matches\/\d+$/)

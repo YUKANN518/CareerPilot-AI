@@ -435,10 +435,10 @@ class MatchService:
                 computation.recommendation_cap,
             )
             computation.explanation = (
-                f"Hybrid score {hybrid_score:.2f}/100 combines deterministic-v1.1 "
-                f"rule score ({hybrid_weights.deterministic:.0%}) and local semantic "
-                f"score ({hybrid_weights.semantic:.0%}). Semantic similarity cannot "
-                "override blocking risks or completeness caps."
+                f"混合评分为 {hybrid_score:.2f}/100，由 deterministic-v1.1 规则分"
+                f"（{hybrid_weights.deterministic:.0%}）与本地语义相关性分"
+                f"（{hybrid_weights.semantic:.0%}）组合得出。语义相似度不能覆盖"
+                "阻断风险或岗位完整度造成的推荐上限。"
             )
             timings[MatchPhase.MATCHING_SEMANTIC.value] = self._elapsed_ms(started)
             report.phase_timings = timings.copy()
@@ -455,9 +455,9 @@ class MatchService:
                 computation.recommendation_cap,
             )
             computation.explanation = (
-                f"Hybrid score {hybrid_score:.2f}/100 combines deterministic-v1.1 "
-                "rules and local semantic relevance. Semantic similarity cannot override "
-                "blocking risks or completeness caps."
+                f"混合评分为 {hybrid_score:.2f}/100，由 deterministic-v1.1 规则分与"
+                "本地语义相关性分组合得出。语义相似度不能覆盖阻断风险或岗位完整度"
+                "造成的推荐上限。"
             )
 
         self._set_phase(report, MatchPhase.VERIFYING_EVIDENCE)

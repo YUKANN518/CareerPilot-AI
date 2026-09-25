@@ -1,153 +1,118 @@
-# CareerPilot AI Matching Methodology
+# CareerPilot AI 匹配方法
 
-This document describes the implemented matching contract. It is a product and engineering
-disclosure, not a claim that the score predicts hiring outcomes.
+本文描述系统已实现的匹配契约，用于公开产品与工程实现边界，并不声称匹配分数可以预测招聘结果。
 
-## Decision contract
+## 决策契约
 
-CareerPilot AI uses the following boundary:
+CareerPilot AI 遵循以下边界：
 
 ```text
-LLM-compatible parser structures resume fields
-→ verbatim evidence validation rejects unsupported skill quotes
-→ the user reviews and confirms an immutable resume version
-→ deterministic code extracts job requirements and decides skill/risk outcomes
-→ optional semantic retrieval contributes only a relevance signal
-→ the report renders stored results and evidence
+兼容 LLM 的解析器对简历字段进行结构化
+→ 原文证据校验拒绝无来源支持的技能引用
+→ 用户审核并确认不可变的简历版本
+→ 确定性代码提取岗位要求并判断技能与风险结果
+→ 可选语义检索仅贡献相关性信号
+→ 报告展示已存储的结果与证据
 ```
 
-Only a user-confirmed resume version can enter matching. A resume skill receives full matched
-credit only when a normalized equivalent exists and the version contains non-empty,
-user-confirmed evidence. Free text, semantic similarity and generated explanations cannot create
-a skill conclusion.
+只有经用户确认的简历版本才能进入匹配。仅当存在标准化后的等价技能，且简历版本中包含非空、经用户确认的原文证据时，该技能才能获得完整匹配分。自由文本、语义相似度和生成式解释都不能创建技能结论。
 
-## Inputs and snapshots
+## 输入与快照
 
-The calculation consumes:
+计算使用以下输入：
 
-- one immutable confirmed `ResumeVersion`, including structured fields and evidence-backed
-  `ResumeSkill` records;
-- one Job, including description, requirements, responsibilities and structured `JobSkill`
-  records;
-- optional user-profile preferences and work-eligibility state;
-- one versioned scoring configuration.
+- 一个不可变、已确认的 `ResumeVersion`，其中包含结构化字段和有证据支持的 `ResumeSkill` 记录；
+- 一个 Job，其中包含描述、要求、职责和结构化 `JobSkill` 记录；
+- 可选的用户求职偏好与工作资格状态；
+- 一份带版本号的评分配置。
 
-Each successful report stores the resume version identity, job identity and content hash, a job
-text snapshot, extracted requirement snapshot, scoring configuration, policy version, evidence
-traces and final result arrays. Historical reports therefore remain readable if the live Job is
-later edited. Deleting a resume intentionally cascades its reports, so this is not a permanent
-audit archive.
+每份成功报告都会保存简历版本标识、岗位标识和内容哈希、岗位文本快照、已提取要求快照、评分配置、策略版本、证据链和最终结果数组。因此，即使实时岗位后来被编辑，历史报告仍可阅读。删除简历会有意级联删除相关报告，所以系统并非永久审计归档。
 
-## Job requirement extraction
+## 岗位要求提取
 
-`job-requirements-v1` performs deterministic extraction. Skills come from stored JobSkill rows,
-structured raw-data lists and dictionary-backed mentions in the requirement text. Required and
-preferred skill types remain distinct. Experience, education, language, certificates and work
-eligibility retain both availability and explicit required/preferred markers when the source text
-supports them.
+`job-requirements-v1` 执行确定性提取。技能来源包括已存储的 JobSkill 行、结构化原始数据列表，以及岗位要求文本中由技能词典支持的提及。必需技能与加分技能保持区分。经验、学历、语言、证书和工作资格会同时保留可用状态，以及源文本能够支持的明确必需/优先标记。
 
-An absent job criterion is `NOT_PROVIDED`, not satisfied. Ambiguous candidate evidence becomes
-`UNKNOWN` or `UNVERIFIED`, not a confirmed conflict.
+岗位未提供的条件记为 `NOT_PROVIDED`，而不是“已满足”。候选人证据含糊时记为 `UNKNOWN` 或 `UNVERIFIED`，而不是已确认冲突。
 
-## Deterministic score
+## 确定性评分
 
-`deterministic-v1.1` has six dimensions. The weights total 100 and were not changed in Phase 2.
+`deterministic-v1.1` 包含六个维度，权重总和为 100；这些权重在 Phase 2 后未再修改。
 
-| Dimension | Weight | Implemented rule |
+| 维度 | 权重 | 已实现规则 |
 | --- | ---: | --- |
-| Hard skills | 35% | Canonical skill equality; required skills have weight 2 and preferred skills weight 1. |
-| Evidence strength | 20% | Confirmed evidence count, locator/source quality, work/project source and evidence specificity. |
-| Experience and education | 15% | Average of non-overlapping dated work experience and ordered education-level comparisons. |
-| Language, location and eligibility | 10% | Explicit language/location/work-eligibility comparison; unknown candidate facts are neutral, not passes. |
-| User preferences | 10% | Optional location, employment type, role, salary and industry preference comparison. |
-| Other conditions | 10% | Explicit certificate and other deterministic condition checks. |
+| 硬技能 | 35% | 按标准技能名精确等价；必需技能权重为 2，加分技能权重为 1。 |
+| 证据强度 | 20% | 综合已确认证据数量、定位/来源质量、工作或项目来源及证据具体程度。 |
+| 经验与教育背景 | 15% | 对不重叠且带日期的工作经历年限与有序学历层级比较结果取平均。 |
+| 语言、地点与任职资格 | 10% | 比较明确的语言、地点和工作资格；候选人未知事实按中性处理，不视为通过。 |
+| 求职偏好 | 10% | 比较可选的地点、工作类型、职位、薪资和行业偏好。 |
+| 其他条件 | 10% | 检查明确的证书及其他确定性条件。 |
 
-For each dimension:
-
-```text
-weighted contribution = dimension score × dimension weight / 100
-rule score = sum of all six weighted contributions
-```
-
-The report stores the score, weight, contribution, explanation, evidence keys and gap codes for
-each dimension. Display statuses (`GOOD`, `PARTIAL`, `WEAK`) summarize score bands; they do not
-change the calculation.
-
-## Skill conclusions and evidence coverage
-
-Skill conclusions are:
-
-- `MATCHED`: normalized equivalent plus confirmed, non-empty resume evidence;
-- `PARTIAL`: a skill record exists but evidence or confirmation is incomplete;
-- `MISSING`: no normalized equivalent exists in the confirmed skill set;
-- `UNKNOWN`: the job term cannot be safely resolved by the skill dictionary.
-
-The Evidence Coverage panel counts these states for skill requirements. Its percentage is
-`MATCHED / all skill requirements`. It is a disclosure metric only and is not an extra scoring
-dimension.
-
-Every displayed matched skill can link to the resume quote, human-readable source category and
-source locator. Each gap states the job requirement, candidate evidence state and deterministic
-reason.
-
-## Semantic relevance and hybrid score
-
-`hybrid-v1` retrieves compatible resume/job text chunks through local embeddings and FAISS. It
-retains top-K pairs above the configured similarity threshold and computes a normalized relevance
-score. The formula is:
+每个维度的计算方式为：
 
 ```text
-hybrid score = deterministic rule score × 70%
-             + semantic relevance score × 30%
+加权贡献 = 维度分 × 维度权重 / 100
+规则分 = 六个维度加权贡献之和
 ```
 
-Semantic relevance can reflect transferable or conceptually similar experience. It cannot mark a
-skill as matched, fabricate resume evidence, remove a risk, or override a recommendation cap. The
-report labels it as a supporting signal and shows both sides of each retained evidence pair.
+报告保存每个维度的分数、权重、加权贡献、解释、证据键和差距代码。展示状态（`GOOD`、`PARTIAL`、`WEAK`）仅概括分数区间，不改变计算结果。
 
-## Skill Gaps versus Blocking Risks
+## 技能结论与证据覆盖率
 
-A required skill that is not matched is a `SKILL_GAP`. It remains separate from qualification
-blocking and does not become a `BLOCKING_RISK` merely because it is required.
+技能结论包括：
 
-`blocking-policy-v1` recognizes a confirmed conflict only from explicit rules such as:
+- `MATCHED`：存在标准化等价技能，并具有非空且经确认的简历证据；
+- `PARTIAL`：存在技能记录，但证据或用户确认不完整；
+- `MISSING`：已确认技能集中不存在标准化等价技能；
+- `UNKNOWN`：技能词典无法安全解析该岗位术语。
 
-- work-eligibility conflict;
-- mandatory language mismatch;
-- mandatory certificate absence or mismatch;
-- explicit non-substitutable education shortfall;
-- an explicit experience minimum missed by at least three years.
+证据覆盖面板统计岗位技能要求的上述状态，覆盖率为 `MATCHED / 全部技能要求`。它只用于披露证据情况，不是额外的评分维度。
 
-A known contradiction is `CONFLICT`; a mandatory fact that cannot yet be verified is
-`UNVERIFIED`. Only a true `BLOCKING` severity forces `NOT_RECOMMENDED`. A high semantic score
-cannot cancel that decision. Low job-information completeness can also cap the recommendation and
-lower report confidence.
+每个已展示的匹配技能都可以链接到简历原文、可读的来源分类和来源定位。每项差距都会给出岗位要求、候选人证据状态和确定性判断原因。
 
-## Explanation safety
+## 语义相关性与混合评分
 
-Current report explanations are produced by deterministic application code from stored
-calculation artifacts. There is no LLM report-explanation path. If a generated narrative is added
-later, it must receive the calculation only after scoring and must remain read-only: it may
-paraphrase but must not modify scores, statuses, risks, recommendation or evidence.
+`hybrid-v1` 通过本地向量和 FAISS 检索相互兼容的简历/岗位文本片段，保留高于配置相似度阈值的 Top-K 文本对，并计算归一化相关性分数：
 
-## Failure behavior
+```text
+混合分 = 确定性规则分 × 70%
+       + 语义相关性分 × 30%
+```
 
-The system fails explicitly when:
+语义相关性可以反映可迁移或概念相近的经历，但不能将技能标记为已匹配、虚构简历证据、移除风险或覆盖推荐上限。报告会将其标记为辅助信号，并展示每个保留证据对的两侧文本。
 
-- the resume version is not confirmed;
-- no confirmed skill evidence exists;
-- the resume or Job is missing or inaccessible;
-- a semantic/index stage requested by hybrid mode fails.
+## 技能差距与阻断风险
 
-It does not substitute fabricated evidence or silently fall back to a fake production result.
+未匹配的必需技能属于 `SKILL_GAP`。它与资格类阻断风险保持分离，不会仅因“必需”就变成 `BLOCKING_RISK`。
 
-## Limitations
+`blocking-policy-v1` 仅依据明确规则识别已确认冲突，例如：
 
-- Dictionary equality and explicit text rules can miss uncommon aliases or nuanced requirements.
-- Resume parsing quality depends on extraction quality and still requires human review.
-- Neutral handling of unknown candidate facts avoids false negatives but may inflate a numeric
-  dimension compared with a fully observed profile; the report therefore exposes unknowns and
-  confidence separately.
-- Semantic similarity measures textual relevance, not verified proficiency or hiring success.
-- Scores are decision support for one resume/Job pair, not a probability of interview or offer.
+- 工作资格冲突；
+- 强制语言要求不满足；
+- 强制证书缺失或不匹配；
+- 明确且不可替代的最低学历不足；
+- 比明确最低经验要求少至少三年。
 
+已知矛盾记为 `CONFLICT`；尚无法核验的强制事实记为 `UNVERIFIED`。只有真正的 `BLOCKING` 严重级别会强制产生 `NOT_RECOMMENDED`。高语义分不能取消该结论。岗位信息完整度过低也可以限制推荐上限并降低报告置信度。
+
+## 解释安全
+
+当前报告解释由确定性应用代码根据已存储计算产物生成，不存在由 LLM 生成报告解释的路径。如果未来增加生成式叙述，它只能在评分完成后接收计算结果，并保持只读：可以改写表述，但不得修改分数、状态、风险、推荐结论或证据。
+
+## 失败行为
+
+以下情况会明确失败：
+
+- 简历版本尚未确认；
+- 不存在已确认的技能证据；
+- 简历或岗位不存在，或当前用户无权访问；
+- 混合模式所需的语义/索引阶段失败。
+
+系统不会用虚构证据替代真实输入，也不会在生产路径中静默回退为伪造结果。
+
+## 局限
+
+- 技能词典等价匹配和显式文本规则可能遗漏少见别名或复杂要求。
+- 简历解析质量依赖原文抽取质量，并且仍需人工审核。
+- 对候选人未知事实采用中性处理可减少误判为不满足，但相较资料完整的用户可能抬高某些维度的数值；因此报告会独立展示未知项和置信度。
+- 语义相似度衡量的是文本相关性，不是经验证的技能熟练度或求职成功率。
+- 分数只为一组简历与岗位提供决策辅助，不是获得面试或录用的概率。

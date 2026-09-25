@@ -4,9 +4,7 @@
 
 ## 0:00–0:15 — 问题
 
-“Many LLM job matchers return an impressive score but cannot show which resume evidence supports a
-claim. CareerPilot separates verified evidence, deterministic requirements, semantic relevance,
-and hard eligibility risks.”
+“很多 LLM 岗位匹配工具会给出看似亮眼的分数，却无法指出结论由哪段简历证据支持。CareerPilot 将已验证证据、确定性要求、语义相关性和硬性任职风险分开处理。”
 
 ## 0:15–0:35 — 简历证据
 
@@ -31,13 +29,10 @@ and hard eligibility risks.”
 5. 带来源证据的已匹配技能与技能缺口。
 6. 与普通技能缺口分开呈现的阻断风险。
 
-Use the sentence: “A semantic hit can prioritize a requirement, but it cannot prove a capability
-or override a blocking conflict.”
+说明：“语义命中可以帮助判断相关性，但不能证明候选人具备某项能力，也不能覆盖阻断性冲突。”
 
 ## 1:45–2:00 — 收尾
 
-“The project is intentionally honest about scope: the core is real resume parsing, structured job
-input, deterministic and hybrid matching, explainable reports, and application tracking. Dify is
-optional, evaluation data is synthetic, and the holdout limitations remain visible.”
+“项目对能力范围保持诚实：核心包括真实简历解析、结构化岗位输入、确定性与混合匹配、可解释报告和求职进度跟踪。Dify 是可选集成，评测数据主要为合成样本，holdout 的局限也继续公开保留。”
 
 作品集演示不要展示 `.env`、API Key、私有上传文件、调试日志、隐藏实验模块或 Docker 安装细节。

@@ -55,6 +55,30 @@ RECOMMENDATION_ORDER = {
     RecommendationLevel.HIGH_RISK: 3,
     RecommendationLevel.NOT_RECOMMENDED: 4,
 }
+RECOMMENDATION_LABELS = {
+    RecommendationLevel.STRONGLY_RECOMMENDED: "强烈推荐",
+    RecommendationLevel.RECOMMENDED: "推荐申请",
+    RecommendationLevel.CONSIDER: "可以考虑",
+    RecommendationLevel.HIGH_RISK: "风险较高",
+    RecommendationLevel.NOT_RECOMMENDED: "不建议申请",
+}
+RISK_TITLE_LABELS = {
+    "EXPERIENCE_UNKNOWN": "工作经验待核验",
+    "MINIMUM_EXPERIENCE_NOT_MET": "最低经验要求未满足",
+    "EDUCATION_UNKNOWN": "学历信息待核验",
+    "EDUCATION_REQUIREMENT_NOT_MET": "学历要求未满足",
+    "LANGUAGE_CAPABILITY_UNKNOWN": "语言能力待核验",
+    "LANGUAGE_REQUIREMENT_NOT_MET": "语言要求未满足",
+    "LOCATION_COMPATIBILITY_UNKNOWN": "工作地点兼容性待核验",
+    "LOCATION_MISMATCH": "工作地点不匹配",
+    "WORK_ELIGIBILITY_UNKNOWN": "任职资格待核验",
+    "WORK_ELIGIBILITY_BLOCKED": "任职资格存在阻断冲突",
+    "USER_PREFERENCE_MISMATCH": "岗位与求职偏好不一致",
+    "PREFERENCES_NOT_SET": "尚未设置求职偏好",
+    "CERTIFICATE_REQUIREMENT_NOT_MET": "证书要求未满足",
+    "CERTIFICATE_STATUS_UNKNOWN": "证书状态待核验",
+    "JOB_REQUIREMENTS_INCOMPLETE": "岗位要求信息不完整",
+}
 
 
 def recommendation_for_score(
@@ -133,7 +157,7 @@ class DeterministicMatchEngine:
                     explanation="; ".join(requirements.warnings),
                     job_requirement=None,
                     resume_evidence=None,
-                    remediation="Review the original posting before making a final decision.",
+                    remediation="作出最终决定前，请核对原始招聘信息。",
                 )
             )
         risks = [self._classify_risk(item, requirements) for item in risks]
@@ -162,28 +186,28 @@ class DeterministicMatchEngine:
         dimension_scores = [
             self._dimension(
                 "hard_skills",
-                "Hard skills",
+                "硬技能",
                 hard_skill_score,
                 self.config.weights.hard_skills,
-                "Required skills receive twice the weight of preferred skills.",
+                "必需技能的权重是加分技能的两倍。",
                 evidence_keys=skill_evidence_keys,
                 gap_codes=skill_gap_codes,
             ),
             self._dimension(
                 "evidence_strength",
-                "Evidence strength",
+                "证据强度",
                 evidence_score,
                 self.config.weights.evidence_strength,
-                "Only confirmed resume skills with source evidence receive full credit.",
+                "只有经用户确认且带原文来源证据的简历技能才能获得满分。",
                 evidence_keys=skill_evidence_keys,
                 gap_codes=skill_gap_codes,
             ),
             self._dimension(
                 "experience_education",
-                "Experience and education",
+                "经验与教育背景",
                 experience_education_score,
                 self.config.weights.experience_education,
-                "Explicit minimums are compared with dated experience and education records.",
+                "明确的最低要求会与带日期的工作经历和教育记录进行比较。",
                 evidence_keys=[
                     code
                     for code, status in (
@@ -196,10 +220,10 @@ class DeterministicMatchEngine:
             ),
             self._dimension(
                 "language_location_eligibility",
-                "Language, location and eligibility",
+                "语言、地点与任职资格",
                 qualification_score,
                 self.config.weights.language_location_eligibility,
-                "Missing job criteria do not reduce the score; unknown candidate data is neutral.",
+                "岗位未提供的条件不扣分；候选人未知信息按中性处理。",
                 evidence_keys=[
                     code
                     for code, status in (
@@ -213,18 +237,18 @@ class DeterministicMatchEngine:
             ),
             self._dimension(
                 "user_preferences",
-                "User preferences",
+                "求职偏好",
                 preference_score,
                 self.config.weights.user_preferences,
-                "Preference data is optional and its absence does not reduce the score.",
+                "求职偏好为可选信息，未设置时不会降低评分。",
                 gap_codes=[item.code for item in risks if "PREFERENCE" in item.code],
             ),
             self._dimension(
                 "other_conditions",
-                "Other conditions",
+                "其他条件",
                 other_score,
                 self.config.weights.other_conditions,
-                "Explicit certificates and other deterministic conditions are checked.",
+                "检查明确提出的证书要求及其他确定性条件。",
                 evidence_keys=(
                     ["CERTIFICATE"]
                     if requirements.certificate_status is AvailabilityStatus.PROVIDED
@@ -266,16 +290,16 @@ class DeterministicMatchEngine:
                     recommendation_cap,
                 )
                 completeness_warning = (
-                    f"Job information completeness is {completeness:.0%}; "
-                    f"recommendation is capped at {recommendation_cap.value}."
+                    f"岗位信息完整度为 {completeness:.0%}；"
+                    f"推荐结论上限为{RECOMMENDATION_LABELS[recommendation_cap]}。"
                 )
         actions = self._actions(risks)
         matched_count = sum(item.status is SkillMatchStatus.MATCHED for item in skill_matches)
         required_count = sum(item.requirement_type == "REQUIRED" for item in skill_matches)
         explanation = (
-            f"Deterministic rule score {rule_score:.2f}/100 using "
-            f"{self.config.version}; {matched_count} of {len(skill_matches)} extracted "
-            f"skills matched with confirmed evidence and {required_count} were required."
+            f"确定性规则评分为 {rule_score:.2f}/100，采用 {self.config.version}；"
+            f"共提取 {len(skill_matches)} 项技能要求，其中 {matched_count} 项有已确认证据，"
+            f"{required_count} 项为必需技能。"
         )
         return MatchComputation(
             rule_score=rule_score,
@@ -331,19 +355,19 @@ class DeterministicMatchEngine:
                 candidate = eligible_candidates[0]
                 status = SkillMatchStatus.MATCHED
                 score = 1.0
-                explanation = "Confirmed resume skill has traceable source evidence."
+                explanation = "已确认的简历技能具有可追溯的原文证据。"
             elif candidate is not None:
                 status = SkillMatchStatus.PARTIAL
                 score = self.config.partial_skill_credit
-                explanation = "Skill name is present but confirmation or evidence is incomplete."
+                explanation = "简历中存在该技能，但用户确认或来源证据不完整。"
             elif requirement.normalization_rule == "NORMALIZED_TEXT":
                 status = SkillMatchStatus.UNKNOWN
                 score = self.config.unknown_criterion_credit
-                explanation = "The job term is outside the current skill dictionary."
+                explanation = "该岗位术语超出当前技能词典的安全识别范围。"
             else:
                 status = SkillMatchStatus.MISSING
                 score = 0.0
-                explanation = "No equivalent resume skill was found."
+                explanation = "未找到与岗位要求等价的简历技能。"
             trace_candidates = eligible_candidates or ([candidate] if candidate is not None else [])
             traces = [
                 self._evidence_trace(
@@ -416,7 +440,7 @@ class DeterministicMatchEngine:
                         job_requirement=requirement.evidence_text,
                         resume_evidence=candidate.evidence_text if candidate else None,
                         remediation=(
-                            "Add verified evidence or build the required skill before applying."
+                            "申请前请补充可核验的技能证据，或先提升该项必需技能。"
                         ),
                     )
                 )
@@ -514,10 +538,10 @@ class DeterministicMatchEngine:
                 RiskItem(
                     code="EXPERIENCE_UNKNOWN",
                     severity=RiskSeverity.INFO,
-                    explanation="The resume does not contain enough dated work history.",
-                    job_requirement=f"Minimum {minimum:g} years",
+                    explanation="简历中缺少足够的带日期工作经历，暂时无法判断经验年限。",
+                    job_requirement=f"最低 {minimum:g} 年",
                     resume_evidence=None,
-                    remediation="Confirm work dates before relying on this dimension.",
+                    remediation="请补充并确认工作经历的起止时间后再判断该维度。",
                 )
             ]
         if actual >= minimum:
@@ -535,11 +559,11 @@ class DeterministicMatchEngine:
                 code="MINIMUM_EXPERIENCE_NOT_MET",
                 severity=severity,
                 explanation=(
-                    f"Resume evidence shows {actual:.1f} years versus {minimum:g} required."
+                    f"简历证据显示 {actual:.1f} 年经验，岗位要求至少 {minimum:g} 年。"
                 ),
-                job_requirement=f"Minimum {minimum:g} years",
-                resume_evidence=f"{actual:.1f} years from dated work entries",
-                remediation="Prioritize roles with a closer experience range or add missing dates.",
+                job_requirement=f"最低 {minimum:g} 年",
+                resume_evidence=f"根据带日期的工作经历计算为 {actual:.1f} 年",
+                remediation="优先考虑经验要求更接近的岗位，或补充缺失的工作日期。",
             )
         ]
 
@@ -557,10 +581,10 @@ class DeterministicMatchEngine:
                 RiskItem(
                     code="EDUCATION_UNKNOWN",
                     severity=RiskSeverity.INFO,
-                    explanation="The confirmed resume does not identify a comparable degree.",
+                    explanation="已确认的简历中未识别到可比较的学历层级。",
                     job_requirement=required,
                     resume_evidence=None,
-                    remediation="Confirm the degree level in the resume profile.",
+                    remediation="请在简历资料中确认学历层级。",
                 )
             ]
         if EDUCATION_RANK[actual] >= EDUCATION_RANK[required]:
@@ -576,10 +600,10 @@ class DeterministicMatchEngine:
             RiskItem(
                 code="EDUCATION_REQUIREMENT_NOT_MET",
                 severity=severity,
-                explanation=f"Resume level {actual} is below job requirement {required}.",
+                explanation=f"简历学历层级 {actual} 低于岗位要求 {required}。",
                 job_requirement=required,
                 resume_evidence=actual,
-                remediation="Check whether equivalent experience is explicitly accepted.",
+                remediation="请确认岗位是否明确接受等效工作经验替代学历要求。",
             )
         ]
 
@@ -599,7 +623,7 @@ class DeterministicMatchEngine:
                     self._unknown_risk(
                         "LANGUAGE_CAPABILITY_UNKNOWN",
                         ", ".join(requirements.languages),
-                        "Confirm language proficiency in the resume.",
+                        "请在简历中补充并确认语言能力。",
                     )
                 )
             else:
@@ -619,10 +643,10 @@ class DeterministicMatchEngine:
                         RiskItem(
                             code="LANGUAGE_REQUIREMENT_NOT_MET",
                             severity=severity,
-                            explanation="One or more explicit job languages were not found.",
+                            explanation="未在简历中找到一项或多项岗位明确要求的语言能力。",
                             job_requirement=", ".join(requirements.languages),
                             resume_evidence=", ".join(resume_languages),
-                            remediation="Validate actual proficiency before applying.",
+                            remediation="申请前请核验实际语言水平并补充相应证据。",
                         )
                     )
 
@@ -634,7 +658,7 @@ class DeterministicMatchEngine:
                     self._unknown_risk(
                         "LOCATION_COMPATIBILITY_UNKNOWN",
                         requirements.location,
-                        "Set a current or preferred location.",
+                        "请设置当前所在地或期望工作地点。",
                     )
                 )
             else:
@@ -648,10 +672,10 @@ class DeterministicMatchEngine:
                         RiskItem(
                             code="LOCATION_MISMATCH",
                             severity=RiskSeverity.LOW,
-                            explanation="Resume/profile location differs from the job location.",
+                            explanation="简历或个人资料中的地点与岗位地点不一致。",
                             job_requirement=requirements.location,
                             resume_evidence=candidate_location,
-                            remediation="Confirm remote or relocation availability.",
+                            remediation="请确认岗位是否支持远程办公，或本人是否接受搬迁。",
                         )
                     )
 
@@ -663,7 +687,7 @@ class DeterministicMatchEngine:
                     self._unknown_risk(
                         "WORK_ELIGIBILITY_UNKNOWN",
                         requirements.work_eligibility,
-                        "Confirm work authorization for the role location.",
+                        "请确认自己是否具备岗位所在地要求的工作授权。",
                     )
                 )
             else:
@@ -675,11 +699,11 @@ class DeterministicMatchEngine:
                             code="WORK_ELIGIBILITY_BLOCKED",
                             severity=RiskSeverity.BLOCKING,
                             explanation=(
-                                "Known user eligibility conflicts with the explicit job rule."
+                                "已知任职资格与岗位明确要求存在冲突。"
                             ),
                             job_requirement=requirements.work_eligibility,
                             resume_evidence=str(eligibility),
-                            remediation="Do not apply unless sponsorship or eligibility changes.",
+                            remediation="除非雇主提供担保或任职资格发生变化，否则不建议申请。",
                         )
                     )
         return (round(sum(scores) / len(scores), 2) if scores else 100.0), risks
@@ -768,13 +792,13 @@ class DeterministicMatchEngine:
                 RiskItem(
                     code="USER_PREFERENCE_MISMATCH",
                     severity=RiskSeverity.LOW,
-                    explanation="The job differs from one or more configured preferences.",
+                    explanation="该岗位与一项或多项已设置的求职偏好不一致。",
                     job_requirement=(
-                        f"{requirements.location or 'unknown location'}; "
-                        f"{requirements.employment_type or 'unknown employment type'}"
+                        f"{requirements.location or '地点未知'}；"
+                        f"{requirements.employment_type or '工作类型未知'}"
                     ),
                     resume_evidence=str(preferences),
-                    remediation="Review whether the preference is flexible.",
+                    remediation="请确认相关求职偏好是否可以调整。",
                 )
             )
         return score, risks
@@ -815,17 +839,17 @@ class DeterministicMatchEngine:
                     RiskItem(
                         code="CERTIFICATE_REQUIREMENT_NOT_MET",
                         severity=severity,
-                        explanation="No confirmed evidence of the required certificate was found.",
+                        explanation="未找到岗位所需证书的已确认证据。",
                         job_requirement=", ".join(requirements.certificates),
-                        resume_evidence="No confirmed certificate evidence",
-                        remediation="Verify whether the certificate is mandatory before applying.",
+                        resume_evidence="未找到已确认的证书证据",
+                        remediation="申请前请确认该证书是否为强制要求。",
                     )
                 ]
             return self.config.unknown_criterion_credit * 100, [
                 self._unknown_risk(
                     "CERTIFICATE_STATUS_UNKNOWN",
                     ", ".join(requirements.certificates),
-                    "Confirm whether the required certification is held.",
+                    "请确认是否持有岗位要求的证书。",
                 )
             ]
         matches = [
@@ -844,10 +868,10 @@ class DeterministicMatchEngine:
             RiskItem(
                 code="CERTIFICATE_REQUIREMENT_NOT_MET",
                 severity=severity,
-                explanation="One or more named certifications were not found in the resume.",
+                explanation="简历中未找到一项或多项岗位指定的证书。",
                 job_requirement=", ".join(requirements.certificates),
                 resume_evidence=", ".join(resume_certificates),
-                remediation="Verify whether the certificate is mandatory before applying.",
+                remediation="申请前请确认该证书是否为强制要求。",
             )
         ]
 
@@ -912,9 +936,11 @@ class DeterministicMatchEngine:
 
     @staticmethod
     def _classify_risk(risk: RiskItem, requirements: JobRequirements) -> RiskItem:
+        title = DeterministicMatchEngine._risk_title(risk.code)
         if risk.code.startswith("REQUIRED_SKILL_"):
             return risk.model_copy(
                 update={
+                    "title": title,
                     "risk_type": RiskType.SKILL_GAP,
                     "verification_status": VerificationStatus.UNVERIFIED,
                 }
@@ -922,6 +948,7 @@ class DeterministicMatchEngine:
         if risk.severity is RiskSeverity.BLOCKING:
             return risk.model_copy(
                 update={
+                    "title": title,
                     "risk_type": RiskType.BLOCKING_RISK,
                     "verification_status": VerificationStatus.CONFLICT,
                 }
@@ -938,6 +965,7 @@ class DeterministicMatchEngine:
         if mandatory_unknown.get(risk.code, False):
             return risk.model_copy(
                 update={
+                    "title": title,
                     "risk_type": RiskType.BLOCKING_RISK,
                     "verification_status": VerificationStatus.UNVERIFIED,
                 }
@@ -948,7 +976,20 @@ class DeterministicMatchEngine:
             or risk.code in {"JOB_REQUIREMENTS_INCOMPLETE", "PREFERENCES_NOT_SET"}
             else VerificationStatus.CONFLICT
         )
-        return risk.model_copy(update={"verification_status": verification})
+        return risk.model_copy(
+            update={"title": title, "verification_status": verification}
+        )
+
+    @staticmethod
+    def _risk_title(code: str) -> str:
+        if code.startswith("REQUIRED_SKILL_"):
+            status = code.removeprefix("REQUIRED_SKILL_")
+            return {
+                "MISSING": "必需技能缺失",
+                "PARTIAL": "必需技能证据不完整",
+                "UNKNOWN": "必需技能待确认",
+            }.get(status, "必需技能风险")
+        return RISK_TITLE_LABELS.get(code, code.replace("_", " "))
 
     @staticmethod
     def _recommendation(
@@ -996,7 +1037,7 @@ class DeterministicMatchEngine:
             actions.append(
                 RecommendedAction(
                     code=risk.code,
-                    title=risk.code.replace("_", " ").title(),
+                    title=risk.title,
                     explanation=risk.remediation,
                     priority=risk.severity,
                 )
@@ -1167,7 +1208,7 @@ class DeterministicMatchEngine:
         return RiskItem(
             code=code,
             severity=RiskSeverity.INFO,
-            explanation="Candidate information is unknown, not proven unsatisfied.",
+            explanation="候选人信息未知，当前不能据此认定为不满足要求。",
             job_requirement=requirement,
             resume_evidence=None,
             remediation=remediation,
@@ -1178,10 +1219,10 @@ class DeterministicMatchEngine:
         return RiskItem(
             code="PREFERENCES_NOT_SET",
             severity=RiskSeverity.INFO,
-            explanation="No matching preferences are configured; no score penalty was applied.",
+            explanation="尚未设置匹配偏好，因此该项不扣分。",
             job_requirement=None,
             resume_evidence=None,
-            remediation="Set optional preferences to improve future comparisons.",
+            remediation="可设置求职偏好，以便后续获得更贴合的比较结果。",
         )
 
     @staticmethod

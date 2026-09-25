@@ -37,10 +37,10 @@ test("portfolio main flow: confirmed resume to evidence-grounded match report", 
   await page.locator('input[value="hybrid-v1"]').check()
   await page.locator('form button[type="submit"]').click()
 
-  await expect(page.getByTestId("node-load_inputs")).toContainText("SUCCEEDED")
-  await expect(page.getByTestId("node-deterministic_matching")).toContainText("SUCCEEDED")
-  await expect(page.getByTestId("node-semantic_retrieval")).toContainText("SUCCEEDED")
-  await expect(page.getByTestId("node-save_report")).toContainText("SUCCEEDED")
+  await expect(page.getByTestId("node-load_inputs")).toContainText("已完成")
+  await expect(page.getByTestId("node-deterministic_matching")).toContainText("已完成")
+  await expect(page.getByTestId("node-semantic_retrieval")).toContainText("已完成")
+  await expect(page.getByTestId("node-save_report")).toContainText("已完成")
   await page.getByRole("button", { name: "确认并打开报告" }).click()
 
   await expect(page).toHaveURL(/\/matches\/\d+$/)

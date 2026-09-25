@@ -131,13 +131,13 @@ class JobRequirementExtractor:
         )
 
         if not skills:
-            warnings.append("No explicit or dictionary-backed skill requirements were found")
+            warnings.append("未识别到明确或技能词典支持的技能要求")
         if minimum_years is None:
-            warnings.append("Minimum experience was not provided")
+            warnings.append("岗位未提供最低经验要求")
         if education_level is None:
-            warnings.append("Education requirement was not provided")
+            warnings.append("岗位未提供学历要求")
         if not job.requirements:
-            warnings.append("The job requirements field is incomplete")
+            warnings.append("岗位要求字段不完整")
 
         return JobRequirements(
             job_title=job.title,

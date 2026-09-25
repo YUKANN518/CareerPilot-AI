@@ -20,7 +20,7 @@ const routeLabels: Record<string, string> = {
   "match-new": "发起匹配",
   "match-processing": "匹配流程",
   "match-report": "匹配报告",
-  "career-assistant": "AI 求职助手",
+  "career-assistant": "可选 AI 求职助手",
   "resume-optimizations": "简历优化",
   "resume-optimization-detail": "简历优化详情",
   interviews: "模拟面试",

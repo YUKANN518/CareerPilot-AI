@@ -46,7 +46,7 @@ const workspaceItems: NavigationItem[] = [
     routeName: "matches",
     routePrefix: "match",
   },
-  { label: "AI 求职助手", icon: Bot, routeName: "career-assistant" },
+  { label: "可选 AI 求职助手", icon: Bot, routeName: "career-assistant" },
   { label: "求职进度", icon: ClipboardList, routeName: "applications", routePrefix: "application" },
 ]
 
